@@ -25,9 +25,8 @@ class Schema extends ModelSchema
         }
 
         return array_merge(parent::getAttributes($resource), [
-            'first-name' => $resource->{Person::FIRST_NAME},
-            'surname' => $resource->{Person::SURNAME},
-            'email' => $resource->{Person::EMAIL},
+            'first-name' => $resource->first_name,
+            'surname' => $resource->surname,
         ]);
     }
 }

@@ -5,9 +5,11 @@ Route::get('/', function () {
 });
 
 Route::group([
-    'middleware' => 'json-api:/api/v1,v1',
+    /** We have a middleware group called `api-v1` that adds the `json-api` middleware and others e.g. throttle */
+    'middleware' => ['api-v1'],
     'namespace' => 'Api',
     'prefix' => 'api/v1',
-], function () {
+    'as' => 'api-v1::'
+], function ($router) {
     JsonApi::resource('people', 'PeopleController');
 });

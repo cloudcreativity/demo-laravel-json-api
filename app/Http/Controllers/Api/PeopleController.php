@@ -2,47 +2,25 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Person;
 use App\JsonApi\People;
-use CloudCreativity\LaravelJsonApi\Http\Controllers\JsonApiController;
-use CloudCreativity\LaravelJsonApi\Http\Requests\AbstractRequest;
-use Illuminate\Http\Response;
+use App\Person;
+use CloudCreativity\LaravelJsonApi\Http\Controllers\EloquentController;
 
-final class PeopleController extends JsonApiController
+final class PeopleController extends EloquentController
 {
 
     /**
      * PeopleController constructor.
+     * @param Person $model
      * @param People\Request $request
+     * @param People\Hydrator $hydrator
      */
-    public function __construct(People\Request $request)
-    {
-        parent::__construct($request);
+    public function __construct(
+        Person $model,
+        People\Request $request,
+        People\Hydrator $hydrator
+    ) {
+        parent::__construct($model, $request, $hydrator);
     }
 
-    /**
-     * @return Response
-     */
-    public function index()
-    {
-        $models = Person::all();
-
-        return $this
-            ->reply()
-            ->content($models);
-    }
-
-    /**
-     * @param $resourceId
-     * @return Response
-     */
-    public function read($resourceId)
-    {
-        /** @var AbstractRequest $request */
-        $request = $this->request();
-
-        return $this
-            ->reply()
-            ->content($request->record());
-    }
 }

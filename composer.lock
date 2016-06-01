@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "636ea9461a6b94dc2afb1e33b612e8ee",
+    "hash": "09f14c7b20c1ad97da09597f875b4e32",
     "content-hash": "6356e915127843bce038a751056e74a5",
     "packages": [
         {
@@ -67,16 +67,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/json-api.git",
-                "reference": "d156df6cdd1922687cbd90fd821c333016d2dc46"
+                "reference": "bb776e2a77617e093a12acb1a5e95ff52d28d1de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/d156df6cdd1922687cbd90fd821c333016d2dc46",
-                "reference": "d156df6cdd1922687cbd90fd821c333016d2dc46",
+                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/bb776e2a77617e093a12acb1a5e95ff52d28d1de",
+                "reference": "bb776e2a77617e093a12acb1a5e95ff52d28d1de",
                 "shasum": ""
             },
             "require": {
-                "neomerx/json-api": "^0.8.2",
+                "neomerx/json-api": "^0.8.3",
                 "php": ">=5.5.0"
             },
             "require-dev": {
@@ -108,7 +108,7 @@
                 "jsonapi",
                 "jsonapi.org"
             ],
-            "time": "2016-05-29 18:13:00"
+            "time": "2016-06-01 21:16:05"
         },
         {
             "name": "cloudcreativity/laravel-json-api",
@@ -116,12 +116,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "d5c95ca4de333a1a0112652a1f04858f4db749e0"
+                "reference": "90dd59d08acf82121430298b805157c256cd43ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/d5c95ca4de333a1a0112652a1f04858f4db749e0",
-                "reference": "d5c95ca4de333a1a0112652a1f04858f4db749e0",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/90dd59d08acf82121430298b805157c256cd43ba",
+                "reference": "90dd59d08acf82121430298b805157c256cd43ba",
                 "shasum": ""
             },
             "require": {
@@ -161,7 +161,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2016-05-30 10:28:53"
+            "time": "2016-06-01 21:18:37"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -410,16 +410,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.34",
+            "version": "v5.2.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "6a26f3bb6a6e00c53654a661221643ad1b98e146"
+                "reference": "d2b6b0fe32fab610d356c22e74a6ffd101b0f513"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/6a26f3bb6a6e00c53654a661221643ad1b98e146",
-                "reference": "6a26f3bb6a6e00c53654a661221643ad1b98e146",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d2b6b0fe32fab610d356c22e74a6ffd101b0f513",
+                "reference": "d2b6b0fe32fab610d356c22e74a6ffd101b0f513",
                 "shasum": ""
             },
             "require": {
@@ -535,7 +535,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-05-26 21:59:46"
+            "time": "2016-05-30 17:42:01"
         },
         {
             "name": "league/flysystem",
@@ -744,16 +744,16 @@
         },
         {
             "name": "neomerx/json-api",
-            "version": "v0.8.2",
+            "version": "v0.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neomerx/json-api.git",
-                "reference": "ee91f8a14a7e4bb682c66d6f701093ec9d251d38"
+                "reference": "ef3f854f2ba97877db07b9997b9ab52a9ce7a87a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neomerx/json-api/zipball/ee91f8a14a7e4bb682c66d6f701093ec9d251d38",
-                "reference": "ee91f8a14a7e4bb682c66d6f701093ec9d251d38",
+                "url": "https://api.github.com/repos/neomerx/json-api/zipball/ef3f854f2ba97877db07b9997b9ab52a9ce7a87a",
+                "reference": "ef3f854f2ba97877db07b9997b9ab52a9ce7a87a",
                 "shasum": ""
             },
             "require": {
@@ -794,7 +794,7 @@
                 "jsonapi.org",
                 "neomerx"
             ],
-            "time": "2016-05-13 17:59:21"
+            "time": "2016-05-31 19:43:27"
         },
         {
             "name": "nesbot/carbon",

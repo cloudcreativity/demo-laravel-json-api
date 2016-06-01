@@ -24,6 +24,5 @@ $factory->define(App\Person::class, function (Faker\Generator $faker) {
     return [
         'first_name' => $faker->firstName,
         'surname' => $faker->lastName,
-        'email' => $faker->safeEmail,
     ];
 });
