@@ -3,12 +3,9 @@
 namespace App\Tests\Integration;
 
 use App\Person;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class PeopleTestCase extends TestCase
 {
-
-    use DatabaseTransactions;
 
     /**
      * Test the index route.
@@ -33,14 +30,14 @@ class PeopleTestCase extends TestCase
         $data = [
             'type' => 'people',
             'attributes' => [
-                'first-name' => $model->first_name,
+                'first_name' => $model->first_name,
                 'surname' => $model->surname
             ],
         ];
 
         $id = $this
             ->jsonApi('POST', $uri, ['data' => $data])
-            ->assertCreateResponse('people', $data['attributes']);
+            ->assertCreateResponse($data);
 
         $this->assertModelCreated($model, $id, ['first_name', 'surname']);
     }
@@ -54,11 +51,21 @@ class PeopleTestCase extends TestCase
         $model = factory(Person::class)->create();
         $uri = $this->linkTo()->resource('api-v1::people', $model->getKey());
 
-        $this->jsonApi('GET', $uri)
-            ->assertReadResponse('people', $model->getKey(), [
-                'first-name' => $model->first_name,
+        $data = [
+            'type' => 'people',
+            'id' => $model->getKey(),
+            'attributes' => [
+                'first_name' => $model->first_name,
                 'surname' => $model->surname,
-            ]);
+            ],
+            'relationships' => [
+                'posts',
+                'comments',
+            ],
+        ];
+
+        $this->jsonApi('GET', $uri)
+            ->assertReadResponse($data);
     }
 
     /**
@@ -75,16 +82,13 @@ class PeopleTestCase extends TestCase
             'type' => 'people',
             'id' => $model->getKey(),
             'attributes' => [
-                'first-name' => $firstName,
+                'first_name' => $firstName,
             ],
         ];
 
         $this->jsonApi('PATCH', $uri, ['data' => $data])
-            ->assertUpdateResponse('people', $model->getKey(), [
-                'first-name' => $firstName,
-                'surname' => $model->surname,
-            ])
-            ->assertModelPatched($model, ['first_name' => $firstName], ['surname']);
+            ->assertUpdateResponse($data)
+            ->assertModelPatched($model, $data['attributes'], ['surname']);
     }
 
     /**

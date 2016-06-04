@@ -3,9 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Person extends Model
+class Post extends Model
 {
 
     /**
@@ -14,16 +15,17 @@ class Person extends Model
      * @var array
      */
     protected $fillable = [
-        'first_name',
-        'surname',
+        'title',
+        'slug',
+        'content',
     ];
 
     /**
-     * @return HasMany
+     * @return BelongsTo
      */
-    public function posts()
+    public function author()
     {
-        return $this->hasMany(Post::class, 'author_id');
+        return $this->belongsTo(Person::class);
     }
 
     /**

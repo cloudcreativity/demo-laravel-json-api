@@ -2,11 +2,11 @@
 
 namespace App\JsonApi\People;
 
-use App\JsonApi\ModelSchema;
 use App\Person;
 use CloudCreativity\JsonApi\Exceptions\SchemaException;
+use CloudCreativity\LaravelJsonApi\Schema\EloquentSchema;
 
-class Schema extends ModelSchema
+class Schema extends EloquentSchema
 {
 
     /**
@@ -15,18 +15,40 @@ class Schema extends ModelSchema
     protected $resourceType = 'people';
 
     /**
-     * @param object $resource
-     * @return mixed
+     * @var array
      */
-    public function getAttributes($resource)
+    protected $attributes = [
+        'first_name',
+        'surname',
+    ];
+
+    /**
+     * @param object $resource
+     * @param bool $isPrimary
+     * @param array $includeRelationships
+     * @return array
+     */
+    public function getRelationships($resource, $isPrimary, array $includeRelationships)
     {
         if (!$resource instanceof Person) {
             throw new SchemaException('Expecting a person model.');
         }
 
-        return array_merge(parent::getAttributes($resource), [
-            'first-name' => $resource->first_name,
-            'surname' => $resource->surname,
-        ]);
+        return [
+            'comments' => [
+                self::SHOW_SELF => true,
+                self::SHOW_RELATED => true,
+                self::META => [
+                    'total' => $resource->comments()->count(),
+                ],
+            ],
+            'posts' => [
+                self::SHOW_SELF => true,
+                self::SHOW_RELATED => true,
+                self::META => [
+                    'total' => $resource->posts()->count(),
+                ],
+            ],
+        ];
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App;
 
+use App\JsonApi\Comments;
 use App\JsonApi\People;
+use App\JsonApi\Posts;
 
 return [
 
@@ -69,7 +71,9 @@ return [
     */
     'schemas' => [
         'defaults' => [
+            Comment::class => Comments\Schema::class,
             Person::class => People\Schema::class,
+            Post::class => Posts\Schema::class,
         ],
         'v1' => [],
     ],
@@ -92,7 +96,9 @@ return [
     */
     'eloquent-adapter' => [
         'map' => [
+            'comments' => Comment::class,
             'people' => Person::class,
+            'posts' => Post::class,
         ],
         'columns' => [],
     ],

@@ -1,15 +1,28 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
+/**
+ * Web Routes
+ */
+Route::group([
+    'middleware' => 'web',
+], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
 });
 
+/**
+ * API v1
+ *
+ * We use a middleware group call `api-v1` that adds the `json-api` middleware and others, e.g.
+ * `throttle`.
+ */
 Route::group([
-    /** We have a middleware group called `api-v1` that adds the `json-api` middleware and others e.g. throttle */
     'middleware' => ['api-v1'],
     'namespace' => 'Api',
     'prefix' => 'api/v1',
     'as' => 'api-v1::'
-], function ($router) {
+], function () {
     JsonApi::resource('people', 'PeopleController');
+    JsonApi::resource('posts', 'PostsController');
 });
