@@ -26,6 +26,24 @@ class Request extends AbstractRequest
     ];
 
     /**
+     * @var array
+     */
+    protected $allowedSortParameters = [
+        'created_at',
+        'updated_at',
+        'title',
+        'slug',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $allowedFilteringParameters = [
+        'title',
+        'slug',
+    ];
+
+    /**
      * Request constructor.
      * @param HttpRequest $request
      * @param Validators $validator

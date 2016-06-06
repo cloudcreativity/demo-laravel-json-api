@@ -14,12 +14,14 @@ class PostsController extends EloquentController
      * @param Post $post
      * @param Posts\Request $request
      * @param Posts\Hydrator $hydrator
+     * @param Posts\Search $search
      */
     public function __construct(
         Post $post,
         Posts\Request $request,
-        Posts\Hydrator $hydrator
+        Posts\Hydrator $hydrator,
+        Posts\Search $search
     ) {
-        parent::__construct($post, $request, $hydrator);
+        parent::__construct($post, $request, $hydrator, $search);
     }
 }

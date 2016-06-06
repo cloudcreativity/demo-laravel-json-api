@@ -36,13 +36,17 @@ class Schema extends EloquentSchema
         }
 
         return [
-            'author' => $this->serializeBelongsTo(
-                $resource,
-                'author',
-                isset($includeRelationships['author']),
-                'people'
-            ),
-            'comments' => $this->serializeRelationship($resource, 'comments'),
+            'author' => [
+                self::SHOW_SELF => true,
+                self::SHOW_RELATED => true,
+                self::DATA => isset($includeRelationships['author']) ?
+                    $resource->author : $this->createBelongsToIdentity($resource, 'author'),
+            ],
+            'comments' => [
+                self::SHOW_SELF => true,
+                self::SHOW_RELATED => true,
+                self::DATA => $resource->comments,
+            ],
         ];
     }
 }

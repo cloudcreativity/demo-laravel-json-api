@@ -102,4 +102,17 @@ return [
         ],
         'columns' => [],
     ],
+
+    'pagination' => [
+        'params' => [
+            'page' => 'number',
+            'per-page' => 'size',
+        ],
+        'meta' => [
+            'page' => 'number',
+            'per-page' => 'size',
+            'first' => 'first',
+            'last' => 'last',
+        ],
+    ],
 ];

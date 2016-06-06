@@ -66,4 +66,17 @@ class Validators extends AbstractValidatorProvider
         $relationships->hasOne('author', 'people', is_null($record), false);
     }
 
+    /**
+     * Define the rules to validate the filter query param.
+     *
+     * @return array
+     */
+    protected function filterRules()
+    {
+        return [
+            'title' => 'string|min:1',
+            'slug' => 'sometimes|required|alpha_dash',
+        ];
+    }
+
 }
