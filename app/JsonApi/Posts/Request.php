@@ -3,13 +3,14 @@
 namespace App\JsonApi\Posts;
 
 use CloudCreativity\LaravelJsonApi\Http\Requests\AbstractRequest;
-use CloudCreativity\LaravelJsonApi\Http\Requests\ForbidsRequests;
-use Illuminate\Http\Request as HttpRequest;
 
 class Request extends AbstractRequest
 {
 
-    use ForbidsRequests;
+    /**
+     * @var string
+     */
+    protected $resourceType = Schema::RESOURCE_TYPE;
 
     /**
      * @var array
@@ -45,19 +46,11 @@ class Request extends AbstractRequest
 
     /**
      * Request constructor.
-     * @param HttpRequest $request
      * @param Validators $validator
      */
-    public function __construct(HttpRequest $request, Validators $validator)
+    public function __construct(Validators $validator)
     {
-        parent::__construct($request, $validator);
+        parent::__construct($validator);
     }
 
-    /**
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return 'posts';
-    }
 }

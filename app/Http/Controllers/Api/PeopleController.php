@@ -11,16 +11,14 @@ final class PeopleController extends EloquentController
 
     /**
      * PeopleController constructor.
-     * @param Person $model
      * @param People\Request $request
      * @param People\Hydrator $hydrator
      */
     public function __construct(
-        Person $model,
         People\Request $request,
         People\Hydrator $hydrator
     ) {
-        parent::__construct($model, $request, $hydrator);
+        parent::__construct(new Person(), $request, $hydrator);
     }
 
 }

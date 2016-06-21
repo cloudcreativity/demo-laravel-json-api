@@ -13,7 +13,7 @@ class Validators extends AbstractValidatorProvider
     /**
      * @var string
      */
-    protected $resourceType = 'posts';
+    protected $resourceType = Schema::RESOURCE_TYPE;
 
     /**
      * Get the rules to validate the attributes.

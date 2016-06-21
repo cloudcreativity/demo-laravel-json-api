@@ -9,10 +9,12 @@ use CloudCreativity\LaravelJsonApi\Schema\EloquentSchema;
 class Schema extends EloquentSchema
 {
 
+    const RESOURCE_TYPE = 'comments';
+
     /**
      * @var string
      */
-    protected $resourceType = 'comments';
+    protected $resourceType = self::RESOURCE_TYPE;
 
     /**
      * @var array
@@ -34,17 +36,10 @@ class Schema extends EloquentSchema
         }
 
         return [
-            'post' => $this->serializeBelongsTo(
-                $resource,
-                'post',
-                isset($includeRelationships['post'])
-            ),
-            'created-by' => $this->serializeBelongsTo(
-                $resource,
-                'person',
-                isset($includeRelationships['created-by']),
-                'people'
-            ),
+            'post' => isset($includeRelationships['post']) ?
+                $resource->post : $this->createBelongsToIdentity($resource, 'post'),
+            'created-by' => isset($includeRelationships['created-by']) ?
+                $resource->person : $this->createBelongsToIdentity($resource, 'person'),
         ];
     }
 }
