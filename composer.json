@@ -11,8 +11,8 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "cloudcreativity/json-api": "dev-feature/jj-abrams",
-        "cloudcreativity/laravel-json-api": "dev-feature/jj-abrams"
+        "cloudcreativity/json-api": "dev-develop",
+        "cloudcreativity/laravel-json-api": "dev-develop"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

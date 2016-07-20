@@ -40,16 +40,16 @@ class Schema extends EloquentSchema
             'comments' => [
                 self::SHOW_SELF => true,
                 self::SHOW_RELATED => true,
-                self::META => [
-                    'total' => $resource->comments()->count(),
-                ],
+                self::META => function () use ($resource) {
+                    return ['total' => $resource->comments()->count()];
+                },
             ],
             'posts' => [
                 self::SHOW_SELF => true,
                 self::SHOW_RELATED => true,
-                self::META => [
-                    'total' => $resource->posts()->count(),
-                ],
+                self::META => function () use ($resource) {
+                    ['total' => $resource->posts()->count()];
+                },
             ],
         ];
     }

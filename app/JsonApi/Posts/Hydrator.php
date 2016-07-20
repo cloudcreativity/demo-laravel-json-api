@@ -37,17 +37,8 @@ class Hydrator extends AbstractHydrator
      */
     protected function hydrateAuthorRelationship(RelationshipInterface $relationship, Post $model)
     {
-        if (!$relationship->isHasOne()) {
-            throw new HydratorException('Expecting a has-one author relationship.');
-        }
-
         /** @var Person|null $author */
-        $author = Person::find($relationship->data()->id());
-
-        if (!$author) {
-            throw new HydratorException('Expecting a valid author relationship.');
-        }
-
+        $author = Person::find($relationship->getIdentifier()->getId());
         $model->author()->associate($author);
     }
 }

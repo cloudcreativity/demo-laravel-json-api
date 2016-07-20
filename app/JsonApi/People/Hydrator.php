@@ -15,11 +15,10 @@ class Hydrator extends AbstractHydrator
      */
     protected function hydrateAttributes(StandardObjectInterface $attributes, $record)
     {
-        $data = $attributes
-            ->getMany([
-                'first_name',
-                'surname',
-            ]);
+        $data = $attributes->getMany([
+            'first_name',
+            'surname',
+        ]);
 
         $record->fill($data);
     }
