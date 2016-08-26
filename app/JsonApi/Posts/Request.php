@@ -40,6 +40,7 @@ class Request extends AbstractRequest
      * @var array
      */
     protected $allowedFilteringParameters = [
+        'id',
         'title',
         'slug',
     ];

@@ -8,14 +8,28 @@ class PeopleTestCase extends TestCase
 {
 
     /**
-     * Test the index route.
+     * Test the search route.
      */
-    public function testIndex()
+    public function testSearch()
     {
-        $uri = $this->linkTo()->index('api-v1::people');
+        // ensure there is at least one person in the database
+        $this->person();
 
-        $this->jsonApi('GET', $uri)
-            ->assertIndexResponse('people');
+        $this->doSearch()
+            ->assertSearchResponse();
+    }
+
+    /**
+     * Test searching for specific ids
+     */
+    public function testSearchById()
+    {
+        $models = factory(Person::class, 2)->create();
+        // This person should not be returned in the results
+        $this->person();
+
+        $this->doSearchById($models)
+            ->assertSearchByIdResponse($models);
     }
 
     /**
@@ -23,9 +37,7 @@ class PeopleTestCase extends TestCase
      */
     public function testCreate()
     {
-        /** @var Person $model */
-        $model = factory(Person::class)->make();
-        $uri = $this->linkTo()->index('api-v1::people');
+        $model = $this->person(false);
 
         $data = [
             'type' => 'people',
@@ -36,7 +48,7 @@ class PeopleTestCase extends TestCase
         ];
 
         $id = $this
-            ->jsonApi('POST', $uri, ['data' => $data])
+            ->doCreate($data)
             ->assertCreateResponse($data);
 
         $this->assertModelCreated($model, $id, ['first_name', 'surname']);
@@ -47,9 +59,7 @@ class PeopleTestCase extends TestCase
      */
     public function testRead()
     {
-        /** @var Person $model */
-        $model = factory(Person::class)->create();
-        $uri = $this->linkTo()->resource('api-v1::people', $model->getKey());
+        $model = $this->person();
 
         $data = [
             'type' => 'people',
@@ -64,7 +74,7 @@ class PeopleTestCase extends TestCase
             ],
         ];
 
-        $this->jsonApi('GET', $uri)
+        $this->doRead($model)
             ->assertReadResponse($data);
     }
 
@@ -73,20 +83,17 @@ class PeopleTestCase extends TestCase
      */
     public function testUpdate()
     {
-        /** @var Person $model */
-        $model = factory(Person::class)->create();
-        $uri = $this->linkTo()->resource('api-v1::people', $model->getKey());
-        $firstName = 'ABC';
+        $model = $this->person();
 
         $data = [
             'type' => 'people',
             'id' => $model->getKey(),
             'attributes' => [
-                'first_name' => $firstName,
+                'first_name' => 'Foo',
             ],
         ];
 
-        $this->jsonApi('PATCH', $uri, ['data' => $data])
+        $this->doUpdate($data)
             ->assertUpdateResponse($data)
             ->assertModelPatched($model, $data['attributes'], ['surname']);
     }
@@ -96,12 +103,32 @@ class PeopleTestCase extends TestCase
      */
     public function testDelete()
     {
-        /** @var Person $model */
-        $model = factory(Person::class)->create();
-        $uri = $this->linkTo()->resource('api-v1::people', $model->getKey());
+        $model = $this->person();
 
-        $this->jsonApi('DELETE', $uri)
+        $this->doDelete($model)
             ->assertDeleteResponse()
             ->assertModelDeleted($model);
     }
+
+    /**
+     * @inheritdoc
+     */
+    protected function getResourceType()
+    {
+        return 'people';
+    }
+
+    /**
+     * This is just a helper so that we get a type hinted person model back.
+     *
+     * @param bool $create
+     * @return Person
+     */
+    private function person($create = true)
+    {
+        $builder = factory(Person::class);
+
+        return $create ? $builder->create() : $builder->make();
+    }
+
 }

@@ -8,14 +8,28 @@ class PostsTest extends TestCase
 {
 
     /**
-     * Test the index (read many) route.
+     * Test the search route
      */
-    public function testIndex()
+    public function testSearch()
     {
-        $uri = $this->linkTo()->index('api-v1::posts');
+        // ensure there is at least one model in the database
+        $this->model();
 
-        $this->jsonApi('GET', $uri)
-            ->assertIndexResponse('posts');
+        $this->doSearch()
+            ->assertSearchResponse();
+    }
+
+    /**
+     * Test that we can search posts for specific ids
+     */
+    public function testSearchById()
+    {
+        $models = factory(Post::class, 2)->create();
+        // this model should not be in the search results
+        $this->model();
+
+        $this->doSearchById($models)
+            ->assertSearchByIdResponse($models);
     }
 
     /**
@@ -23,9 +37,7 @@ class PostsTest extends TestCase
      */
     public function testCreate()
     {
-        /** @var Post $model */
-        $model = factory(Post::class)->make();
-        $uri = $this->linkTo()->index('api-v1::posts');
+        $model = $this->model(false);
 
         $data = [
             'type' => 'posts',
@@ -45,7 +57,7 @@ class PostsTest extends TestCase
         ];
 
         $id = $this
-            ->jsonApi('POST', $uri, ['data' => $data])
+            ->doCreate($data)
             ->assertCreateResponse($data);
 
         $this->assertModelCreated($model, $id, ['title', 'slug', 'content', 'author_id']);
@@ -56,9 +68,7 @@ class PostsTest extends TestCase
      */
     public function testRead()
     {
-        /** @var Post $model */
-        $model = factory(Post::class)->create();
-        $uri = $this->linkTo()->resource('api-v1::posts', $model->getKey());
+        $model = $this->model();
 
         $data = [
             'type' => 'posts',
@@ -78,7 +88,7 @@ class PostsTest extends TestCase
             ],
         ];
 
-        $this->jsonApi('GET', $uri)
+        $this->doRead($model)
             ->assertReadResponse($data);
     }
 
@@ -87,22 +97,18 @@ class PostsTest extends TestCase
      */
     public function testUpdate()
     {
-        /** @var Post $model */
-        $model = factory(Post::class)->create();
-        $uri = $this->linkTo()->resource('api-v1::posts', $model->getKey());
-        $slug = 'foo-bar-baz-bat';
-        $title = 'Foo Bar Baz Bat';
+        $model = $this->model();
 
         $data = [
             'type' => 'posts',
             'id' => $model->getKey(),
             'attributes' => [
-                'slug' => $slug,
-                'title' => $title,
+                'slug' => 'posts-test',
+                'title' => 'Foo Bar Baz Bat',
             ],
         ];
 
-        $this->jsonApi('PATCH', $uri, ['data' => $data])
+        $this->doUpdate($data)
             ->assertUpdateResponse($data)
             ->assertModelPatched($model, $data['attributes'], ['content']);
     }
@@ -112,12 +118,31 @@ class PostsTest extends TestCase
      */
     public function testDelete()
     {
-        /** @var Post $model */
-        $model = factory(Post::class)->create();
-        $uri = $this->linkTo()->resource('api-v1::posts', $model->getKey());
+        $model = $this->model();
 
-        $this->jsonApi('DELETE', $uri)
+        $this->doDelete($model)
             ->assertDeleteResponse()
             ->assertModelDeleted($model);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function getResourceType()
+    {
+        return 'posts';
+    }
+
+    /**
+     * Just a helper method so that we get a type-hinted model back...
+     *
+     * @param bool $create
+     * @return Post
+     */
+    private function model($create = true)
+    {
+        $builder = factory(Post::class);
+
+        return $create ? $builder->create() : $builder->make();
     }
 }

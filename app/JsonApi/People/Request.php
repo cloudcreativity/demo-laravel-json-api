@@ -12,4 +12,11 @@ class Request extends AbstractRequest
      */
     protected $resourceType = Schema::RESOURCE_TYPE;
 
+    /**
+     * @var array
+     */
+    protected $allowedFilteringParameters = [
+        'id',
+    ];
+
 }
