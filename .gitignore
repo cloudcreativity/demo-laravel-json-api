@@ -6,5 +6,3 @@ Homestead.yaml
 Homestead.json
 .env
 
-# while developing this demo...
-composer.lock
