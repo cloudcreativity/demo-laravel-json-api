@@ -24,6 +24,9 @@ class Validators extends AbstractValidatorProvider
      */
     protected function attributeRules($record = null)
     {
+        // The JSON API spec says the client does not have to send all attributes for an update request, so
+        // if the record already exists we need to include a 'sometimes' before required.
+        $required = $record ? 'sometimes|required' : 'required';
         $slugUnique = 'unique:posts,slug';
 
         if ($record) {
@@ -31,28 +34,10 @@ class Validators extends AbstractValidatorProvider
         }
 
         return [
-            'title' => 'string|between:1,255',
-            'content' => 'string|min:1',
-            'slug' => "alpha_dash|{$slugUnique}",
+            'title' => "$required|string|between:1,255",
+            'content' => "$required|string|min:1",
+            'slug' => "$required|alpha_dash|$slugUnique",
         ];
-    }
-
-    /**
-     * Configure conditional attribute validation rules.
-     *
-     * In this example, we add a 'required' rule to the attributes that are required
-     * if we are creating a resource.
-     *
-     * @param Validator $validator
-     *      the attributes validator instance.
-     * @param Post|null $record
-     *      the record being updated, or null if one is being created.
-     */
-    protected function conditionalAttributes(Validator $validator, $record = null)
-    {
-        $validator->sometimes(['title', 'content', 'slug'], 'required', function () use ($record) {
-            return is_null($record);
-        });
     }
 
     /**
