@@ -26,6 +26,7 @@ class Handler extends ExceptionHandler
         HttpException::class,
         ModelNotFoundException::class,
         ValidationException::class,
+        JsonApiException::class,
     ];
 
     /**

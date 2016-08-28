@@ -14,7 +14,7 @@ Route::group([
 /**
  * API v1
  *
- * We use a middleware group call `api-v1` that adds the `json-api` middleware and others, e.g.
+ * We use a middleware group called `api-v1` that adds the `json-api` middleware and others, e.g.
  * `throttle`.
  */
 Route::group([

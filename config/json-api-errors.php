@@ -1,7 +1,7 @@
 <?php
 
 use CloudCreativity\JsonApi\Document\Error;
-use CloudCreativity\JsonApi\Validators\ValidatorErrorFactory as V;
+use CloudCreativity\LaravelJsonApi\Validators\ValidatorErrorFactory as V;
 
 return [
 
@@ -10,7 +10,7 @@ return [
      */
     V::MEMBER_REQUIRED => [
         Error::TITLE => 'Required Member',
-        Error::DETAIL => "The member ':member' is required.",
+        Error::DETAIL => "The member '{member}' is required.",
         Error::STATUS => 400,
     ],
 
@@ -19,7 +19,7 @@ return [
      */
     V::MEMBER_OBJECT_EXPECTED => [
         Error::TITLE => 'Object Expected',
-        Error::DETAIL => "The member ':member' must be an object.",
+        Error::DETAIL => "The member '{member}' must be an object.",
         Error::STATUS => 400,
     ],
 
@@ -28,7 +28,7 @@ return [
      */
     V::MEMBER_RELATIONSHIP_EXPECTED => [
         Error::TITLE => 'Relationship Expected',
-        Error::DETAIL => "The member ':member' must be a relationship object.",
+        Error::DETAIL => "The member '{member}' must be a relationship object.",
         Error::STATUS => 400,
     ],
 
@@ -37,7 +37,7 @@ return [
      */
     V::RESOURCE_UNSUPPORTED_TYPE => [
         Error::TITLE => 'Unsupported Resource',
-        Error::DETAIL => "Resource ':actual' is not among the type(s) supported by this endpoint. Expecting only ':expected' resources.",
+        Error::DETAIL => "Resource '{actual}' is not among the type(s) supported by this endpoint. Expecting only '{expected}' resources.",
         Error::STATUS => V::STATUS_UNSUPPORTED_TYPE,
     ],
 
@@ -46,7 +46,7 @@ return [
      */
     V::RESOURCE_UNSUPPORTED_ID => [
         Error::TITLE => 'Unsupported Resource',
-        Error::DETAIL => "Resource id ':actual' is not supported by this endpoint. Expecting only resource ':expected'.",
+        Error::DETAIL => "Resource id '{actual}' is not supported by this endpoint. Expecting only resource '{expected}'.",
         Error::STATUS => V::STATUS_UNSUPPORTED_ID,
     ],
 
@@ -60,6 +60,15 @@ return [
     ],
 
     /**
+     * Used when validating attributes with a Laravel validator. The source pointer and error detail will
+     * be set using the message bag that the Laravel validator returns, and a 422 response status will be
+     * set.
+     */
+    V::RESOURCE_INVALID_ATTRIBUTES_MESSAGES => [
+        Error::TITLE => 'Invalid Attribute',
+    ],
+
+    /**
      * Used when relationships are invalid but there are no validation error messages in the relationships validator.
      */
     V::RESOURCE_INVALID_RELATIONSHIPS => [
@@ -69,7 +78,7 @@ return [
     ],
 
     /**
-     * Used when a has-one relationship is expected, but a has-many has been provided; and vice-versa
+     * Used when a has-one relationship is expected, but a has-many has been provided.
      */
     V::RELATIONSHIP_HAS_ONE_EXPECTED => [
         Error::TITLE => 'Invalid Relationship',
@@ -77,6 +86,9 @@ return [
         Error::STATUS => 400,
     ],
 
+    /**
+     * Used when a has-many relationship is expected, but a has-one has been provided.
+     */
     V::RELATIONSHIP_HAS_MANY_EXPECTED => [
         Error::TITLE => 'Invalid Relationship',
         Error::DETAIL => 'The provided relationship must be a has-many relationship',
@@ -115,7 +127,28 @@ return [
      */
     V::RELATIONSHIP_UNSUPPORTED_TYPE => [
         Error::TITLE => 'Invalid Relationship',
-        Error::DETAIL => "Resource ':actual' is not among the type(s) supported by this relationship. Expecting only ':expected' resources.",
+        Error::DETAIL => "Resource '{actual}' is not among the type(s) supported by this relationship. Expecting only '{expected}' resources.",
         Error::STATUS => 400,
+    ],
+
+    /**
+     * Used when validating the filter query parameter with a Laravel validator. The source
+     * parameter and error detail will be set using the message bag that the Laravel validator returns,
+     * and a 400 response status will be set.
+     */
+    V::FILTER_PARAMETERS_MESSAGES => [
+        Error::TITLE => 'Invalid Filter',
+    ],
+
+    /**
+     * Exceptions
+     *
+     * To register errors for specific exceptions, use the fully qualified exception class as the
+     * key. The default exception parser will use the error below for the generic `Exception` class if
+     * there is no error registered for an exception class that it is parsing.
+     */
+    Exception::class => [
+        Error::TITLE => 'Internal Server Error',
+        Error::STATUS => 500,
     ],
 ];
