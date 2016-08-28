@@ -2,15 +2,10 @@
 
 namespace App\JsonApi\People;
 
-use CloudCreativity\LaravelJsonApi\Http\Requests\AbstractRequest;
+use CloudCreativity\LaravelJsonApi\Http\Requests\AbstractRequestHandler;
 
-class Request extends AbstractRequest
+class Request extends AbstractRequestHandler
 {
-
-    /**
-     * @var string
-     */
-    protected $resourceType = Schema::RESOURCE_TYPE;
 
     /**
      * @var array
@@ -18,5 +13,13 @@ class Request extends AbstractRequest
     protected $allowedFilteringParameters = [
         'id',
     ];
+
+    /**
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return Schema::RESOURCE_TYPE;
+    }
 
 }

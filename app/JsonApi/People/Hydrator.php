@@ -4,7 +4,7 @@ namespace App\JsonApi\People;
 
 use App\Person;
 use CloudCreativity\JsonApi\Contracts\Object\StandardObjectInterface;
-use CloudCreativity\LaravelJsonApi\Hydrator\AbstractHydrator;
+use CloudCreativity\JsonApi\Hydrator\AbstractHydrator;
 
 class Hydrator extends AbstractHydrator
 {

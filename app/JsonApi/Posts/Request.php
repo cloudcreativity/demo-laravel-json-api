@@ -2,15 +2,10 @@
 
 namespace App\JsonApi\Posts;
 
-use CloudCreativity\LaravelJsonApi\Http\Requests\AbstractRequest;
+use CloudCreativity\LaravelJsonApi\Http\Requests\AbstractRequestHandler;
 
-class Request extends AbstractRequest
+class Request extends AbstractRequestHandler
 {
-
-    /**
-     * @var string
-     */
-    protected $resourceType = Schema::RESOURCE_TYPE;
 
     /**
      * @var array
@@ -51,7 +46,15 @@ class Request extends AbstractRequest
      */
     public function __construct(Validators $validator)
     {
-        parent::__construct($validator);
+        parent::__construct(null, $validator);
+    }
+
+    /**
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return Schema::RESOURCE_TYPE;
     }
 
 }

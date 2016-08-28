@@ -5,25 +5,17 @@ namespace App\JsonApi\Posts;
 use App\Post;
 use CloudCreativity\JsonApi\Contracts\Validators\RelationshipsValidatorInterface;
 use CloudCreativity\LaravelJsonApi\Validators\AbstractValidatorProvider;
-use Illuminate\Contracts\Validation\Validator;
 
 class Validators extends AbstractValidatorProvider
 {
 
     /**
-     * @var string
+     * @inheritdoc
      */
-    protected $resourceType = Schema::RESOURCE_TYPE;
-
-    /**
-     * Get the rules to validate the attributes.
-     *
-     * @param Post|null $record
-     *      the record being updated, or null if one is being created.
-     * @return array
-     */
-    protected function attributeRules($record = null)
+    protected function attributeRules($resourceType, $record = null)
     {
+        /** @var Post $record */
+
         // The JSON API spec says the client does not have to send all attributes for an update request, so
         // if the record already exists we need to include a 'sometimes' before required.
         $required = $record ? 'sometimes|required' : 'required';
@@ -41,22 +33,17 @@ class Validators extends AbstractValidatorProvider
     }
 
     /**
-     * Define the rules to validate relationships.
-     *
-     * @param RelationshipsValidatorInterface $relationships
-     * @param Post|null $record
+     * @inheritdoc
      */
-    protected function relationshipRules(RelationshipsValidatorInterface $relationships, $record = null)
+    protected function relationshipRules(RelationshipsValidatorInterface $relationships, $resourceType, $record = null)
     {
         $relationships->hasOne('author', 'people', is_null($record), false);
     }
 
     /**
-     * Define the rules to validate the filter query param.
-     *
-     * @return array
+     * @inheritdoc
      */
-    protected function filterRules()
+    protected function filterRules($resourceType)
     {
         return [
             'title' => 'string|min:1',

@@ -12,11 +12,6 @@ class Schema extends EloquentSchema
     const RESOURCE_TYPE = 'posts';
 
     /**
-     * @var string
-     */
-    protected $resourceType = self::RESOURCE_TYPE;
-
-    /**
      * @var array
      */
     protected $attributes = [
@@ -24,6 +19,14 @@ class Schema extends EloquentSchema
         'slug',
         'content',
     ];
+
+    /**
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return self::RESOURCE_TYPE;
+    }
 
     /**
      * @param object $resource

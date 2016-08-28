@@ -12,17 +12,20 @@ class Schema extends EloquentSchema
     const RESOURCE_TYPE = 'people';
 
     /**
-     * @var string
-     */
-    protected $resourceType = self::RESOURCE_TYPE;
-
-    /**
      * @var array
      */
     protected $attributes = [
         'first_name',
         'surname',
     ];
+
+    /**
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return self::RESOURCE_TYPE;
+    }
 
     /**
      * @param object $resource

@@ -7,7 +7,7 @@ use App\Post;
 use CloudCreativity\JsonApi\Contracts\Object\RelationshipInterface;
 use CloudCreativity\JsonApi\Contracts\Object\StandardObjectInterface;
 use CloudCreativity\JsonApi\Exceptions\HydratorException;
-use CloudCreativity\LaravelJsonApi\Hydrator\AbstractHydrator;
+use CloudCreativity\JsonApi\Hydrator\AbstractHydrator;
 
 class Hydrator extends AbstractHydrator
 {

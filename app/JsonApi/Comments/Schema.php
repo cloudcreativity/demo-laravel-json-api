@@ -12,16 +12,19 @@ class Schema extends EloquentSchema
     const RESOURCE_TYPE = 'comments';
 
     /**
-     * @var string
-     */
-    protected $resourceType = self::RESOURCE_TYPE;
-
-    /**
      * @var array
      */
     protected $attributes = [
         'content'
     ];
+
+    /**
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return self::RESOURCE_TYPE;
+    }
 
     /**
      * @param object $resource
