@@ -67,12 +67,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/json-api.git",
-                "reference": "83af63afe75485669e49ae37c89f3963e69ac7fc"
+                "reference": "d9ef8f170510a80ccf5fa7ec79f49bcdb6c022c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/83af63afe75485669e49ae37c89f3963e69ac7fc",
-                "reference": "83af63afe75485669e49ae37c89f3963e69ac7fc",
+                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/d9ef8f170510a80ccf5fa7ec79f49bcdb6c022c2",
+                "reference": "d9ef8f170510a80ccf5fa7ec79f49bcdb6c022c2",
                 "shasum": ""
             },
             "require": {
@@ -80,6 +80,7 @@
                 "php": ">=5.5.0"
             },
             "require-dev": {
+                "guzzlehttp/psr7": "^1.3",
                 "phpunit/phpunit": "^4.8"
             },
             "type": "library",
@@ -113,7 +114,7 @@
                 "jsonapi",
                 "jsonapi.org"
             ],
-            "time": "2016-08-27 13:46:20"
+            "time": "2016-08-30 08:01:33"
         },
         {
             "name": "cloudcreativity/laravel-json-api",
@@ -121,12 +122,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "9a7cb63cacfc2ef9cdc99c27b155f4bf4bcb7b18"
+                "reference": "724939beee02228efc0f773e35631ecd7f4e475d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/9a7cb63cacfc2ef9cdc99c27b155f4bf4bcb7b18",
-                "reference": "9a7cb63cacfc2ef9cdc99c27b155f4bf4bcb7b18",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/724939beee02228efc0f773e35631ecd7f4e475d",
+                "reference": "724939beee02228efc0f773e35631ecd7f4e475d",
                 "shasum": ""
             },
             "require": {
@@ -172,7 +173,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2016-08-28 00:26:00"
+            "time": "2016-08-30 08:02:03"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

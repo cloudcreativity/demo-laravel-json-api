@@ -3,7 +3,7 @@
 namespace App\JsonApi\Posts;
 
 use App\Post;
-use CloudCreativity\JsonApi\Exceptions\SchemaException;
+use CloudCreativity\JsonApi\Exceptions\RuntimeException;
 use CloudCreativity\LaravelJsonApi\Schema\EloquentSchema;
 
 class Schema extends EloquentSchema
@@ -37,7 +37,7 @@ class Schema extends EloquentSchema
     public function getRelationships($resource, $isPrimary, array $includeRelationships)
     {
         if (!$resource instanceof Post) {
-            throw new SchemaException('Expecting a post model.');
+            throw new RuntimeException('Expecting a post model.');
         }
 
         return [

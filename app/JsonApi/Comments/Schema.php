@@ -3,7 +3,7 @@
 namespace App\JsonApi\Comments;
 
 use App\Comment;
-use CloudCreativity\JsonApi\Exceptions\SchemaException;
+use CloudCreativity\JsonApi\Exceptions\RuntimeException;
 use CloudCreativity\LaravelJsonApi\Schema\EloquentSchema;
 
 class Schema extends EloquentSchema
@@ -35,7 +35,7 @@ class Schema extends EloquentSchema
     public function getRelationships($resource, $isPrimary, array $includeRelationships)
     {
         if (!$resource instanceof Comment) {
-            throw new SchemaException('Expecting a comment model.');
+            throw new RuntimeException('Expecting a comment model.');
         }
 
         return [

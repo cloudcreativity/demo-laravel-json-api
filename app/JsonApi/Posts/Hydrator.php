@@ -6,7 +6,7 @@ use App\Person;
 use App\Post;
 use CloudCreativity\JsonApi\Contracts\Object\RelationshipInterface;
 use CloudCreativity\JsonApi\Contracts\Object\StandardObjectInterface;
-use CloudCreativity\JsonApi\Exceptions\HydratorException;
+use CloudCreativity\JsonApi\Exceptions\RuntimeException;
 use CloudCreativity\JsonApi\Hydrator\AbstractHydrator;
 
 class Hydrator extends AbstractHydrator
@@ -19,7 +19,7 @@ class Hydrator extends AbstractHydrator
     protected function hydrateAttributes(StandardObjectInterface $attributes, $record)
     {
         if (!$record instanceof Post) {
-            throw new HydratorException('Expecting a post model.');
+            throw new RuntimeException('Expecting a post model.');
         }
 
         $data = $attributes->getMany([

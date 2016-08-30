@@ -2,9 +2,9 @@
 
 namespace App\JsonApi\People;
 
-use CloudCreativity\LaravelJsonApi\Http\Requests\AbstractRequestHandler;
+use CloudCreativity\JsonApi\Http\Requests\RequestHandler;
 
-class Request extends AbstractRequestHandler
+class Request extends RequestHandler
 {
 
     /**

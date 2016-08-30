@@ -3,7 +3,7 @@
 namespace App\JsonApi\People;
 
 use App\Person;
-use CloudCreativity\JsonApi\Exceptions\SchemaException;
+use CloudCreativity\JsonApi\Exceptions\RuntimeException;
 use CloudCreativity\LaravelJsonApi\Schema\EloquentSchema;
 
 class Schema extends EloquentSchema
@@ -36,7 +36,7 @@ class Schema extends EloquentSchema
     public function getRelationships($resource, $isPrimary, array $includeRelationships)
     {
         if (!$resource instanceof Person) {
-            throw new SchemaException('Expecting a person model.');
+            throw new RuntimeException('Expecting a person model.');
         }
 
         return [
