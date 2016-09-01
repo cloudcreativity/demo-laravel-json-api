@@ -42,7 +42,7 @@ class PeopleTestCase extends TestCase
         $data = [
             'type' => 'people',
             'attributes' => [
-                'first_name' => $model->first_name,
+                'first-name' => $model->first_name,
                 'surname' => $model->surname
             ],
         ];
@@ -65,7 +65,7 @@ class PeopleTestCase extends TestCase
             'type' => 'people',
             'id' => $model->getKey(),
             'attributes' => [
-                'first_name' => $model->first_name,
+                'first-name' => $model->first_name,
                 'surname' => $model->surname,
             ],
             'relationships' => [
@@ -89,7 +89,7 @@ class PeopleTestCase extends TestCase
             'type' => 'people',
             'id' => $model->getKey(),
             'attributes' => [
-                'first_name' => 'Foo',
+                'first-name' => 'Foo',
             ],
         ];
 

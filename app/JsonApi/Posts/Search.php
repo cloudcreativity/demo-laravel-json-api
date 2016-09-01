@@ -2,11 +2,11 @@
 
 namespace App\JsonApi\Posts;
 
-use CloudCreativity\LaravelJsonApi\Search\AbstractSortedSearch;
+use CloudCreativity\LaravelJsonApi\Search\AbstractSearch;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
-class Search extends AbstractSortedSearch
+class Search extends AbstractSearch
 {
 
     /**
