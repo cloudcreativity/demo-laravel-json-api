@@ -5,6 +5,7 @@ namespace App;
 use App\JsonApi\Comments;
 use App\JsonApi\People;
 use App\JsonApi\Posts;
+use App\JsonApi\Tags;
 
 return [
 
@@ -74,6 +75,7 @@ return [
             Comment::class => Comments\Schema::class,
             Person::class => People\Schema::class,
             Post::class => Posts\Schema::class,
+            Tag::class => Tags\Schema::class,
         ],
         'v1' => [],
     ],
@@ -99,6 +101,7 @@ return [
             'comments' => Comment::class,
             'people' => Person::class,
             'posts' => Post::class,
+            'tags' => Tag::class,
         ],
         'columns' => [],
     ],

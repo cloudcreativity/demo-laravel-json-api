@@ -2,24 +2,16 @@
 
 namespace App\JsonApi\People;
 
-use App\Person;
-use CloudCreativity\JsonApi\Contracts\Object\StandardObjectInterface;
-use CloudCreativity\JsonApi\Hydrator\AbstractHydrator;
+use CloudCreativity\LaravelJsonApi\Hydrator\EloquentHydrator;
 
-class Hydrator extends AbstractHydrator
+class Hydrator extends EloquentHydrator
 {
 
     /**
-     * @param StandardObjectInterface $attributes
-     * @param Person $record
+     * @var array
      */
-    protected function hydrateAttributes(StandardObjectInterface $attributes, $record)
-    {
-        $data = $attributes
-            ->mapKey('first-name', 'first_name')
-            ->getMany(['first_name', 'surname']);
-
-        $record->fill($data);
-    }
-
+    protected $attributes = [
+        'first-name',
+        'surname',
+    ];
 }

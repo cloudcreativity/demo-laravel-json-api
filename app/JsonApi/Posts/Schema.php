@@ -52,6 +52,13 @@ class Schema extends EloquentSchema
                 self::SHOW_RELATED => true,
                 self::DATA => $resource->comments,
             ],
+            'tags' => [
+                self::SHOW_SELF => true,
+                self::SHOW_RELATED => true,
+                self::DATA => function () use ($resource) {
+                    return $resource->tags;
+                },
+            ],
         ];
     }
 }

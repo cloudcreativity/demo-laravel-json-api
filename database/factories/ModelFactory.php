@@ -47,3 +47,10 @@ $factory->define(App\Comment::class, function (Faker $faker) {
         },
     ];
 });
+
+/** Tag */
+$factory->define(App\Tag::class, function (Faker $faker) {
+    return [
+        'name' => $faker->country,
+    ];
+});

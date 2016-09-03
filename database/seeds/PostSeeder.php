@@ -3,8 +3,10 @@
 use App\Comment;
 use App\Person;
 use App\Post;
+use App\Tag;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
+use Illuminate\Support\Collection;
 
 class PostSeeder extends Seeder
 {
@@ -30,13 +32,18 @@ class PostSeeder extends Seeder
             return $faker->randomElement($people);
         };
 
+        /** @var Collection $tags */
+        $tags = factory(Tag::class, 10)->create();
+
         factory(Post::class, 50)->create([
             'author_id' => $person,
-        ])->each(function (Post $post) use ($faker, $person) {
+        ])->each(function (Post $post) use ($faker, $person, $tags) {
             factory(Comment::class, $faker->numberBetween(1, 10))->create([
                 'post_id' => $post->getKey(),
                 'person_id' => $person,
             ]);
+
+            $post->tags()->save($tags->random());
         });
     }
 }

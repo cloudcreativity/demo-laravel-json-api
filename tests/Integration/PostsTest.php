@@ -3,6 +3,7 @@
 namespace App\Tests\Integration;
 
 use App\Post;
+use App\Tag;
 
 class PostsTest extends TestCase
 {
@@ -37,6 +38,8 @@ class PostsTest extends TestCase
      */
     public function testCreate()
     {
+        /** @var Tag $tag */
+        $tag = factory(Tag::class)->create();
         $model = $this->model(false);
 
         $data = [
@@ -51,6 +54,11 @@ class PostsTest extends TestCase
                     'data' => [
                         'type' => 'people',
                         'id' => $model->author_id,
+                    ],
+                ],
+                'tags' => [
+                    'data' => [
+                        ['type' => 'tags', 'id' => $tag->getKey()],
                     ],
                 ],
             ],
@@ -69,6 +77,8 @@ class PostsTest extends TestCase
     public function testRead()
     {
         $model = $this->model();
+        /** @var Tag $tag */
+        $tag = $model->tags()->create(['name' => 'Important']);
 
         $data = [
             'type' => 'posts',
@@ -83,6 +93,11 @@ class PostsTest extends TestCase
                     'data' => [
                         'type' => 'people',
                         'id' => $model->author_id,
+                    ],
+                ],
+                'tags' => [
+                    'data' => [
+                        ['type' => 'tags', 'id' => $tag->getKey()],
                     ],
                 ],
             ],

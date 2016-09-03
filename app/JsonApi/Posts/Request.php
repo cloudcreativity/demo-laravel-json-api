@@ -18,7 +18,8 @@ class Request extends RequestHandler
      * @var array
      */
     protected $hasMany = [
-        'comments'
+        'comments',
+        'tags',
     ];
 
     /**
