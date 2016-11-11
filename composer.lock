@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1fab50f83f4c2ca14b0290f47636600c",
-    "content-hash": "12e2fb44f47d60edcd24f98939d68c2c",
+    "hash": "31ab481613d8f72df6a3841b6eb4f283",
+    "content-hash": "0f64c15ed9224357d187b48da433d0ca",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -119,16 +119,16 @@
         },
         {
             "name": "cloudcreativity/laravel-json-api",
-            "version": "v0.5.0",
+            "version": "v0.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "c70f6ff5ebc0965bc8226ac78aecb01297c4ffee"
+                "reference": "43167409a92e5e618e00c3ab3dae16569cdc5eb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/c70f6ff5ebc0965bc8226ac78aecb01297c4ffee",
-                "reference": "c70f6ff5ebc0965bc8226ac78aecb01297c4ffee",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/43167409a92e5e618e00c3ab3dae16569cdc5eb7",
+                "reference": "43167409a92e5e618e00c3ab3dae16569cdc5eb7",
                 "shasum": ""
             },
             "require": {
@@ -136,7 +136,7 @@
                 "laravel/framework": "5.1.*|5.2.*|5.3.*",
                 "neomerx/json-api": "^0.8.9",
                 "php": ">=5.5.0",
-                "symfony/psr-http-message-bridge": "^0.2.0",
+                "symfony/psr-http-message-bridge": "^0.2.0|^1.0",
                 "zendframework/zend-diactoros": "^1.3"
             },
             "require-dev": {
@@ -145,7 +145,6 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.5.x-dev",
                     "dev-develop": "0.6.x-dev"
                 }
             },
@@ -175,7 +174,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2016-10-21 12:21:29"
+            "time": "2016-11-11 18:07:11"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -424,16 +423,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.3.21",
+            "version": "v5.3.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "140ad823863d5cc6f4580f1cdf9b18b9a6a457f4"
+                "reference": "715328dd4fb1a7bcf3cb41b3472f9e3499d068fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/140ad823863d5cc6f4580f1cdf9b18b9a6a457f4",
-                "reference": "140ad823863d5cc6f4580f1cdf9b18b9a6a457f4",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/715328dd4fb1a7bcf3cb41b3472f9e3499d068fc",
+                "reference": "715328dd4fb1a7bcf3cb41b3472f9e3499d068fc",
                 "shasum": ""
             },
             "require": {
@@ -548,7 +547,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-10-26 13:27:05"
+            "time": "2016-11-01 18:52:00"
         },
         {
             "name": "league/flysystem",
@@ -909,16 +908,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.3",
+            "version": "v2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "c0125896dbb151380ab47e96c621741e79623beb"
+                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c0125896dbb151380ab47e96c621741e79623beb",
-                "reference": "c0125896dbb151380ab47e96c621741e79623beb",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
+                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
                 "shasum": ""
             },
             "require": {
@@ -953,7 +952,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-10-17 15:23:22"
+            "time": "2016-11-07 23:38:38"
         },
         {
             "name": "psr/http-message",
@@ -1837,16 +1836,16 @@
         },
         {
             "name": "symfony/psr-http-message-bridge",
-            "version": "v0.2",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/psr-http-message-bridge.git",
-                "reference": "dc7e308e1dc2898a46776e2221a643cb08315453"
+                "reference": "66085f246d3893cbdbcec5f5ad15ac60546cf0de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/psr-http-message-bridge/zipball/dc7e308e1dc2898a46776e2221a643cb08315453",
-                "reference": "dc7e308e1dc2898a46776e2221a643cb08315453",
+                "url": "https://api.github.com/repos/symfony/psr-http-message-bridge/zipball/66085f246d3893cbdbcec5f5ad15ac60546cf0de",
+                "reference": "66085f246d3893cbdbcec5f5ad15ac60546cf0de",
                 "shasum": ""
             },
             "require": {
@@ -1858,9 +1857,15 @@
                 "symfony/phpunit-bridge": "~2.7|~3.0"
             },
             "suggest": {
+                "psr/http-message-implementation": "To use the HttpFoundation factory",
                 "zendframework/zend-diactoros": "To use the Zend Diactoros factory"
             },
             "type": "symfony-bridge",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Bridge\\PsrHttpMessage\\": ""
@@ -1887,7 +1892,7 @@
                 "http-message",
                 "psr-7"
             ],
-            "time": "2015-05-29 17:57:12"
+            "time": "2016-09-14 18:37:20"
         },
         {
             "name": "symfony/routing",

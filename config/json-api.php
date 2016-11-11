@@ -18,28 +18,62 @@ return [
     | using the JSON API spec. For example, you may have a `v1` and `v2` API.
     | Generally these are going to match your route groups.
     |
-    | Each namespace has the following configuration:
+    | Each API has the following configuration:
     |
-    | - `url-prefix`: the URL prefix to be used when encoding resources.
-    | - `supported-ext`: the supported extensions that apply to the whole
-    | namespace.
+    | ## url-prefix
+    |
+    | The URL prefix to be used when encoding responses. Use this if
+    | your API is hosted within a URL namespace, e.g. `/api/v1`.
+    |
+    | ## supported-ext
+    |
+    | The supported extensions that apply to the whole API namespace.
+    |
+    | ## paging
+    |
+    | Sets the keys that the client uses for the page number and the amount
+    | per-page in the request. The JSON API spec defines the `page` parameter
+    | as where these will appear. So if the `paging.page` setting is `number`,
+    | the client will need to submit `page[number]=2` to get the second page.
+    | If either of the values are `null`, the default of `number` and `size`
+    | is used.
+    |
+    | ## paging-meta
+    |
+    | This sets the keys to use for pagination meta in responses.
+    | Pagination meta will be added to your response meta under the `page`
+    | key. The settings define the keys to use within the pagination meta
+    | for the values returned by the Laravel Paginator/LengthAwarePaginator
+    | contracts. If any values are `null`, defaults will be used.
     |
     */
     'namespaces' => [
         'v1' => [
             'url-prefix' => '/api/v1',
             'supported-ext' => null,
+            'paging' => [
+                'page' => null,
+                'per-page' => null,
+            ],
+            'paging-meta' => [
+                'current-page' => null,
+                'per-page' => null,
+                'first-item' => null,
+                'last-item' => null,
+                'total' => null,
+                'last-page' => null,
+            ],
         ],
     ],
 
     /*
     |--------------------------------------------------------------------------
-    | Codec Matcher Configuration
+    | Content Negotiation
     |--------------------------------------------------------------------------
     |
     | This is where you register how different media types are mapped to
     | encoders and decoders. Encoders do the work of converting your records
-    | into Json-Api resources. Decoders are used to convert incoming request
+    | into JSON API resources. Decoders are used to convert incoming request
     | body content into objects.
     |
     | If there is not an encoder/decoder registered for a specific media-type,
@@ -58,10 +92,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Schema Sets
+    | Schemas
     |--------------------------------------------------------------------------
     |
-    | Schemas are the objects that convert a record object into its JSON-API
+    | Schemas are the objects that convert a record object into its JSON API
     | resource representation. This package supports having multiple sets of
     | schemas, using your JSON API namespaces as configured above. The
     | 'defaults' set is used for all namespaces, and the config for a
@@ -93,29 +127,72 @@ return [
     |
     | `columns` (optional) - a map of JSON API resource types to the column
     | name that is used for the resource id. These are optional - if a
-    | column is not provided for a Model class, the adapter will use
-    | `Model::getQualifiedKeyName()` by default.
+    | column is not specified, the adapter will use `Model::getQualifiedKeyName()`
+    | by default.
     */
     'eloquent-adapter' => [
         'map' => [
-            'comments' => Comment::class,
-            'people' => Person::class,
-            'posts' => Post::class,
-            'tags' => Tag::class,
+            Comments\Schema::RESOURCE_TYPE => Comment::class,
+            People\Schema::RESOURCE_TYPE => Person::class,
+            Posts\Schema::RESOURCE_TYPE => Post::class,
+            Tags\Schema::RESOURCE_TYPE => Tag::class,
         ],
         'columns' => [],
     ],
 
-    'pagination' => [
-        'params' => [
-            'page' => 'number',
-            'per-page' => 'size',
-        ],
-        'meta' => [
-            'page' => 'number',
-            'per-page' => 'size',
-            'first' => 'first',
-            'last' => 'last',
-        ],
+    /*
+    |--------------------------------------------------------------------------
+    | Store Adapters
+    |--------------------------------------------------------------------------
+    |
+    | Store adapters are used to locate your domain records using a JSON API
+    | resource identifier. For Eloquent models you can configure the Eloquent
+    | adapter above. For other records, you will need to write an adapter class
+    | (implementing CloudCreativity\JsonApi\Contracts\Store\AdapterInterface).
+    |
+    | To attach these adapters to the store, list the fully qualified name of
+    | your custom adapters here. These will be created via the service
+    | container, so you can type-hint dependencies in an adapter's constructor.
+    */
+    'adapters' => [],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Generators
+    |--------------------------------------------------------------------------
+    |
+    | This package supplies a set of handy generators. These make it possible
+    | to easily generate every class needed to implement a JSON API resource.
+    |
+    | So that we do not enforce any specific patterns, we have included a few
+    | handy configuration options. This is so that the generators can follow
+    | your workflow.
+    |
+    | ## namespace (default: 'JsonApi')
+    |
+    | The folder in which you will be storing everything related to your JSON
+    | API implementation.
+    |
+    | ## by-resource (default: true)
+    |
+    | How you are organising your JSON API classes within your application.
+    |
+    | - true: e.g. \App\JsonApi\Tasks\{Schema, Request, Hydrator}
+    | - false:
+    |   - e.g. \App\JsonApi\Schemas\{User, Post, Comment}
+    |   - e.g. \App\JsonApi\Requests\{User, Post, Comment}
+    |
+    | ## use-eloquent (default: true)
+    |
+    | Whether your JSON API resources predominantly relate to Eloquent models.
+    | You can override the setting here when running a generator. If the
+    | setting here is `true` running a generator with `--no-eloquent` will
+    | override it; if the setting is `false`, then `--eloquent` is the override.
+    |
+    */
+    'generator' => [
+        'namespace' => 'JsonApi',
+        'by-resource' => true,
+        'use-eloquent' => true,
     ],
 ];
