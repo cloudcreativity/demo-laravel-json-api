@@ -51,5 +51,4 @@ class Adapter implements AdapterInterface
         return $this->repository->find($identifier->getId());
     }
 
-
 }

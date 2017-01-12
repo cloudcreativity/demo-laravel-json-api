@@ -41,7 +41,25 @@ concern, and can be found in the `app/JsonApi/Posts` folder:
   `Post` model).
   - A `schema` that handles converting the `Post` model into its API representation.
   - A `search` class, that handles converting a find-many request into an Eloquent query.
-  
+ 
+### Eloquent vs Not-Eloquent
+
+This package can handle both Eloquent and non-Eloquent records. You get a lot more functionality out of the box if
+you are using Eloquent, but it's possible to integrate non-Eloquent records as needed.
+
+This demo includes the following JSON-API resources:
+
+| Resource | Record | Eloquent? |
+| --- | --- | --- |
+| comments | App\Comment | Yes |
+| people | App\People | Yes |
+| posts | App\Post | Yes |
+| sites | App\Site | No |
+| tags | App\Tag | Yes |
+
+You'll notice that the `sites` resource also has an additional unit: an `adapter`. This tells the store how to check 
+whether a specific resource exists, and how to load it. The store is used when parsing an incoming JSON API request.
+
 ## Tests
 
 We're big on testing, and the `cloudcreativity/laravel-json-api` package comes with test helpers to make integration 

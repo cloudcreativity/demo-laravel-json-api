@@ -19,8 +19,11 @@ class Validators extends AbstractValidatorProvider
      */
     protected function attributeRules($resourceType, $record = null)
     {
+        $required = $record ? 'sometimes|required' : 'required';
+
         return [
-            //
+            'domain' => "$required|url",
+            'name' => "$required|string|min:1",
         ];
     }
 
