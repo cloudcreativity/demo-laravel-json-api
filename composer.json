@@ -19,7 +19,7 @@
         "phpunit/phpunit": "~4.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
-        "laravel/homestead": "^3.0"
+        "laravel/homestead": "^4.0"
     },
     "autoload": {
         "classmap": [
