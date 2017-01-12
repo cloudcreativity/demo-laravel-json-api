@@ -25,4 +25,5 @@ Route::group([
 ], function () {
     JsonApi::resource('people');
     JsonApi::resource('posts');
+    JsonApi::resource('sites');
 });

@@ -5,6 +5,7 @@ namespace App;
 use App\JsonApi\Comments;
 use App\JsonApi\People;
 use App\JsonApi\Posts;
+use App\JsonApi\Sites;
 use App\JsonApi\Tags;
 
 return [
@@ -110,6 +111,7 @@ return [
             Person::class => People\Schema::class,
             Post::class => Posts\Schema::class,
             Tag::class => Tags\Schema::class,
+            Site::class => Sites\Schema::class,
         ],
         'v1' => [],
     ],
@@ -154,7 +156,9 @@ return [
     | your custom adapters here. These will be created via the service
     | container, so you can type-hint dependencies in an adapter's constructor.
     */
-    'adapters' => [],
+    'adapters' => [
+        Sites\Adapter::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------
