@@ -2,11 +2,11 @@
 
 namespace App\JsonApi\Sites;
 
+use App\JsonApi\EntitySchema;
 use App\Site;
-use CloudCreativity\LaravelJsonApi\Schema\AbstractSchema;
 use InvalidArgumentException;
 
-class Schema extends AbstractSchema
+class Schema extends EntitySchema
 {
 
     /**
@@ -15,12 +15,12 @@ class Schema extends AbstractSchema
     const RESOURCE_TYPE = 'sites';
 
     /**
-     * @return string
+     * @var array
      */
-    public function getResourceType()
-    {
-        return self::RESOURCE_TYPE;
-    }
+    protected $attributes = [
+        'domain',
+        'name',
+    ];
 
     /**
      * @param object $resource
@@ -35,17 +35,5 @@ class Schema extends AbstractSchema
         return $resource->getSlug();
     }
 
-    /**
-     * @param object $resource
-     * @return mixed
-     */
-    public function getAttributes($resource)
-    {
-        if (!$resource instanceof Site) {
-            throw new InvalidArgumentException('Expecting a site object.');
-        }
-
-        return $resource->toArray();
-    }
 }
 

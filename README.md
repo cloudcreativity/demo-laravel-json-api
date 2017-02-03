@@ -60,6 +60,10 @@ This demo includes the following JSON-API resources:
 You'll notice that the `sites` resource also has an additional unit: an `adapter`. This tells the store how to check 
 whether a specific resource exists, and how to load it. The store is used when parsing an incoming JSON API request.
 
+To support our non-Eloquent records, we've created a custom schema and hydrator class in this application. These
+use traits that are included in the package to replicate the behaviour of the Eloquent schema/hydrator. The custom
+schema and hydrator are in the `App\JsonApi` namespace.
+
 ## Tests
 
 We're big on testing, and the `cloudcreativity/laravel-json-api` package comes with test helpers to make integration 
