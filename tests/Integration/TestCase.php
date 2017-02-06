@@ -2,12 +2,12 @@
 
 namespace App\Tests\Integration;
 
-use App\Tests\TestCase as AppTestCase;
+use App\Tests\BrowserKitTest;
 use CloudCreativity\LaravelJsonApi\Testing\InteractsWithModels;
 use CloudCreativity\LaravelJsonApi\Testing\InteractsWithResources;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Laravel\BrowserKitTesting\DatabaseTransactions;
 
-abstract class TestCase extends AppTestCase
+abstract class TestCase extends BrowserKitTest
 {
 
     use InteractsWithResources,
