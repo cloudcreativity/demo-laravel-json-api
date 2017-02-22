@@ -11,7 +11,7 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "^5.4",
-        "cloudcreativity/laravel-json-api": "0.6.x-dev",
+        "cloudcreativity/laravel-json-api": "^0.6.1",
         "laravel/tinker": "^1.0",
         "laravel/browser-kit-testing": "^1.0"
     },
@@ -52,6 +52,8 @@
             "php artisan optimize"
         ]
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
         "preferred-install": "dist"
     }
