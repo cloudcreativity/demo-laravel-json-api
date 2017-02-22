@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7eb7ccdca96c2bee034b6f051512351",
+    "content-hash": "302c13b0887a915145837d54172dce1d",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -62,30 +62,30 @@
         },
         {
             "name": "cloudcreativity/json-api",
-            "version": "v0.6.1",
+            "version": "v0.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/json-api.git",
-                "reference": "120ca75b61b4db1e87f1424cfc9acdfd79c7fc67"
+                "reference": "d4ad0ffb8cdc77a243a07c149166bcddb179052c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/120ca75b61b4db1e87f1424cfc9acdfd79c7fc67",
-                "reference": "120ca75b61b4db1e87f1424cfc9acdfd79c7fc67",
+                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/d4ad0ffb8cdc77a243a07c149166bcddb179052c",
+                "reference": "d4ad0ffb8cdc77a243a07c149166bcddb179052c",
                 "shasum": ""
             },
             "require": {
-                "neomerx/json-api": "^0.8.8",
-                "php": ">=5.5.0"
+                "neomerx/json-api": "^1.0",
+                "php": "^5.6|^7.0"
             },
             "require-dev": {
                 "guzzlehttp/psr7": "^1.3",
-                "phpunit/phpunit": "^4.8"
+                "phpunit/phpunit": "^5.7"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "0.7.x-dev"
+                    "dev-develop": "0.8.x-dev"
                 }
             },
             "autoload": {
@@ -99,7 +99,7 @@
             ],
             "authors": [
                 {
-                    "name": "lindyhopchris",
+                    "name": "Cloud Creativity Ltd",
                     "email": "info@cloudcreativity.co.uk"
                 }
             ],
@@ -113,37 +113,36 @@
                 "jsonapi",
                 "jsonapi.org"
             ],
-            "time": "2017-02-03T10:35:15+00:00"
+            "time": "2017-02-22T11:42:54+00:00"
         },
         {
             "name": "cloudcreativity/laravel-json-api",
-            "version": "v0.5.4",
+            "version": "v0.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "24a98327e8050d92f2213d548ce5ad74a9738931"
+                "reference": "ed398ffa0b6a7a7bf8d2af126dd324d17aa12a8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/24a98327e8050d92f2213d548ce5ad74a9738931",
-                "reference": "24a98327e8050d92f2213d548ce5ad74a9738931",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/ed398ffa0b6a7a7bf8d2af126dd324d17aa12a8e",
+                "reference": "ed398ffa0b6a7a7bf8d2af126dd324d17aa12a8e",
                 "shasum": ""
             },
             "require": {
-                "cloudcreativity/json-api": "^0.6.0",
-                "laravel/framework": "5.1.*|5.2.*|5.3.*",
-                "neomerx/json-api": "^0.8.9",
-                "php": ">=5.5.0",
-                "symfony/psr-http-message-bridge": "^0.2.0|^1.0",
+                "cloudcreativity/json-api": "^0.7.1",
+                "laravel/framework": "5.1.*|5.2.*|5.3.*|5.4.*",
+                "php": "^5.6|^7.0",
+                "symfony/psr-http-message-bridge": "^1.0",
                 "zendframework/zend-diactoros": "^1.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.7"
+                "phpunit/phpunit": "^5.7"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "0.6.x-dev"
+                    "dev-develop": "0.7.x-dev"
                 }
             },
             "autoload": {
@@ -172,7 +171,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2016-12-21T09:51:18+00:00"
+            "time": "2017-02-22T11:51:57+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -754,16 +753,16 @@
         },
         {
             "name": "neomerx/json-api",
-            "version": "v0.8.11",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neomerx/json-api.git",
-                "reference": "221a007ab89c7f58128c6c8362612b70950b65c4"
+                "reference": "84355a83fdca251f2734fb6173c654ecf6b5330d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neomerx/json-api/zipball/221a007ab89c7f58128c6c8362612b70950b65c4",
-                "reference": "221a007ab89c7f58128c6c8362612b70950b65c4",
+                "url": "https://api.github.com/repos/neomerx/json-api/zipball/84355a83fdca251f2734fb6173c654ecf6b5330d",
+                "reference": "84355a83fdca251f2734fb6173c654ecf6b5330d",
                 "shasum": ""
             },
             "require": {
@@ -774,7 +773,8 @@
             "require-dev": {
                 "mockery/mockery": "~0.9.4",
                 "monolog/monolog": "^1.18",
-                "phpunit/phpunit": "^4.6 || ^5.0",
+                "phpmd/phpmd": "^2.6",
+                "phpunit/phpunit": "^4.6 || ^5.0 || ^6.0",
                 "scrutinizer/ocular": "^1.3",
                 "squizlabs/php_codesniffer": "^2.5"
             },
@@ -804,7 +804,7 @@
                 "jsonapi.org",
                 "neomerx"
             ],
-            "time": "2017-01-29T13:52:12+00:00"
+            "time": "2017-02-17T09:03:53+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -3829,9 +3829,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.6.4"
