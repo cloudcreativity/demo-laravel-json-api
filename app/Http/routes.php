@@ -23,6 +23,7 @@ Route::group([
     'prefix' => 'api/v1',
     'as' => 'api-v1::'
 ], function () {
+    JsonApi::resource('comments');
     JsonApi::resource('people');
     JsonApi::resource('posts');
     JsonApi::resource('sites');
