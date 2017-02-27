@@ -39,10 +39,18 @@ class Schema extends EloquentSchema
         }
 
         return [
-            'post' => isset($includeRelationships['post']) ?
-                $resource->post : $this->createBelongsToIdentity($resource, 'post'),
-            'created-by' => isset($includeRelationships['created-by']) ?
-                $resource->person : $this->createBelongsToIdentity($resource, 'person'),
+            'post' => [
+                self::SHOW_SELF => true,
+                self::SHOW_RELATED => true,
+                self::DATA => isset($includeRelationships['post']) ?
+                    $resource->post : $this->createBelongsToIdentity($resource, 'post'),
+            ],
+            'created-by' => [
+                self::SHOW_SELF => true,
+                self::SHOW_RELATED => true,
+                self::DATA => isset($includeRelationships['created-by']) ?
+                    $resource->person : $this->createBelongsToIdentity($resource, 'person'),
+            ],
         ];
     }
 }
