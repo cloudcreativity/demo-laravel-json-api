@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f5a8ba4ce7b0a76d85c76c3f292a1d26",
+    "content-hash": "3de76800ed894d2a1d24f5dc70a5860e",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -62,16 +62,16 @@
         },
         {
             "name": "cloudcreativity/json-api",
-            "version": "v0.7.2",
+            "version": "dev-feature/no-request-handler",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/json-api.git",
-                "reference": "57d49739df4367286b720f8c252f0f0d986b6993"
+                "reference": "788b78c8314c6ae3ae2dc9790b359101b3bbcf55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/57d49739df4367286b720f8c252f0f0d986b6993",
-                "reference": "57d49739df4367286b720f8c252f0f0d986b6993",
+                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/788b78c8314c6ae3ae2dc9790b359101b3bbcf55",
+                "reference": "788b78c8314c6ae3ae2dc9790b359101b3bbcf55",
                 "shasum": ""
             },
             "require": {
@@ -113,24 +113,24 @@
                 "jsonapi",
                 "jsonapi.org"
             ],
-            "time": "2017-02-27T13:28:16+00:00"
+            "time": "2017-04-04 10:50:59"
         },
         {
             "name": "cloudcreativity/laravel-json-api",
-            "version": "v0.7.0",
+            "version": "dev-feature/issue53",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "4be9a5c5be0323103fc8f70d3e2211b07b90308c"
+                "reference": "02e5ab314cd5b857fc53aaff4e28ef52e27506a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/4be9a5c5be0323103fc8f70d3e2211b07b90308c",
-                "reference": "4be9a5c5be0323103fc8f70d3e2211b07b90308c",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/02e5ab314cd5b857fc53aaff4e28ef52e27506a8",
+                "reference": "02e5ab314cd5b857fc53aaff4e28ef52e27506a8",
                 "shasum": ""
             },
             "require": {
-                "cloudcreativity/json-api": "^0.7.1",
+                "cloudcreativity/json-api": "dev-feature/no-request-handler",
                 "laravel/framework": "5.1.*|5.2.*|5.3.*|5.4.*",
                 "php": "^5.6|^7.0",
                 "symfony/psr-http-message-bridge": "^1.0",
@@ -142,7 +142,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "0.8.x-dev"
+                    "dev-develop": "0.7.x-dev"
                 }
             },
             "autoload": {
@@ -171,7 +171,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2017-03-16T09:37:52+00:00"
+            "time": "2017-04-13 07:17:40"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2156,16 +2156,16 @@
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "1.3.10",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "83e8d98b9915de76c659ce27d683c02a0f99fa90"
+                "reference": "b03f285a333f51e58c95cce54109a4a9ed691436"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/83e8d98b9915de76c659ce27d683c02a0f99fa90",
-                "reference": "83e8d98b9915de76c659ce27d683c02a0f99fa90",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/b03f285a333f51e58c95cce54109a4a9ed691436",
+                "reference": "b03f285a333f51e58c95cce54109a4a9ed691436",
                 "shasum": ""
             },
             "require": {
@@ -2173,17 +2173,19 @@
                 "psr/http-message": "~1.0"
             },
             "provide": {
-                "psr/http-message-implementation": "~1.0.0"
+                "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
+                "ext-dom": "*",
+                "ext-libxml": "*",
                 "phpunit/phpunit": "^4.6 || ^5.5",
                 "zendframework/zend-coding-standard": "~1.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev",
-                    "dev-develop": "1.4-dev"
+                    "dev-master": "1.4-dev",
+                    "dev-develop": "1.5-dev"
                 }
             },
             "autoload": {
@@ -2202,7 +2204,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2017-01-23T04:53:24+00:00"
+            "time": "2017-04-06T16:18:34+00:00"
         }
     ],
     "packages-dev": [
@@ -3835,7 +3837,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "cloudcreativity/laravel-json-api": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
