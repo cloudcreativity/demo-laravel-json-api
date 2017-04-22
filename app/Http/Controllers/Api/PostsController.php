@@ -19,11 +19,4 @@ class PostsController extends EloquentController
         parent::__construct(new Post(), $hydrator, $search);
     }
 
-    /**
-     * @return string
-     */
-    protected function getRequestHandler()
-    {
-        return Posts\Request::class;
-    }
 }

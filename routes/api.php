@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use CloudCreativity\LaravelJsonApi\Routing\ApiGroup as Api;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+JsonApi::api('v1', [
+    'namespace' => 'Api',
+    'prefix' => 'v1',
+    'as' => 'api-v1::',
+], function (Api $api) {
+    $api->resource('posts');
+});

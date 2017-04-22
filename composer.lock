@@ -66,12 +66,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/json-api.git",
-                "reference": "788b78c8314c6ae3ae2dc9790b359101b3bbcf55"
+                "reference": "cdc7cc37f2e763502b175bd404a0539bdd2f1382"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/788b78c8314c6ae3ae2dc9790b359101b3bbcf55",
-                "reference": "788b78c8314c6ae3ae2dc9790b359101b3bbcf55",
+                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/cdc7cc37f2e763502b175bd404a0539bdd2f1382",
+                "reference": "cdc7cc37f2e763502b175bd404a0539bdd2f1382",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +113,7 @@
                 "jsonapi",
                 "jsonapi.org"
             ],
-            "time": "2017-04-04 10:50:59"
+            "time": "2017-04-22 07:18:19"
         },
         {
             "name": "cloudcreativity/laravel-json-api",
@@ -121,12 +121,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "02e5ab314cd5b857fc53aaff4e28ef52e27506a8"
+                "reference": "128d175364260674367003a31f2458b855337711"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/02e5ab314cd5b857fc53aaff4e28ef52e27506a8",
-                "reference": "02e5ab314cd5b857fc53aaff4e28ef52e27506a8",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/128d175364260674367003a31f2458b855337711",
+                "reference": "128d175364260674367003a31f2458b855337711",
                 "shasum": ""
             },
             "require": {
@@ -171,7 +171,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2017-04-13 07:17:40"
+            "time": "2017-04-22 07:19:09"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2406,12 +2406,12 @@
             "version": "0.9.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/padraic/mockery.git",
+                "url": "https://github.com/mockery/mockery.git",
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856",
                 "shasum": ""
             },
