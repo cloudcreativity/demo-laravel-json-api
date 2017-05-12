@@ -12,6 +12,13 @@ class Adapter extends EloquentAdapter
 {
 
     /**
+     * @var array
+     */
+    protected $defaultPagination = [
+        'number' => 1,
+    ];
+
+    /**
      * Adapter constructor.
      *
      * @param StandardStrategy $paging

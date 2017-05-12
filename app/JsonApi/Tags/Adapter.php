@@ -10,6 +10,9 @@ use Illuminate\Support\Collection;
 class Adapter extends EloquentAdapter
 {
 
+    /**
+     * Adapter constructor.
+     */
     public function __construct()
     {
         parent::__construct(new Tag());

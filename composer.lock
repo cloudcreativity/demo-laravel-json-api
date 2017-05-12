@@ -66,12 +66,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/json-api.git",
-                "reference": "78f303e5b80d936821d2bf279460b747b3f7b618"
+                "reference": "0af80e01d690d295a61cf3ce2da79066932e4f21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/78f303e5b80d936821d2bf279460b747b3f7b618",
-                "reference": "78f303e5b80d936821d2bf279460b747b3f7b618",
+                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/0af80e01d690d295a61cf3ce2da79066932e4f21",
+                "reference": "0af80e01d690d295a61cf3ce2da79066932e4f21",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +113,7 @@
                 "jsonapi",
                 "jsonapi.org"
             ],
-            "time": "2017-05-11 18:38:53"
+            "time": "2017-05-12 18:42:24"
         },
         {
             "name": "cloudcreativity/laravel-json-api",
@@ -121,12 +121,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "c707ea90cfc48af735e3e8017e8a2009c1cb4e70"
+                "reference": "5d28402978ee85f071b314d6974021abb889ce8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/c707ea90cfc48af735e3e8017e8a2009c1cb4e70",
-                "reference": "c707ea90cfc48af735e3e8017e8a2009c1cb4e70",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/5d28402978ee85f071b314d6974021abb889ce8d",
+                "reference": "5d28402978ee85f071b314d6974021abb889ce8d",
                 "shasum": ""
             },
             "require": {
@@ -171,7 +171,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2017-05-12 07:09:06"
+            "time": "2017-05-12 18:44:54"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

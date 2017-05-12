@@ -4,7 +4,6 @@ namespace App\JsonApi\Sites;
 
 use App\SiteRepository;
 use CloudCreativity\JsonApi\Contracts\Store\AdapterInterface;
-use LogicException;
 use Neomerx\JsonApi\Contracts\Encoder\Parameters\EncodingParametersInterface;
 
 class Adapter implements AdapterInterface

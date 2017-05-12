@@ -9,6 +9,11 @@ class Validators extends AbstractValidatorProvider
 {
 
     /**
+     * @var string
+     */
+    protected $resourceType = Schema::RESOURCE_TYPE;
+
+    /**
      * @var array
      */
     protected $allowedFilteringParameters = [
@@ -18,7 +23,7 @@ class Validators extends AbstractValidatorProvider
     /**
      * @inheritDoc
      */
-    protected function attributeRules($resourceType, $record = null)
+    protected function attributeRules($record = null)
     {
         $required = $record ? 'sometimes|required' : 'required';
 
@@ -31,11 +36,9 @@ class Validators extends AbstractValidatorProvider
     /**
      * @inheritDoc
      */
-    protected function relationshipRules(
-        RelationshipsValidatorInterface $relationships,
-        $resourceType,
-        $record = null
-    ) {
+    protected function relationshipRules(RelationshipsValidatorInterface $relationships, $record = null)
+    {
+        // no-op
     }
 
 }

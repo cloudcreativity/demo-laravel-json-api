@@ -4,7 +4,7 @@ namespace App\JsonApi\Tags;
 
 use CloudCreativity\LaravelJsonApi\Schema\EloquentSchema;
 
-final class Schema extends EloquentSchema
+class Schema extends EloquentSchema
 {
 
     const RESOURCE_TYPE = 'tags';
