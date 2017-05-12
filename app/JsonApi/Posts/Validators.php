@@ -10,6 +10,42 @@ class Validators extends AbstractValidatorProvider
 {
 
     /**
+     * @var array
+     */
+    protected $filterRules = [
+        'title' => 'string|min:1',
+        'slug' => 'sometimes|required|alpha_dash',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $paginationRules = [
+        // @todo number should be required
+        'number' => 'integer|min:1',
+        'size' => 'integer|between:1,50',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $allowedSortParameters = [
+        'created-at',
+        'updated-at',
+        'title',
+        'slug',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $allowedFilteringParameters = [
+        'id',
+        'title',
+        'slug',
+    ];
+
+    /**
      * @inheritdoc
      */
     protected function attributeRules($resourceType, $record = null)
@@ -38,17 +74,6 @@ class Validators extends AbstractValidatorProvider
     protected function relationshipRules(RelationshipsValidatorInterface $relationships, $resourceType, $record = null)
     {
         $relationships->hasOne('author', 'people', is_null($record), false);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function filterRules($resourceType)
-    {
-        return [
-            'title' => 'string|min:1',
-            'slug' => 'sometimes|required|alpha_dash',
-        ];
     }
 
 }

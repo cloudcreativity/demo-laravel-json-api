@@ -16,13 +16,4 @@ class CommentsController extends EloquentController
         parent::__construct(new Comment());
     }
 
-    /**
-     * @return mixed
-     */
-    protected function getRequestHandler()
-    {
-        // @todo
-        return null;
-    }
-
 }

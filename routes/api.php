@@ -18,5 +18,8 @@ JsonApi::api('v1', [
     'prefix' => 'v1',
     'as' => 'api-v1::',
 ], function (Api $api) {
-    $api->resource('posts');
+    $api->resource('comments');
+    $api->resource('people');
+    $api->resource('posts', ['has-one' => 'author', 'has-many' => ['comments', 'tags']]);
+    $api->resource('sites');
 });

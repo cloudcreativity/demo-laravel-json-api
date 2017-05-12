@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use App\JsonApi\Sites;
 use App\Site;
-use App\SiteRepository;
+use CloudCreativity\JsonApi\Contracts\Http\ApiInterface;
 use CloudCreativity\JsonApi\Contracts\Http\Requests\RequestInterface as JsonApiRequest;
-use CloudCreativity\LaravelJsonApi\Http\Controllers\JsonApiController;
+use CloudCreativity\LaravelJsonApi\Http\Responses\ReplyTrait;
+use Illuminate\Routing\Controller;
 
-class SitesController extends JsonApiController
+class SitesController extends Controller
 {
+
+    use ReplyTrait;
 
     /**
      * @var Sites\Hydrator
@@ -23,30 +26,22 @@ class SitesController extends JsonApiController
      */
     public function __construct(Sites\Hydrator $hydrator)
     {
-        parent::__construct();
         $this->hydrator = $hydrator;
     }
 
     /**
-     * @return string
-     */
-    protected function getRequestHandler()
-    {
-        return Sites\Request::class;
-    }
-
-    /**
+     * @param ApiInterface $api
      * @param JsonApiRequest $request
      * @return mixed
      */
-    public function index(JsonApiRequest $request)
+    public function index(ApiInterface $api, JsonApiRequest $request)
     {
-        /** @var SiteRepository $repository */
-        $repository = app(SiteRepository::class);
+        $store = $api->getStore();
 
-        return $this
-            ->reply()
-            ->content($repository->all());
+        return $this->reply()->content($store->query(
+            $request->getResourceType(),
+            $request->getParameters()
+        ));
     }
 
     /**

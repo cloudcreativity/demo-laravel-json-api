@@ -9,6 +9,13 @@ class Validators extends AbstractValidatorProvider
 {
 
     /**
+     * @var array
+     */
+    protected $allowedFilteringParameters = [
+        'id',
+    ];
+
+    /**
      * Get the validation rules for the resource attributes.
      *
      * @param string $resourceType

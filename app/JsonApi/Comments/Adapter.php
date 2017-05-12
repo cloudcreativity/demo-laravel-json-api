@@ -1,8 +1,8 @@
 <?php
 
-namespace App\JsonApi\People;
+namespace App\JsonApi\Comments;
 
-use App\Person;
+use App\Comment;
 use CloudCreativity\LaravelJsonApi\Store\EloquentAdapter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
@@ -15,7 +15,7 @@ class Adapter extends EloquentAdapter
      */
     public function __construct()
     {
-        parent::__construct(new Person());
+        parent::__construct(new Comment());
     }
 
     /**
@@ -33,6 +33,5 @@ class Adapter extends EloquentAdapter
     {
         // TODO: Implement isSearchOne() method.
     }
-
 
 }
