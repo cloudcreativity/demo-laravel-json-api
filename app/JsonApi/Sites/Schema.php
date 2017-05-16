@@ -12,7 +12,7 @@ class Schema extends EntitySchema
     /**
      * @var string
      */
-    const RESOURCE_TYPE = 'sites';
+    protected $resourceType = 'sites';
 
     /**
      * @var array

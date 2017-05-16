@@ -121,12 +121,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "5d28402978ee85f071b314d6974021abb889ce8d"
+                "reference": "ad980e3fe9ee5112672a02c87090f55ba8e91238"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/5d28402978ee85f071b314d6974021abb889ce8d",
-                "reference": "5d28402978ee85f071b314d6974021abb889ce8d",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/ad980e3fe9ee5112672a02c87090f55ba8e91238",
+                "reference": "ad980e3fe9ee5112672a02c87090f55ba8e91238",
                 "shasum": ""
             },
             "require": {
@@ -171,7 +171,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2017-05-12 18:44:54"
+            "time": "2017-05-16 04:55:33"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

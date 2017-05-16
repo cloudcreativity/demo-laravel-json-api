@@ -9,7 +9,10 @@ use CloudCreativity\LaravelJsonApi\Schema\EloquentSchema;
 class Schema extends EloquentSchema
 {
 
-    const RESOURCE_TYPE = 'comments';
+    /**
+     * @var string
+     */
+    protected $resourceType = 'comments';
 
     /**
      * @var array
@@ -17,14 +20,6 @@ class Schema extends EloquentSchema
     protected $attributes = [
         'content'
     ];
-
-    /**
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return self::RESOURCE_TYPE;
-    }
 
     /**
      * @param object $resource

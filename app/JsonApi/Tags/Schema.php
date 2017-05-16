@@ -7,7 +7,10 @@ use CloudCreativity\LaravelJsonApi\Schema\EloquentSchema;
 class Schema extends EloquentSchema
 {
 
-    const RESOURCE_TYPE = 'tags';
+    /**
+     * @var string
+     */
+    protected $resourceType = 'tags';
 
     /**
      * @var array
@@ -16,11 +19,4 @@ class Schema extends EloquentSchema
         'name',
     ];
 
-    /**
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return self::RESOURCE_TYPE;
-    }
 }

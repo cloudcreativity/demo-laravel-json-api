@@ -9,7 +9,10 @@ use CloudCreativity\LaravelJsonApi\Schema\EloquentSchema;
 class Schema extends EloquentSchema
 {
 
-    const RESOURCE_TYPE = 'people';
+    /**
+     * @var string
+     */
+    protected $resourceType = 'people';
 
     /**
      * @var array
@@ -18,14 +21,6 @@ class Schema extends EloquentSchema
         'first_name',
         'surname',
     ];
-
-    /**
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return self::RESOURCE_TYPE;
-    }
 
     /**
      * @param object $resource

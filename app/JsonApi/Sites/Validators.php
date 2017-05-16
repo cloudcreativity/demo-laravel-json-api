@@ -11,7 +11,7 @@ class Validators extends AbstractValidatorProvider
     /**
      * @var string
      */
-    protected $resourceType = Schema::RESOURCE_TYPE;
+    protected $resourceType = 'sites';
 
     /**
      * @var array
