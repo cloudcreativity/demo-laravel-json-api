@@ -11,19 +11,12 @@ class PostsController extends EloquentController
 
     /**
      * PostsController constructor.
+     *
      * @param Posts\Hydrator $hydrator
-     * @param Posts\Search $search
      */
-    public function __construct(Posts\Hydrator $hydrator, Posts\Search $search)
+    public function __construct(Posts\Hydrator $hydrator)
     {
-        parent::__construct(new Post(), $hydrator, $search);
+        parent::__construct(new Post(), $hydrator);
     }
 
-    /**
-     * @return string
-     */
-    protected function getRequestHandler()
-    {
-        return Posts\Request::class;
-    }
 }

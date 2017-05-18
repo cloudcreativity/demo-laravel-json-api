@@ -3,8 +3,8 @@
 namespace App\JsonApi\Sites;
 
 use App\SiteRepository;
-use CloudCreativity\JsonApi\Contracts\Object\ResourceIdentifierInterface;
 use CloudCreativity\JsonApi\Contracts\Store\AdapterInterface;
+use Neomerx\JsonApi\Contracts\Encoder\Parameters\EncodingParametersInterface;
 
 class Adapter implements AdapterInterface
 {
@@ -25,30 +25,27 @@ class Adapter implements AdapterInterface
     }
 
     /**
-     * @param $resourceType
-     * @return mixed
+     * @inheritDoc
      */
-    public function recognises($resourceType)
+    public function query(EncodingParametersInterface $parameters)
     {
-        return Schema::RESOURCE_TYPE === $resourceType;
+        return $this->repository->all();
     }
 
     /**
-     * @param ResourceIdentifierInterface $identifier
-     * @return mixed
+     * @inheritdoc
      */
-    public function exists(ResourceIdentifierInterface $identifier)
+    public function exists($resourceId)
     {
-        return !is_null($this->find($identifier));
+        return !is_null($this->find($resourceId));
     }
 
     /**
-     * @param ResourceIdentifierInterface $identifier
-     * @return mixed
+     * @inheritdoc
      */
-    public function find(ResourceIdentifierInterface $identifier)
+    public function find($resourceId)
     {
-        return $this->repository->find($identifier->getId());
+        return $this->repository->find($resourceId);
     }
 
 }

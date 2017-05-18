@@ -2,21 +2,34 @@
 
 namespace App\JsonApi\Posts;
 
-use CloudCreativity\LaravelJsonApi\Search\AbstractSearch;
+use App\Post;
+use CloudCreativity\LaravelJsonApi\Pagination\StandardStrategy;
+use CloudCreativity\LaravelJsonApi\Store\EloquentAdapter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
-class Search extends AbstractSearch
+class Adapter extends EloquentAdapter
 {
 
     /**
-     * @var int
+     * @var array
      */
-    protected $maxPerPage = 25;
+    protected $defaultPagination = [
+        'number' => 1,
+    ];
 
     /**
-     * @param Builder $builder
-     * @param Collection $filters
+     * Adapter constructor.
+     *
+     * @param StandardStrategy $paging
+     */
+    public function __construct(StandardStrategy $paging)
+    {
+        parent::__construct(new Post(), $paging);
+    }
+
+    /**
+     * @inheritdoc
      */
     protected function filter(Builder $builder, Collection $filters)
     {
@@ -30,12 +43,10 @@ class Search extends AbstractSearch
     }
 
     /**
-     * @param Collection $filters
-     * @return bool
+     * @inheritdoc
      */
     protected function isSearchOne(Collection $filters)
     {
         return $filters->has('slug');
     }
-
 }

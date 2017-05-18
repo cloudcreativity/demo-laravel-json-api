@@ -1,6 +1,6 @@
 <?php
 
-namespace App\JsonApi\Sites;
+namespace App\JsonApi\People;
 
 use CloudCreativity\JsonApi\Contracts\Validators\RelationshipsValidatorInterface;
 use CloudCreativity\LaravelJsonApi\Validators\AbstractValidatorProvider;
@@ -11,7 +11,7 @@ class Validators extends AbstractValidatorProvider
     /**
      * @var string
      */
-    protected $resourceType = 'sites';
+    protected $resourceType = 'people';
 
     /**
      * @var array
@@ -21,20 +21,20 @@ class Validators extends AbstractValidatorProvider
     ];
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function attributeRules($record = null)
     {
         $required = $record ? 'sometimes|required' : 'required';
 
         return [
-            'domain' => "$required|url",
-            'name' => "$required|string|min:1",
+            'first-name' => "$required|string|min:1",
+            'surname' => "$required|string|min:1",
         ];
     }
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function relationshipRules(RelationshipsValidatorInterface $relationships, $record = null)
     {
@@ -42,4 +42,3 @@ class Validators extends AbstractValidatorProvider
     }
 
 }
-

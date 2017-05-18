@@ -17,7 +17,7 @@ class SitesTest extends TestCase
             'id' => 'my-site',
             'attributes' => [
                 'name' => 'My Blog',
-                'domain' => 'blog.example.com',
+                'domain' => 'http://blog.example.com',
             ],
         ];
 

@@ -9,7 +9,10 @@ use CloudCreativity\LaravelJsonApi\Schema\EloquentSchema;
 class Schema extends EloquentSchema
 {
 
-    const RESOURCE_TYPE = 'posts';
+    /**
+     * @var string
+     */
+    protected $resourceType = 'posts';
 
     /**
      * @var array
@@ -19,14 +22,6 @@ class Schema extends EloquentSchema
         'slug',
         'content',
     ];
-
-    /**
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return self::RESOURCE_TYPE;
-    }
 
     /**
      * @param object $resource

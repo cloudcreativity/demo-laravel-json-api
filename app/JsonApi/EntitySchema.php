@@ -21,14 +21,6 @@ abstract class EntitySchema extends SchemaProvider
     use ExtractsAttributesTrait;
 
     /**
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return constant('static::RESOURCE_TYPE');
-    }
-
-    /**
      * @param $record
      * @param $recordKey
      * @return mixed

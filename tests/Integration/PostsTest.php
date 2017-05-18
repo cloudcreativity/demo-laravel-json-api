@@ -16,8 +16,9 @@ class PostsTest extends TestCase
         // ensure there is at least one model in the database
         $this->model();
 
-        $this->doSearch()
-            ->assertSearchResponse();
+        $this->doSearch([
+            'page' => ['number' => 1, 'size' => 10],
+        ])->assertSearchResponse();
     }
 
     /**
