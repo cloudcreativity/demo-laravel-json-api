@@ -121,12 +121,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "ad980e3fe9ee5112672a02c87090f55ba8e91238"
+                "reference": "0ce299d40140700385c5c0cf35fa10d80fb8571c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/ad980e3fe9ee5112672a02c87090f55ba8e91238",
-                "reference": "ad980e3fe9ee5112672a02c87090f55ba8e91238",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/0ce299d40140700385c5c0cf35fa10d80fb8571c",
+                "reference": "0ce299d40140700385c5c0cf35fa10d80fb8571c",
                 "shasum": ""
             },
             "require": {
@@ -171,7 +171,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2017-05-16 04:55:33"
+            "time": "2017-05-17 15:12:10"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1057,16 +1057,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.3",
+            "version": "v0.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "1dd4bbbc64d71e7ec075ffe82b42d9e096dc8d5e"
+                "reference": "38a9d21406597a0440690eafbcb0222f528c8ac6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1dd4bbbc64d71e7ec075ffe82b42d9e096dc8d5e",
-                "reference": "1dd4bbbc64d71e7ec075ffe82b42d9e096dc8d5e",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/38a9d21406597a0440690eafbcb0222f528c8ac6",
+                "reference": "38a9d21406597a0440690eafbcb0222f528c8ac6",
                 "shasum": ""
             },
             "require": {
@@ -1126,7 +1126,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-03-19T21:40:44+00:00"
+            "time": "2017-05-17T06:49:19+00:00"
         },
         {
             "name": "ramsey/uuid",
