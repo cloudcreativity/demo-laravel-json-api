@@ -34,14 +34,14 @@ As an example, this API exposes a `posts` resource. To do this:
 1. The resource is registered with the router in `app/Http/routes.php`
 2. A controller exists: `app/Http/Controllers/Api/PostsController`. This is composed of units that each have a single
 concern, and can be found in the `app/JsonApi/Posts` folder:
-  - A `request`, that handles the incoming request from the client and validates it.
-  - A `validators` provider, that provides the rules for validating the HTTP content for a create or update request,
-  as well as validating any filters for a search (find-many) request.
+  - An `adapter` class, that handles finding `Post` models either from a JSON API resource identifier or from a JSON
+  API search request (filtering, pagination etc).
   - A `hydrator`, that contains the logic for transferring data from the client's request into the domain record (the
   `Post` model).
   - A `schema` that handles converting the `Post` model into its API representation.
-  - A `search` class, that handles converting a find-many request into an Eloquent query.
- 
+  - A `validators` provider, that provides the rules for validating the HTTP content for a create or update request,
+  as well as validating any query parameters.
+
 ### Eloquent vs Not-Eloquent
 
 This package can handle both Eloquent and non-Eloquent records. You get a lot more functionality out of the box if
@@ -56,9 +56,6 @@ This demo includes the following JSON-API resources:
 | posts | App\Post | Yes |
 | sites | App\Site | No |
 | tags | App\Tag | Yes |
-
-You'll notice that the `sites` resource also has an additional unit: an `adapter`. This tells the store how to check 
-whether a specific resource exists, and how to load it. The store is used when parsing an incoming JSON API request.
 
 To support our non-Eloquent records, we've created a custom schema and hydrator class in this application. These
 use traits that are included in the package to replicate the behaviour of the Eloquent schema/hydrator. The custom
