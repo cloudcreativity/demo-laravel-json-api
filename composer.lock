@@ -4,25 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "296bd170097aa0ce4742d7842e58de3e",
+    "content-hash": "4dd02490758c0407b382c567409c41df",
     "packages": [
         {
             "name": "cloudcreativity/json-api",
-            "version": "dev-feature/no-request-handler",
+            "version": "v0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/json-api.git",
-                "reference": "0af80e01d690d295a61cf3ce2da79066932e4f21"
+                "reference": "579fadc0d27b544bb002c292e95433fa795fb3b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/0af80e01d690d295a61cf3ce2da79066932e4f21",
-                "reference": "0af80e01d690d295a61cf3ce2da79066932e4f21",
+                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/579fadc0d27b544bb002c292e95433fa795fb3b4",
+                "reference": "579fadc0d27b544bb002c292e95433fa795fb3b4",
                 "shasum": ""
             },
             "require": {
                 "neomerx/json-api": "^1.0",
-                "php": "^5.6|^7.0"
+                "php": "^5.6.4|^7.0"
             },
             "require-dev": {
                 "guzzlehttp/psr7": "^1.3",
@@ -59,36 +59,43 @@
                 "jsonapi",
                 "jsonapi.org"
             ],
-            "time": "2017-05-12 18:42:24"
+            "time": "2017-05-20T06:30:23+00:00"
         },
         {
             "name": "cloudcreativity/laravel-json-api",
-            "version": "dev-feature/issue53",
+            "version": "v0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "0ce299d40140700385c5c0cf35fa10d80fb8571c"
+                "reference": "90ff18721b3bc09f3d632bb0cac6543cf0cbd772"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/0ce299d40140700385c5c0cf35fa10d80fb8571c",
-                "reference": "0ce299d40140700385c5c0cf35fa10d80fb8571c",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/90ff18721b3bc09f3d632bb0cac6543cf0cbd772",
+                "reference": "90ff18721b3bc09f3d632bb0cac6543cf0cbd772",
                 "shasum": ""
             },
             "require": {
-                "cloudcreativity/json-api": "dev-feature/no-request-handler",
-                "laravel/framework": "5.1.*|5.2.*|5.3.*|5.4.*",
+                "cloudcreativity/json-api": "^0.8",
+                "illuminate/console": "5.3.*|5.4.*",
+                "illuminate/contracts": "5.3.*|5.4.*",
+                "illuminate/database": "5.3.*|5.4.*",
+                "illuminate/filesystem": "5.3.*|5.4.*",
+                "illuminate/http": "5.3.*|5.4.*",
+                "illuminate/pagination": "5.3.*|5.4.*",
+                "illuminate/support": "5.3.*|5.4.*",
                 "php": "^5.6|^7.0",
                 "symfony/psr-http-message-bridge": "^1.0",
                 "zendframework/zend-diactoros": "^1.3"
             },
             "require-dev": {
+                "illuminate/routing": "5.3.*|5.4.*",
                 "phpunit/phpunit": "^5.7"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "0.8.x-dev"
+                    "dev-develop": "0.9.x-dev"
                 }
             },
             "autoload": {
@@ -117,7 +124,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2017-05-17 15:12:10"
+            "time": "2017-05-20T08:19:58+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3251,23 +3258,23 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e"
+                "reference": "3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/13edfd8706462032c2f52b4b862974dd46b71c9e",
-                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2",
+                "reference": "3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.8"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
             },
             "type": "library",
             "extra": {
@@ -3299,7 +3306,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-12-08T07:14:41+00:00"
+            "time": "2017-05-18T13:44:30+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -3816,10 +3823,8 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "cloudcreativity/laravel-json-api": 20
-    },
+    "minimum-stability": "stable",
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
