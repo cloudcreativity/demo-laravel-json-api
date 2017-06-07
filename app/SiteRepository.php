@@ -32,7 +32,7 @@ class SiteRepository
      * @param $slug
      * @return Site|null
      */
-    public function find($slug): ?Site
+    public function find($slug): Site
     {
         $this->load();
 
