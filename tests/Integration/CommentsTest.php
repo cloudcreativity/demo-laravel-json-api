@@ -13,7 +13,7 @@ class CommentsTest extends TestCase
 
         $data = [
             'type' => 'comments',
-            'id' => $model->getKey(),
+            'id' => (string) $model->getKey(),
             'attributes' => [
                 'content' => $model->content,
             ],

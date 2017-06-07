@@ -87,7 +87,7 @@ class PeopleTestCase extends TestCase
 
         $data = [
             'type' => 'people',
-            'id' => $model->getKey(),
+            'id' => (string) $model->getKey(),
             'attributes' => [
                 'first-name' => 'Foo',
             ],
