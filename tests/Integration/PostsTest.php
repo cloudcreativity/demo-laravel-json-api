@@ -54,12 +54,15 @@ class PostsTest extends TestCase
                 'author' => [
                     'data' => [
                         'type' => 'people',
-                        'id' => $model->author_id,
+                        'id' => (string) $model->author_id,
                     ],
                 ],
                 'tags' => [
                     'data' => [
-                        ['type' => 'tags', 'id' => $tag->getKey()],
+                        [
+                            'type' => 'tags',
+                            'id' => (string) $tag->getKey(),
+                        ],
                     ],
                 ],
             ],
@@ -83,7 +86,7 @@ class PostsTest extends TestCase
 
         $data = [
             'type' => 'posts',
-            'id' => $model->getKey(),
+            'id' => (string) $model->getKey(),
             'attributes' => [
                 'title' => $model->title,
                 'slug' => $model->slug,
@@ -93,12 +96,15 @@ class PostsTest extends TestCase
                 'author' => [
                     'data' => [
                         'type' => 'people',
-                        'id' => $model->author_id,
+                        'id' => (string) $model->author_id,
                     ],
                 ],
                 'tags' => [
                     'data' => [
-                        ['type' => 'tags', 'id' => $tag->getKey()],
+                        [
+                            'type' => 'tags',
+                            'id' => (string) $tag->getKey(),
+                        ],
                     ],
                 ],
             ],
@@ -117,7 +123,7 @@ class PostsTest extends TestCase
 
         $data = [
             'type' => 'posts',
-            'id' => $model->getKey(),
+            'id' => (string) $model->getKey(),
             'attributes' => [
                 'slug' => 'posts-test',
                 'title' => 'Foo Bar Baz Bat',
