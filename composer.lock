@@ -4,30 +4,33 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0703c6da0cf7b40d2ea3733c5b21434",
+    "content-hash": "045220d30eada422f14cf6fc2ee12dd2",
     "packages": [
         {
             "name": "cloudcreativity/json-api",
-            "version": "v0.9.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/json-api.git",
-                "reference": "3e1d3cc45029c4deb2410e2f5183aca7c68fc98c"
+                "reference": "4ff64d2062dac28bc2ee317afb1cdd8275b49405"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/3e1d3cc45029c4deb2410e2f5183aca7c68fc98c",
-                "reference": "3e1d3cc45029c4deb2410e2f5183aca7c68fc98c",
+                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/4ff64d2062dac28bc2ee317afb1cdd8275b49405",
+                "reference": "4ff64d2062dac28bc2ee317afb1cdd8275b49405",
                 "shasum": ""
             },
             "require": {
                 "cloudcreativity/utils-object": "^1.0",
-                "neomerx/json-api": "^1.0",
+                "neomerx/json-api": "^1.0.3",
                 "php": "^5.6.4|^7.0"
             },
             "require-dev": {
-                "guzzlehttp/psr7": "^1.3",
+                "guzzlehttp/guzzle": "^6.3",
                 "phpunit/phpunit": "^5.7"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Guzzle v6 required to use the JSON API client."
             },
             "type": "library",
             "extra": {
@@ -38,7 +41,10 @@
             "autoload": {
                 "psr-4": {
                     "CloudCreativity\\JsonApi\\": "src/"
-                }
+                },
+                "files": [
+                    "helpers.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -60,37 +66,39 @@
                 "jsonapi",
                 "jsonapi.org"
             ],
-            "time": "2017-06-07T06:38:04+00:00"
+            "time": "2017-07-04 13:55:01"
         },
         {
             "name": "cloudcreativity/laravel-json-api",
-            "version": "v0.9.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "fcb19b3f7e4c6d4216a7d1424cb3dd90fc631667"
+                "reference": "a9d6453b1c4b8268bc543e8c975e0a422fab4e7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/fcb19b3f7e4c6d4216a7d1424cb3dd90fc631667",
-                "reference": "fcb19b3f7e4c6d4216a7d1424cb3dd90fc631667",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/a9d6453b1c4b8268bc543e8c975e0a422fab4e7a",
+                "reference": "a9d6453b1c4b8268bc543e8c975e0a422fab4e7a",
                 "shasum": ""
             },
             "require": {
-                "cloudcreativity/json-api": "^0.9",
-                "illuminate/console": "5.3.*|5.4.*",
-                "illuminate/contracts": "5.3.*|5.4.*",
-                "illuminate/database": "5.3.*|5.4.*",
-                "illuminate/filesystem": "5.3.*|5.4.*",
-                "illuminate/http": "5.3.*|5.4.*",
-                "illuminate/pagination": "5.3.*|5.4.*",
-                "illuminate/support": "5.3.*|5.4.*",
+                "cloudcreativity/json-api": "^0.10",
+                "illuminate/console": "5.4.*",
+                "illuminate/contracts": "5.4.*",
+                "illuminate/database": "5.4.*",
+                "illuminate/filesystem": "5.4.*",
+                "illuminate/http": "5.4.*",
+                "illuminate/pagination": "5.4.*",
+                "illuminate/support": "5.4.*",
                 "php": "^5.6|^7.0",
                 "symfony/psr-http-message-bridge": "^1.0",
                 "zendframework/zend-diactoros": "^1.3"
             },
             "require-dev": {
-                "illuminate/routing": "5.3.*|5.4.*",
+                "ext-sqlite3": "*",
+                "illuminate/routing": "5.4.*",
+                "orchestra/testbench": "~3.0",
                 "phpunit/phpunit": "^5.7"
             },
             "type": "library",
@@ -102,7 +110,10 @@
             "autoload": {
                 "psr-4": {
                     "CloudCreativity\\LaravelJsonApi\\": "src/"
-                }
+                },
+                "files": [
+                    "helpers.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -125,7 +136,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2017-06-07T06:48:12+00:00"
+            "time": "2017-07-19 16:28:53"
         },
         {
             "name": "cloudcreativity/utils-object",
@@ -804,16 +815,16 @@
         },
         {
             "name": "neomerx/json-api",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neomerx/json-api.git",
-                "reference": "1f16cac1f3245ea4853834e2507541c3b4b90abc"
+                "reference": "c2a41bb0d062edf89f25c4e005d34e4321e5f620"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neomerx/json-api/zipball/1f16cac1f3245ea4853834e2507541c3b4b90abc",
-                "reference": "1f16cac1f3245ea4853834e2507541c3b4b90abc",
+                "url": "https://api.github.com/repos/neomerx/json-api/zipball/c2a41bb0d062edf89f25c4e005d34e4321e5f620",
+                "reference": "c2a41bb0d062edf89f25c4e005d34e4321e5f620",
                 "shasum": ""
             },
             "require": {
@@ -855,7 +866,7 @@
                 "jsonapi.org",
                 "neomerx"
             ],
-            "time": "2017-05-29T10:03:56+00:00"
+            "time": "2017-06-19T09:16:29+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -1386,7 +1397,7 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v3.3.2",
+            "version": "v3.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -1607,16 +1618,16 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v3.3.2",
+            "version": "v3.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "80eb5a1f968448b77da9e8b2c0827f6e8d767846"
+                "reference": "e307abe4b79ccbbfdced9b91c132fd128f456bc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/80eb5a1f968448b77da9e8b2c0827f6e8d767846",
-                "reference": "80eb5a1f968448b77da9e8b2c0827f6e8d767846",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/e307abe4b79ccbbfdced9b91c132fd128f456bc5",
+                "reference": "e307abe4b79ccbbfdced9b91c132fd128f456bc5",
                 "shasum": ""
             },
             "require": {
@@ -1656,7 +1667,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-05T13:06:51+00:00"
+            "time": "2017-07-17T14:07:10+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -1746,16 +1757,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4"
+                "reference": "f29dca382a6485c3cbe6379f0c61230167681937"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/e79d363049d1c2128f133a2667e4f4190904f7f4",
-                "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/f29dca382a6485c3cbe6379f0c61230167681937",
+                "reference": "f29dca382a6485c3cbe6379f0c61230167681937",
                 "shasum": ""
             },
             "require": {
@@ -1767,7 +1778,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -1801,7 +1812,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-11-14T01:06:16+00:00"
+            "time": "2017-06-09T14:24:12+00:00"
         },
         {
             "name": "symfony/process",
@@ -2420,53 +2431,6 @@
                 "test"
             ],
             "time": "2015-05-11T14:41:42+00:00"
-        },
-        {
-            "name": "laravel/browser-kit-testing",
-            "version": "v1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/browser-kit-testing.git",
-                "reference": "0adfb725147815bff5516d157577f375a6e66ebd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/browser-kit-testing/zipball/0adfb725147815bff5516d157577f375a6e66ebd",
-                "reference": "0adfb725147815bff5516d157577f375a6e66ebd",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9",
-                "symfony/css-selector": "~3.1",
-                "symfony/dom-crawler": "~3.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravel\\BrowserKitTesting\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "Provides backwards compatibility for BrowserKit testing in Laravel 5.4.",
-            "keywords": [
-                "laravel",
-                "testing"
-            ],
-            "time": "2017-02-08T22:32:37+00:00"
         },
         {
             "name": "laravel/homestead",
@@ -3734,62 +3698,6 @@
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
-            "name": "symfony/dom-crawler",
-            "version": "v3.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "fc2c588ce376e9fe04a7b8c79e3ec62fe32d95b1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/fc2c588ce376e9fe04a7b8c79e3ec62fe32d95b1",
-                "reference": "fc2c588ce376e9fe04a7b8c79e3ec62fe32d95b1",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9",
-                "symfony/polyfill-mbstring": "~1.0"
-            },
-            "require-dev": {
-                "symfony/css-selector": "~2.8|~3.0"
-            },
-            "suggest": {
-                "symfony/css-selector": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\DomCrawler\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony DomCrawler Component",
-            "homepage": "https://symfony.com",
-            "time": "2017-05-25T23:10:31+00:00"
-        },
-        {
             "name": "symfony/yaml",
             "version": "v3.3.2",
             "source": {
@@ -3896,7 +3804,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,

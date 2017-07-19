@@ -7,7 +7,12 @@ use App\SiteRepository;
 class SitesTest extends TestCase
 {
 
-    public function testCreate(): array
+    /**
+     * @var string
+     */
+    protected $resourceType = 'sites';
+
+    public function testCreate()
     {
         // ensure 'my-site' doesn't exist before creating it...
         app(SiteRepository::class)->remove('my-site');
@@ -62,14 +67,6 @@ class SitesTest extends TestCase
     {
         $this->doDelete('my-site')->assertDeleteResponse();
         $this->assertNull(app(SiteRepository::class)->find('my-site'));
-    }
-
-    /**
-     * @return string
-     */
-    protected function getResourceType()
-    {
-        return 'sites';
     }
 
 }

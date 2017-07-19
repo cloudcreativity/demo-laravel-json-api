@@ -4,15 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use App\JsonApi\Sites;
 use App\Site;
-use CloudCreativity\JsonApi\Contracts\Http\ApiInterface;
-use CloudCreativity\JsonApi\Contracts\Http\Requests\RequestInterface as JsonApiRequest;
-use CloudCreativity\LaravelJsonApi\Http\Responses\ReplyTrait;
+use CloudCreativity\JsonApi\Contracts\Http\Requests\RequestInterface;
+use CloudCreativity\JsonApi\Contracts\Object\ResourceObjectInterface;
+use CloudCreativity\LaravelJsonApi\Http\Controllers\CreatesResponses;
 use Illuminate\Routing\Controller;
 
 class SitesController extends Controller
 {
 
-    use ReplyTrait;
+    use CreatesResponses;
 
     /**
      * @var Sites\Hydrator
@@ -30,52 +30,48 @@ class SitesController extends Controller
     }
 
     /**
-     * @param ApiInterface $api
-     * @param JsonApiRequest $request
+     * @param RequestInterface $request
      * @return mixed
      */
-    public function index(ApiInterface $api, JsonApiRequest $request)
+    public function index(RequestInterface $request)
     {
-        $store = $api->getStore();
-
-        return $this->reply()->content($store->query(
+        $results = $this->api()->getStore()->query(
             $request->getResourceType(),
             $request->getParameters()
-        ));
+        );
+
+        return $this->reply()->content($results);
     }
 
     /**
-     * @param JsonApiRequest $request
+     * @param ResourceObjectInterface $resource
      * @return mixed
      */
-    public function create(JsonApiRequest $request)
+    public function create(ResourceObjectInterface $resource)
     {
-        $resource = $request->getDocument()->getResource();
         $record = new Site($resource->getId()); // client generated id.
-        $this->hydrator->hydrate($request->getDocument()->getResource(), $record);
+        $this->hydrator->hydrate($resource, $record);
         $record->save();
 
         return $this->reply()->created($record);
     }
 
     /**
-     * @param JsonApiRequest $request
+     * @param Site $record
      * @return mixed
      */
-    public function read(JsonApiRequest $request)
+    public function read(Site $record)
     {
-        return $this->reply()->content($request->getRecord());
+        return $this->reply()->content($record);
     }
 
     /**
-     * @param JsonApiRequest $request
+     * @param ResourceObjectInterface $resource
+     * @param Site $record
      * @return mixed
      */
-    public function update(JsonApiRequest $request)
+    public function update(ResourceObjectInterface $resource, Site $record)
     {
-        /** @var Site $record */
-        $record = $request->getRecord();
-        $resource = $request->getDocument()->getResource();
         $this->hydrator->hydrate($resource, $record);
         $record->save();
 
@@ -83,13 +79,11 @@ class SitesController extends Controller
     }
 
     /**
-     * @param JsonApiRequest $request
+     * @param Site $record
      * @return mixed
      */
-    public function delete(JsonApiRequest $request)
+    public function delete(Site $record)
     {
-        /** @var Site $record */
-        $record = $request->getRecord();
         $record->delete();
 
         return $this->reply()->noContent();

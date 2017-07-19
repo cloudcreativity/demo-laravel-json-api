@@ -8,6 +8,11 @@ class PeopleTestCase extends TestCase
 {
 
     /**
+     * @var string
+     */
+    protected $resourceType = 'people';
+
+    /**
      * Test the search route.
      */
     public function testSearch()
@@ -93,9 +98,8 @@ class PeopleTestCase extends TestCase
             ],
         ];
 
-        $this->doUpdate($data)
-            ->assertUpdateResponse($data)
-            ->assertModelPatched($model, $data['attributes'], ['surname']);
+        $this->doUpdate($data)->assertUpdateResponse($data);
+        $this->assertModelPatched($model, $data['attributes'], ['surname']);
     }
 
     /**
@@ -105,17 +109,8 @@ class PeopleTestCase extends TestCase
     {
         $model = $this->person();
 
-        $this->doDelete($model)
-            ->assertDeleteResponse()
-            ->assertModelDeleted($model);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function getResourceType()
-    {
-        return 'people';
+        $this->doDelete($model)->assertDeleteResponse();
+        $this->assertModelDeleted($model);
     }
 
     /**

@@ -9,6 +9,11 @@ class PostsTest extends TestCase
 {
 
     /**
+     * @var string
+     */
+    protected $resourceType = 'posts';
+
+    /**
      * Test the search route
      */
     public function testSearch()
@@ -130,9 +135,8 @@ class PostsTest extends TestCase
             ],
         ];
 
-        $this->doUpdate($data)
-            ->assertUpdateResponse($data)
-            ->assertModelPatched($model, $data['attributes'], ['content']);
+        $this->doUpdate($data)->assertUpdateResponse($data);
+        $this->assertModelPatched($model, $data['attributes'], ['content']);
     }
 
     /**
@@ -142,17 +146,8 @@ class PostsTest extends TestCase
     {
         $model = $this->model();
 
-        $this->doDelete($model)
-            ->assertDeleteResponse()
-            ->assertModelDeleted($model);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function getResourceType()
-    {
-        return 'posts';
+        $this->doDelete($model)->assertDeleteResponse();
+        $this->assertModelDeleted($model);
     }
 
     /**

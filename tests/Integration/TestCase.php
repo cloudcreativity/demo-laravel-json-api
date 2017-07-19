@@ -2,25 +2,21 @@
 
 namespace App\Tests\Integration;
 
-use App\Tests\BrowserKitTest;
+use App\Tests\TestCase as BaseTestCase;
 use CloudCreativity\LaravelJsonApi\Testing\InteractsWithModels;
-use CloudCreativity\LaravelJsonApi\Testing\InteractsWithResources;
+use CloudCreativity\LaravelJsonApi\Testing\MakesJsonApiRequests;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-abstract class TestCase extends BrowserKitTest
+abstract class TestCase extends BaseTestCase
 {
 
-    use InteractsWithResources,
+    use MakesJsonApiRequests,
         InteractsWithModels,
         DatabaseTransactions;
 
     /**
-     * Return the prefix for route names for the resources we're testing...
-     *
-     * @return string
+     * @var string
      */
-    protected function getRoutePrefix()
-    {
-        return 'api-v1::';
-    }
+    protected $api = 'v1';
+
 }

@@ -7,6 +7,11 @@ use App\Comment;
 class CommentsTest extends TestCase
 {
 
+    /**
+     * @var string
+     */
+    protected $resourceType = 'comments';
+
     public function testRead()
     {
         $model = $this->model();
@@ -34,14 +39,6 @@ class CommentsTest extends TestCase
         ];
 
         $this->doRead($model)->assertReadResponse($data);
-    }
-
-    /**
-     * @return mixed
-     */
-    protected function getResourceType()
-    {
-        return 'comments';
     }
 
     /**

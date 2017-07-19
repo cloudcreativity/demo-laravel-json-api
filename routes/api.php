@@ -1,5 +1,6 @@
 <?php
 
+use CloudCreativity\LaravelJsonApi\Facades\JsonApi;
 use CloudCreativity\LaravelJsonApi\Routing\ApiGroup as Api;
 
 /*
@@ -13,11 +14,7 @@ use CloudCreativity\LaravelJsonApi\Routing\ApiGroup as Api;
 |
 */
 
-JsonApi::api('v1', [
-    'namespace' => 'Api',
-    'prefix' => 'v1',
-    'as' => 'api-v1::',
-], function (Api $api) {
+JsonApi::register('v1', ['namespace' => 'Api'], function (Api $api) {
     $api->resource('comments');
     $api->resource('people');
     $api->resource('posts', ['has-one' => 'author', 'has-many' => ['comments', 'tags']]);
