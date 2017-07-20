@@ -4,7 +4,7 @@ namespace App\Tests\Integration;
 
 use App\Person;
 
-class PeopleTestCase extends TestCase
+class PeopleTest extends TestCase
 {
 
     /**
