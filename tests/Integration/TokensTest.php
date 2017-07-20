@@ -42,9 +42,9 @@ class TokensTest extends TestCase
      */
     public function testDelete()
     {
+        // Carry out login process to retrieve JWT
         $random_password = str_random(10);
         $model = factory(User::class)->create(['password' => bcrypt($random_password)]);
-
         $data = [
             'type' => 'tokens',
             'attributes' => [
@@ -53,18 +53,12 @@ class TokensTest extends TestCase
             ],
         ];
 
-        $token_response = [
-            'type' => 'tokens',
-            'attributes' => [
-                'token-type' => 'bearer',
-                'expires-in' => 3600
-            ]
-        ];
-
-        $jwt = $this
+        $token_response = $this
             ->jsonApi('POST', '/api/v1/tokens', ['data' => $data])
-            ->assertCreateResponse($token_response);
+            ->decodeResponseJson();
+        $jwt = $token_response['data']['id'];
 
+        // Attempt to logout
         $headers = [
             'Authorization' => $jwt
         ];
