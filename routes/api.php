@@ -22,4 +22,7 @@ JsonApi::api('v1', [
     $api->resource('people');
     $api->resource('posts', ['has-one' => 'author', 'has-many' => ['comments', 'tags']]);
     $api->resource('sites');
+    $api->resource('tokens', [
+        'only' => ['create', 'delete']
+    ]);
 });
