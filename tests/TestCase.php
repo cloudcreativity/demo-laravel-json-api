@@ -3,10 +3,14 @@
 namespace App\Tests;
 
 use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
+
+    use DatabaseMigrations;
+
     /**
      * The base URL to use while testing the application.
      *
