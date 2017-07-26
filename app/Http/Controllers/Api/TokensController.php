@@ -65,6 +65,7 @@ class TokensController extends Controller
             return $this->reply()->created($token);
         } else {
             // Incorrect login details
+            // TODO: Give a proper error response message
             $errors = new ErrorResponse([], 422);
             return $this->reply()->errors($errors);
         }
