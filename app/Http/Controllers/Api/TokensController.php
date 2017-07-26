@@ -47,6 +47,7 @@ class TokensController extends Controller
     /**
      * Login
      *
+     * @todo Give a proper error response message
      * @param JsonApiRequest $request
      * @return mixed
      */
