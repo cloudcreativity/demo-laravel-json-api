@@ -63,7 +63,8 @@ class TokensTest extends TestCase
             'Authorization' => $jwt
         ];
 
-        dd($this->jsonApi('DELETE', '/api/v1/tokens/' . $jwt, [], $headers));
+        $this->jsonApi('DELETE', '/api/v1/tokens/' . $jwt, [], $headers)
+            ->assertDeleteResponse();
     }
 
     /**
