@@ -126,7 +126,7 @@ class Site
     /**
      * @return void
      */
-    public function save(): void
+    public function save()
     {
         app(SiteRepository::class)->store($this);
     }
@@ -134,7 +134,7 @@ class Site
     /**
      * @return void
      */
-    public function delete(): void
+    public function delete()
     {
         app(SiteRepository::class)->remove($this);
     }

@@ -32,7 +32,7 @@ class SiteRepository
      * @param $slug
      * @return Site|null
      */
-    public function find($slug): ?Site
+    public function find($slug)
     {
         $this->load();
 
@@ -54,7 +54,7 @@ class SiteRepository
     /**
      * @param Site $site
      */
-    public function store(Site $site): void
+    public function store(Site $site)
     {
         $this->load();
         $this->sites[$site->getSlug()] = $site->toArray();
@@ -64,7 +64,7 @@ class SiteRepository
     /**
      * @param Site|string $site
      */
-    public function remove($site): void
+    public function remove($site)
     {
         $slug = ($site instanceof Site) ? $site->getSlug() : $site;
 
@@ -88,7 +88,7 @@ class SiteRepository
     /**
      * @return void
      */
-    private function load(): void
+    private function load()
     {
         if (is_array($this->sites)) {
             return;
@@ -101,7 +101,7 @@ class SiteRepository
     /**
      * @return void
      */
-    private function write(): void
+    private function write()
     {
         if (!is_array($this->sites)) {
             return;
