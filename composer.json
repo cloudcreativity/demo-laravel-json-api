@@ -1,5 +1,5 @@
 {
-    "name": "cloudcreativity/laravel-json-api-demo",
+    "name": "cloudcreativity/demo-laravel-json-api",
     "description": "Demo Laravel application using the cloudcreativity/laravel-json-api package.",
     "keywords": [
         "laravel",
@@ -49,7 +49,7 @@
             "php artisan optimize"
         ]
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
         "preferred-install": "dist",

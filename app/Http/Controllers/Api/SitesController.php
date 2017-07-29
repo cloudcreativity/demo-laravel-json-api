@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\JsonApi\Sites;
+use App\JsonApi\Sites\Hydrator;
 use App\Site;
 use CloudCreativity\JsonApi\Contracts\Http\Requests\RequestInterface;
 use CloudCreativity\JsonApi\Contracts\Object\ResourceObjectInterface;
+use CloudCreativity\JsonApi\Contracts\Store\StoreInterface;
 use CloudCreativity\LaravelJsonApi\Http\Controllers\CreatesResponses;
 use Illuminate\Routing\Controller;
 
@@ -15,27 +16,13 @@ class SitesController extends Controller
     use CreatesResponses;
 
     /**
-     * @var Sites\Hydrator
-     */
-    private $hydrator;
-
-    /**
-     * SitesController constructor.
-     *
-     * @param Sites\Hydrator $hydrator
-     */
-    public function __construct(Sites\Hydrator $hydrator)
-    {
-        $this->hydrator = $hydrator;
-    }
-
-    /**
+     * @param StoreInterface $store
      * @param RequestInterface $request
      * @return mixed
      */
-    public function index(RequestInterface $request)
+    public function index(StoreInterface $store, RequestInterface $request)
     {
-        $results = $this->api()->getStore()->query(
+        $results = $store->query(
             $request->getResourceType(),
             $request->getParameters()
         );
@@ -44,13 +31,14 @@ class SitesController extends Controller
     }
 
     /**
+     * @param Hydrator $hydrator
      * @param ResourceObjectInterface $resource
      * @return mixed
      */
-    public function create(ResourceObjectInterface $resource)
+    public function create(Hydrator $hydrator, ResourceObjectInterface $resource)
     {
         $record = new Site($resource->getId()); // client generated id.
-        $this->hydrator->hydrate($resource, $record);
+        $hydrator->hydrate($resource, $record);
         $record->save();
 
         return $this->reply()->created($record);
@@ -66,13 +54,14 @@ class SitesController extends Controller
     }
 
     /**
+     * @param Hydrator $hydrator
      * @param ResourceObjectInterface $resource
      * @param Site $record
      * @return mixed
      */
-    public function update(ResourceObjectInterface $resource, Site $record)
+    public function update(Hydrator $hydrator, ResourceObjectInterface $resource, Site $record)
     {
-        $this->hydrator->hydrate($resource, $record);
+        $hydrator->hydrate($resource, $record);
         $record->save();
 
         return $this->reply()->content($record);
