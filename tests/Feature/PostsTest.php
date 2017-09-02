@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Integration;
+namespace Tests\Feature;
 
 use App\Post;
 use App\Tag;

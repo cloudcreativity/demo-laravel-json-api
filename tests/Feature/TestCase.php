@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tests\Integration;
+namespace Tests\Feature;
 
-use App\Tests\TestCase as BaseTestCase;
 use CloudCreativity\LaravelJsonApi\Testing\InteractsWithModels;
 use CloudCreativity\LaravelJsonApi\Testing\MakesJsonApiRequests;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Tests\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {

@@ -10,19 +10,23 @@
     "type": "project",
     "require": {
         "php": "^7.0",
-        "cloudcreativity/laravel-json-api": "^0.10",
-        "laravel/framework": "5.4.*",
+        "cloudcreativity/laravel-json-api": "dev-feature/laravel-5.5",
+        "fideloper/proxy": "^3.3",
+        "laravel/framework": "5.5.*",
         "laravel/tinker": "^1.0"
     },
     "require-dev": {
+        "cloudcreativity/json-api-testing": "^0.2",
+        "filp/whoops": "^2.1",
         "fzaninotto/faker": "~1.4",
         "laravel/homestead": "^4.0",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "^5.7"
+        "phpunit/phpunit": "^6.0"
     },
     "autoload": {
         "classmap": [
-            "database"
+            "database/seeds",
+            "database/factories"
         ],
         "psr-4": {
             "App\\": "app/"
@@ -30,29 +34,32 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests"
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+            ]
         }
     },
     "scripts": {
         "post-root-package-install": [
-            "php -r \"copy('.env.example', '.env');\""
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "php artisan key:generate"
+            "@php artisan key:generate"
         ],
-        "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
-        ],
-        "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover"
         ]
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "optimize-autoload": true
     }
 }
