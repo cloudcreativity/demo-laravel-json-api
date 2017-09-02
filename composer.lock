@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d25b2824e92194aa9d5b8ccb1cc50a21",
+    "content-hash": "bf500b17ee8d9f70c617c2bea053cdc4",
     "packages": [
         {
             "name": "cloudcreativity/json-api",
-            "version": "v0.10.1",
+            "version": "v0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/json-api.git",
-                "reference": "610ac59214a24650e1fc2f11fb3a6326637976d5"
+                "reference": "c2aac7125fb79273cf55d51ee1015026df6af0dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/610ac59214a24650e1fc2f11fb3a6326637976d5",
-                "reference": "610ac59214a24650e1fc2f11fb3a6326637976d5",
+                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/c2aac7125fb79273cf55d51ee1015026df6af0dd",
+                "reference": "c2aac7125fb79273cf55d51ee1015026df6af0dd",
                 "shasum": ""
             },
             "require": {
@@ -35,7 +35,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "0.10.x-dev"
+                    "dev-develop": "0.12.x-dev"
                 }
             },
             "autoload": {
@@ -66,45 +66,56 @@
                 "jsonapi",
                 "jsonapi.org"
             ],
-            "time": "2017-07-29T06:00:23+00:00"
+            "time": "2017-09-02T13:32:09+00:00"
         },
         {
             "name": "cloudcreativity/laravel-json-api",
-            "version": "v0.10.0",
+            "version": "v0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "eb2dd6d7cf1b1b4cf6f0e81016b9efba31393a81"
+                "reference": "0430b11fd2e77566f260b52f5ef73d41d9e03538"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/eb2dd6d7cf1b1b4cf6f0e81016b9efba31393a81",
-                "reference": "eb2dd6d7cf1b1b4cf6f0e81016b9efba31393a81",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/0430b11fd2e77566f260b52f5ef73d41d9e03538",
+                "reference": "0430b11fd2e77566f260b52f5ef73d41d9e03538",
                 "shasum": ""
             },
             "require": {
-                "cloudcreativity/json-api": "^0.10.1",
-                "illuminate/console": "5.4.*",
-                "illuminate/contracts": "5.4.*",
-                "illuminate/database": "5.4.*",
-                "illuminate/filesystem": "5.4.*",
-                "illuminate/http": "5.4.*",
-                "illuminate/pagination": "5.4.*",
-                "illuminate/support": "5.4.*",
+                "cloudcreativity/json-api": "^0.11",
+                "illuminate/console": "5.4.*|5.5.*",
+                "illuminate/contracts": "5.4.*|5.5.*",
+                "illuminate/database": "5.4.*|5.5.*",
+                "illuminate/filesystem": "5.4.*|5.5.*",
+                "illuminate/http": "5.4.*|5.5.*",
+                "illuminate/pagination": "5.4.*|5.5.*",
+                "illuminate/support": "5.4.*|5.5.*",
                 "php": "^5.6|^7.0",
                 "symfony/psr-http-message-bridge": "^1.0",
                 "zendframework/zend-diactoros": "^1.3"
             },
             "require-dev": {
+                "cloudcreativity/json-api-testing": "^0.1.1|^0.2",
                 "ext-sqlite3": "*",
-                "illuminate/routing": "5.4.*",
-                "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "^5.7"
+                "orchestra/testbench": "^3.4",
+                "phpunit/phpunit": "^5.7|^6.0"
+            },
+            "suggest": {
+                "cloudcreativity/json-api-testing": "Required to use the test helpers."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "0.11.x-dev"
+                    "dev-develop": "0.12.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "CloudCreativity\\LaravelJsonApi\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "JsonApi": "CloudCreativity\\LaravelJsonApi\\Facades\\JsonApi"
+                    }
                 }
             },
             "autoload": {
@@ -136,7 +147,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2017-07-29T06:41:19+00:00"
+            "time": "2017-09-02T13:53:09+00:00"
         },
         {
             "name": "cloudcreativity/utils-object",
@@ -815,16 +826,16 @@
         },
         {
             "name": "neomerx/json-api",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neomerx/json-api.git",
-                "reference": "c2a41bb0d062edf89f25c4e005d34e4321e5f620"
+                "reference": "152d43cb91543062977677bf955125a1f4e5dc4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neomerx/json-api/zipball/c2a41bb0d062edf89f25c4e005d34e4321e5f620",
-                "reference": "c2a41bb0d062edf89f25c4e005d34e4321e5f620",
+                "url": "https://api.github.com/repos/neomerx/json-api/zipball/152d43cb91543062977677bf955125a1f4e5dc4b",
+                "reference": "152d43cb91543062977677bf955125a1f4e5dc4b",
                 "shasum": ""
             },
             "require": {
@@ -866,7 +877,7 @@
                 "jsonapi.org",
                 "neomerx"
             ],
-            "time": "2017-06-19T09:16:29+00:00"
+            "time": "2017-07-29T15:32:57+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -1618,20 +1629,20 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v3.3.5",
+            "version": "v3.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "e307abe4b79ccbbfdced9b91c132fd128f456bc5"
+                "reference": "14bacad23a4f075bfd3fd456755236cb261320e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/e307abe4b79ccbbfdced9b91c132fd128f456bc5",
-                "reference": "e307abe4b79ccbbfdced9b91c132fd128f456bc5",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/14bacad23a4f075bfd3fd456755236cb261320e3",
+                "reference": "14bacad23a4f075bfd3fd456755236cb261320e3",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
+                "php": "^5.5.9|>=7.0.8",
                 "symfony/polyfill-mbstring": "~1.1"
             },
             "require-dev": {
@@ -1667,7 +1678,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-17T14:07:10+00:00"
+            "time": "2017-08-10T07:07:06+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -1757,16 +1768,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.4.0",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "f29dca382a6485c3cbe6379f0c61230167681937"
+                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/f29dca382a6485c3cbe6379f0c61230167681937",
-                "reference": "f29dca382a6485c3cbe6379f0c61230167681937",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
+                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
                 "shasum": ""
             },
             "require": {
@@ -1778,7 +1789,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -1812,7 +1823,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-09T14:24:12+00:00"
+            "time": "2017-06-14T15:44:48+00:00"
         },
         {
             "name": "symfony/process",
@@ -2233,21 +2244,21 @@
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "b03f285a333f51e58c95cce54109a4a9ed691436"
+                "reference": "1d23172f9dc1687a97c195a777b0199f14f7b26e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/b03f285a333f51e58c95cce54109a4a9ed691436",
-                "reference": "b03f285a333f51e58c95cce54109a4a9ed691436",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/1d23172f9dc1687a97c195a777b0199f14f7b26e",
+                "reference": "1d23172f9dc1687a97c195a777b0199f14f7b26e",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.4 || ^7.0",
-                "psr/http-message": "~1.0"
+                "php": "^5.6 || ^7.0",
+                "psr/http-message": "^1.0"
             },
             "provide": {
                 "psr/http-message-implementation": "1.0"
@@ -2255,14 +2266,14 @@
             "require-dev": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
-                "phpunit/phpunit": "^4.6 || ^5.5",
-                "zendframework/zend-coding-standard": "~1.0.0"
+                "phpunit/phpunit": "^5.7.16 || ^6.0.8",
+                "zendframework/zend-coding-standard": "~1.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev",
-                    "dev-develop": "1.5-dev"
+                    "dev-master": "1.5-dev",
+                    "dev-develop": "1.6-dev"
                 }
             },
             "autoload": {
@@ -2281,10 +2292,63 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2017-04-06T16:18:34+00:00"
+            "time": "2017-08-22T20:38:56+00:00"
         }
     ],
     "packages-dev": [
+        {
+            "name": "cloudcreativity/json-api-testing",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cloudcreativity/json-api-testing.git",
+                "reference": "857e6c3d94d08eae3ceef640ac8935de4d5c60c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cloudcreativity/json-api-testing/zipball/857e6c3d94d08eae3ceef640ac8935de4d5c60c2",
+                "reference": "857e6c3d94d08eae3ceef640ac8935de4d5c60c2",
+                "shasum": ""
+            },
+            "require": {
+                "cloudcreativity/utils-object": "^1.0",
+                "php": "^5.6.4|^7.0",
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-hotfix/0.1.1": "0.1.x-dev",
+                    "dev-develop": "0.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CloudCreativity\\JsonApi\\Testing\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Cloud Creativity Ltd",
+                    "email": "info@cloudcreativity.co.uk"
+                }
+            ],
+            "description": "PHPUnit test helpers to check JSON API documents.",
+            "homepage": "https://github.com/cloudcreativity/json-api",
+            "keywords": [
+                "JSON-API",
+                "api",
+                "cloudcreativity",
+                "json",
+                "jsonapi",
+                "jsonapi.org"
+            ],
+            "time": "2017-09-02T11:46:31+00:00"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.0.5",
