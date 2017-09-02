@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7133e0a90a2f8f018fc1a7a3dc976c41",
+    "content-hash": "5566c6d44c39592343803dab0e49b8ba",
     "packages": [
         {
             "name": "cloudcreativity/json-api",
-            "version": "dev-develop",
+            "version": "v0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/json-api.git",
-                "reference": "150ad51ee97d04b90ab82b44391a467389cb469e"
+                "reference": "c2aac7125fb79273cf55d51ee1015026df6af0dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/150ad51ee97d04b90ab82b44391a467389cb469e",
-                "reference": "150ad51ee97d04b90ab82b44391a467389cb469e",
+                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/c2aac7125fb79273cf55d51ee1015026df6af0dd",
+                "reference": "c2aac7125fb79273cf55d51ee1015026df6af0dd",
                 "shasum": ""
             },
             "require": {
@@ -35,7 +35,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "0.11.x-dev"
+                    "dev-develop": "0.12.x-dev"
                 }
             },
             "autoload": {
@@ -66,20 +66,20 @@
                 "jsonapi",
                 "jsonapi.org"
             ],
-            "time": "2017-09-02 07:25:10"
+            "time": "2017-09-02T13:32:09+00:00"
         },
         {
             "name": "cloudcreativity/laravel-json-api",
-            "version": "dev-feature/laravel-5.5",
+            "version": "v0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "c3435603c34249b3f5ae41c61b67a0d6d24451d2"
+                "reference": "0430b11fd2e77566f260b52f5ef73d41d9e03538"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/c3435603c34249b3f5ae41c61b67a0d6d24451d2",
-                "reference": "c3435603c34249b3f5ae41c61b67a0d6d24451d2",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/0430b11fd2e77566f260b52f5ef73d41d9e03538",
+                "reference": "0430b11fd2e77566f260b52f5ef73d41d9e03538",
                 "shasum": ""
             },
             "require": {
@@ -107,7 +107,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "0.11.x-dev"
+                    "dev-develop": "0.12.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -147,7 +147,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2017-09-02 12:48:13"
+            "time": "2017-09-02T13:53:09+00:00"
         },
         {
             "name": "cloudcreativity/utils-object",
@@ -2566,16 +2566,16 @@
     "packages-dev": [
         {
             "name": "cloudcreativity/json-api-testing",
-            "version": "dev-develop",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/json-api-testing.git",
-                "reference": "edcc5359e2076e017258e8dda5b47d17e34d1f13"
+                "reference": "14479ff8041654012078fd0b2c30ab3318e971d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/json-api-testing/zipball/edcc5359e2076e017258e8dda5b47d17e34d1f13",
-                "reference": "edcc5359e2076e017258e8dda5b47d17e34d1f13",
+                "url": "https://api.github.com/repos/cloudcreativity/json-api-testing/zipball/14479ff8041654012078fd0b2c30ab3318e971d2",
+                "reference": "14479ff8041654012078fd0b2c30ab3318e971d2",
                 "shasum": ""
             },
             "require": {
@@ -2586,7 +2586,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "0.2.x-dev"
+                    "dev-develop": "0.3.x-dev"
                 }
             },
             "autoload": {
@@ -2614,7 +2614,7 @@
                 "jsonapi",
                 "jsonapi.org"
             ],
-            "time": "2017-09-02 11:49:51"
+            "time": "2017-09-02T13:39:35+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -4334,10 +4334,8 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "cloudcreativity/laravel-json-api": 20
-    },
+    "minimum-stability": "stable",
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
