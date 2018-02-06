@@ -19,7 +19,7 @@
         "cloudcreativity/json-api-testing": "^0.2",
         "filp/whoops": "^2.1",
         "fzaninotto/faker": "~1.4",
-        "laravel/homestead": "^7.0",
+        "laravel/homestead": "^7.1",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "^6.0"
     },
