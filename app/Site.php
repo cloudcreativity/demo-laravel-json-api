@@ -27,7 +27,7 @@ class Site
      * @param array $values
      * @return Site
      */
-    public static function create(string $slug, array $values): self
+    public static function create($slug, array $values)
     {
         $site = new self($slug);
         $site->exchangeArray($values);
@@ -40,7 +40,7 @@ class Site
      *
      * @param string $slug
      */
-    public function __construct(string $slug)
+    public function __construct($slug)
     {
         if (empty($slug)) {
             throw new InvalidArgumentException('Expecting a non-empty slug');
@@ -52,7 +52,7 @@ class Site
     /**
      * @return string
      */
-    public function getSlug(): string
+    public function getSlug()
     {
         return $this->slug;
     }
@@ -61,7 +61,7 @@ class Site
      * @param mixed $domain
      * @return $this
      */
-    public function setDomain(string $domain)
+    public function setDomain($domain)
     {
         $this->domain = $domain;
 
@@ -71,7 +71,7 @@ class Site
     /**
      * @return string
      */
-    public function getDomain(): string
+    public function getDomain()
     {
         return (string) $this->domain;
     }
@@ -80,7 +80,7 @@ class Site
      * @param string $name
      * @return $this
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -90,7 +90,7 @@ class Site
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return (string) $this->name;
     }
@@ -101,11 +101,14 @@ class Site
      */
     public function exchangeArray(array $values)
     {
-        if ($domain = $values['domain'] ?? null) {
+        $domain = isset($values['domain']) ? $values['domain'] : null;
+        $name = isset($values['name']) ? $values['name'] : null;
+
+        if ($domain) {
             $this->setDomain($domain);
         }
 
-        if ($name = $values['name'] ?? null) {
+        if ($name) {
             $this->setName($name);
         }
 
@@ -115,7 +118,7 @@ class Site
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'domain' => $this->getDomain(),

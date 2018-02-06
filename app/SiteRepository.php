@@ -36,7 +36,9 @@ class SiteRepository
     {
         $this->load();
 
-        if ($data = $this->sites[$slug] ?? null) {
+        $data = isset($this->sites[$slug]) ? $this->sites[$slug] : null;
+
+        if ($data) {
             return Site::create($slug, $data);
         }
 
@@ -46,7 +48,7 @@ class SiteRepository
     /**
      * @return array
      */
-    public function findAll(): array
+    public function findAll()
     {
         return iterator_to_array($this->all());
     }
@@ -76,7 +78,7 @@ class SiteRepository
     /**
      * @return Generator
      */
-    public function all(): Generator
+    public function all()
     {
         $this->load();
 
