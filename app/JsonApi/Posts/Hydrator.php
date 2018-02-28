@@ -14,6 +14,7 @@ class Hydrator extends EloquentHydrator
         'title',
         'slug',
         'content',
+        'eloquent-snake-case',
     ];
 
     /**
