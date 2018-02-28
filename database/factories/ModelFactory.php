@@ -29,6 +29,7 @@ $factory->define(App\Post::class, function (Faker $faker) {
         'title' => $faker->sentence(3),
         'slug' => $faker->slug(),
         'content' => $faker->paragraphs(3, true),
+        'eloquent_snake_case' => 'A column name in snake case format, which needs to be transformed to kebab case',
         'author_id' => function () {
             return factory(App\Person::class)->create()->getKey();
         },

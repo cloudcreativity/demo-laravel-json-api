@@ -54,6 +54,7 @@ class PostsTest extends TestCase
                 'title' => $model->title,
                 'slug' => $model->slug,
                 'content' => $model->content,
+                'eloquent-snake-case' => $model->eloquent_snake_case,
             ],
             'relationships' => [
                 'author' => [
