@@ -19,6 +19,11 @@ class Post extends Model
         'title',
         'slug',
         'content',
+        'published_at',
+    ];
+
+    protected $dates = [
+        'published_at',
     ];
 
     /**

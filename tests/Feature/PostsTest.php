@@ -54,6 +54,8 @@ class PostsTest extends TestCase
                 'title' => $model->title,
                 'slug' => $model->slug,
                 'content' => $model->content,
+                // Dates must be passed in Atom format for JSON_API
+                'published-at' => $model->published_at->toAtomString(),
             ],
             'relationships' => [
                 'author' => [
@@ -96,6 +98,8 @@ class PostsTest extends TestCase
                 'title' => $model->title,
                 'slug' => $model->slug,
                 'content' => $model->content,
+                // Dates must be passed in Atom format for JSON_API
+                'published-at' => $model->published_at->toAtomString(),
             ],
             'relationships' => [
                 'author' => [
