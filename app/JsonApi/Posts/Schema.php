@@ -21,6 +21,7 @@ class Schema extends EloquentSchema
         'title',
         'slug',
         'content',
+        'published_at',
     ];
 
     /**

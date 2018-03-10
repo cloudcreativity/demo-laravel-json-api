@@ -11,6 +11,7 @@
     "require": {
         "php": "^7.1",
         "cloudcreativity/laravel-json-api": "dev-feature/laravel-5.6",
+        "doctrine/dbal": "^2.6",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0"
