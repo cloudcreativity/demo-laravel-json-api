@@ -55,7 +55,7 @@
             "@php artisan package:discover"
         ]
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
         "preferred-install": "dist",
