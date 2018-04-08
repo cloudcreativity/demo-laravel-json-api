@@ -99,7 +99,7 @@ class PeopleTestCase extends TestCase
         ];
 
         $this->doUpdate($data)->assertUpdateResponse($data);
-        $this->assertModelPatched($model, $data['attributes'], ['surname']);
+        $this->assertModelPatched($model, ['first_name' => 'Foo'], ['surname']);
     }
 
     /**

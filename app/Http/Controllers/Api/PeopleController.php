@@ -2,21 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\JsonApi\People;
-use App\Person;
-use CloudCreativity\LaravelJsonApi\Http\Controllers\EloquentController;
+use CloudCreativity\LaravelJsonApi\Http\Controllers\JsonApiController;
 
-class PeopleController extends EloquentController
+class PeopleController extends JsonApiController
 {
-
-    /**
-     * PeopleController constructor.
-     *
-     * @param People\Hydrator $hydrator
-     */
-    public function __construct(People\Hydrator $hydrator)
-    {
-        parent::__construct(new Person(), $hydrator);
-    }
-
 }

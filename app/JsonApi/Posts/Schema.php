@@ -3,10 +3,10 @@
 namespace App\JsonApi\Posts;
 
 use App\Post;
-use CloudCreativity\JsonApi\Exceptions\RuntimeException;
-use CloudCreativity\LaravelJsonApi\Schema\EloquentSchema;
+use CloudCreativity\LaravelJsonApi\Eloquent\AbstractSchema;
+use CloudCreativity\LaravelJsonApi\Exceptions\RuntimeException;
 
-class Schema extends EloquentSchema
+class Schema extends AbstractSchema
 {
 
     /**

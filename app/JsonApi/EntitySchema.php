@@ -2,8 +2,8 @@
 
 namespace App\JsonApi;
 
-use CloudCreativity\JsonApi\Schema\ExtractsAttributesTrait;
-use CloudCreativity\JsonApi\Utils\Str;
+use CloudCreativity\LaravelJsonApi\Schema\ExtractsAttributesTrait;
+use CloudCreativity\LaravelJsonApi\Utils\Str;
 use Neomerx\JsonApi\Schema\SchemaProvider;
 
 /**

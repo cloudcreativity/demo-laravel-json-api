@@ -2,18 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Comment;
-use CloudCreativity\LaravelJsonApi\Http\Controllers\EloquentController;
+use CloudCreativity\LaravelJsonApi\Http\Controllers\JsonApiController;
 
-class CommentsController extends EloquentController
+class CommentsController extends JsonApiController
 {
-
-    /**
-     * CommentsController constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct(new Comment());
-    }
-
 }
