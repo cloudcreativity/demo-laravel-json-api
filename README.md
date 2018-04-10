@@ -31,7 +31,7 @@ http://homestead.app/api/v1/posts
 
 As an example, this API exposes a `posts` resource. To do this:
 
-1. The resource is registered with the router in `app/Http/routes.php`
+1. The resource is registered with the router in `routes/api.php`
 2. A controller exists: `app/Http/Controllers/Api/PostsController`. This is composed of units that each have a single
 concern, and can be found in the `app/JsonApi/Posts` folder:
   - An `adapter` class, that handles finding `Post` models either from a JSON API resource identifier or from a JSON
