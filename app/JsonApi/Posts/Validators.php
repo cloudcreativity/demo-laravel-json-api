@@ -44,6 +44,11 @@ class Validators extends AbstractValidatorProvider
     ];
 
     /**
+     * @var array
+     */
+    protected $allowedIncludePaths = ['author', 'tags'];
+
+    /**
      * @inheritdoc
      */
     protected function attributeRules($record = null)

@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "14680d4276efc01f30f9977df6aa6cb2f57a695d"
+                "reference": "aef1ddc03afb9d5d2a308ac95642448419717688"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/14680d4276efc01f30f9977df6aa6cb2f57a695d",
-                "reference": "14680d4276efc01f30f9977df6aa6cb2f57a695d",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/aef1ddc03afb9d5d2a308ac95642448419717688",
+                "reference": "aef1ddc03afb9d5d2a308ac95642448419717688",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2018-04-07T10:41:41+00:00"
+            "time": "2018-04-24T13:21:54+00:00"
         },
         {
             "name": "cloudcreativity/utils-object",

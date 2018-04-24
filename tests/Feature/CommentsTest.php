@@ -14,7 +14,9 @@ class CommentsTest extends TestCase
 
     public function testRead()
     {
-        $model = $this->model();
+        $model = factory(Comment::class)->create();
+
+        $self = "http://localhost/api/v1/comments/{$model->getKey()}";
 
         $data = [
             'type' => 'comments',
@@ -24,31 +26,21 @@ class CommentsTest extends TestCase
             ],
             'relationships' => [
                 'post' => [
-                    'data' => [
-                        'type' => 'posts',
-                        'id' => $model->post_id,
+                    'links' => [
+                        'self' => "$self/relationships/post",
+                        'related' => "$self/post",
                     ],
                 ],
                 'created-by' => [
-                    'data' => [
-                        'type' => 'people',
-                        'id' => $model->person_id,
+                    'links' => [
+                        'self' => "$self/relationships/created-by",
+                        'related' => "$self/created-by",
                     ],
                 ],
             ],
         ];
 
-        $this->doRead($model)->assertReadResponse($data);
+        $this->doRead($model)->assertRead($data);
     }
 
-    /**
-     * @param bool $create
-     * @return Comment
-     */
-    private function model($create = true)
-    {
-        $factory = factory(Comment::class);
-
-        return $create ? $factory->create() : $factory->make();
-    }
 }
