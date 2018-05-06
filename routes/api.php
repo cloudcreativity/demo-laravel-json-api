@@ -15,8 +15,16 @@ use CloudCreativity\LaravelJsonApi\Routing\ApiGroup as Api;
 */
 
 JsonApi::register('v1', ['namespace' => 'Api'], function (Api $api) {
-    $api->resource('comments');
-    $api->resource('people');
-    $api->resource('posts', ['has-one' => 'author', 'has-many' => ['comments', 'tags']]);
+    $api->resource('comments', [
+        'has-one' => ['post', 'created-by'],
+    ]);
+    $api->resource('people', [
+        'has-many' => ['comments', 'posts'],
+    ]);
+    $api->resource('posts', [
+        'controller' => true,
+        'has-one' => 'author',
+        'has-many' => ['comments', 'tags']
+    ]);
     $api->resource('sites');
 });

@@ -2,9 +2,9 @@
 
 namespace App\JsonApi\Tags;
 
-use CloudCreativity\LaravelJsonApi\Schema\EloquentSchema;
+use CloudCreativity\LaravelJsonApi\Eloquent\AbstractSchema;
 
-class Schema extends EloquentSchema
+class Schema extends AbstractSchema
 {
 
     /**

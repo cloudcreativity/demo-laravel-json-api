@@ -4,86 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0356b2546ece586798f175638f058fed",
+    "content-hash": "ae3ef3a155aa590ba9b40f4810f0816f",
     "packages": [
         {
-            "name": "cloudcreativity/json-api",
-            "version": "v0.11.0",
+            "name": "cloudcreativity/laravel-json-api",
+            "version": "dev-release/1.0.0-alpha.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/cloudcreativity/json-api.git",
-                "reference": "c2aac7125fb79273cf55d51ee1015026df6af0dd"
+                "url": "https://github.com/cloudcreativity/laravel-json-api.git",
+                "reference": "aef1ddc03afb9d5d2a308ac95642448419717688"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/json-api/zipball/c2aac7125fb79273cf55d51ee1015026df6af0dd",
-                "reference": "c2aac7125fb79273cf55d51ee1015026df6af0dd",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/aef1ddc03afb9d5d2a308ac95642448419717688",
+                "reference": "aef1ddc03afb9d5d2a308ac95642448419717688",
                 "shasum": ""
             },
             "require": {
                 "cloudcreativity/utils-object": "^1.0",
-                "neomerx/json-api": "^1.0.3",
-                "php": "^5.6.4|^7.0"
-            },
-            "require-dev": {
-                "guzzlehttp/guzzle": "^6.3",
-                "phpunit/phpunit": "^5.7"
-            },
-            "suggest": {
-                "guzzlehttp/guzzle": "Guzzle v6 required to use the JSON API client."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-develop": "0.12.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "CloudCreativity\\JsonApi\\": "src/"
-                },
-                "files": [
-                    "helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Cloud Creativity Ltd",
-                    "email": "info@cloudcreativity.co.uk"
-                }
-            ],
-            "description": "Framework agnostic JSON API serialization and deserialization.",
-            "homepage": "https://github.com/cloudcreativity/json-api",
-            "keywords": [
-                "JSON-API",
-                "api",
-                "cloudcreativity",
-                "json",
-                "jsonapi",
-                "jsonapi.org"
-            ],
-            "time": "2017-09-02T13:32:09+00:00"
-        },
-        {
-            "name": "cloudcreativity/laravel-json-api",
-            "version": "dev-feature/laravel-5.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "7316040714481266f562e4eec39d85f354ef3155"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/7316040714481266f562e4eec39d85f354ef3155",
-                "reference": "7316040714481266f562e4eec39d85f354ef3155",
-                "shasum": ""
-            },
-            "require": {
-                "cloudcreativity/json-api": "^0.11",
                 "illuminate/console": "5.4.*|5.5.*|5.6.*",
                 "illuminate/contracts": "5.4.*|5.5.*|5.6.*",
                 "illuminate/database": "5.4.*|5.5.*|5.6.*",
@@ -91,13 +29,15 @@
                 "illuminate/http": "5.4.*|5.5.*|5.6.*",
                 "illuminate/pagination": "5.4.*|5.5.*|5.6.*",
                 "illuminate/support": "5.4.*|5.5.*|5.6.*",
+                "neomerx/json-api": "^1.0.3",
                 "php": "^5.6|^7.0",
                 "symfony/psr-http-message-bridge": "^1.0",
                 "zendframework/zend-diactoros": "^1.3"
             },
             "require-dev": {
-                "cloudcreativity/json-api-testing": "^0.3",
+                "cloudcreativity/json-api-testing": "^1.0",
                 "ext-sqlite3": "*",
+                "guzzlehttp/guzzle": "^6.3",
                 "orchestra/testbench": "3.4.*|3.5.*|3.6.*",
                 "phpunit/phpunit": "^5.7|^6.0|^7.0"
             },
@@ -107,7 +47,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "0.12.x-dev"
+                    "dev-develop": "1.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -147,7 +87,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2018-02-06T10:54:22+00:00"
+            "time": "2018-04-24T13:21:54+00:00"
         },
         {
             "name": "cloudcreativity/utils-object",
@@ -2990,16 +2930,16 @@
     "packages-dev": [
         {
             "name": "cloudcreativity/json-api-testing",
-            "version": "v0.3.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/json-api-testing.git",
-                "reference": "32f052fa92d8168e4f9ecb9b28730f4a541d981e"
+                "reference": "ad8b2e33bb40fcb12319f71d7ca0e0b15b2d7d5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/json-api-testing/zipball/32f052fa92d8168e4f9ecb9b28730f4a541d981e",
-                "reference": "32f052fa92d8168e4f9ecb9b28730f4a541d981e",
+                "url": "https://api.github.com/repos/cloudcreativity/json-api-testing/zipball/ad8b2e33bb40fcb12319f71d7ca0e0b15b2d7d5c",
+                "reference": "ad8b2e33bb40fcb12319f71d7ca0e0b15b2d7d5c",
                 "shasum": ""
             },
             "require": {
@@ -3010,7 +2950,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "0.4.x-dev"
+                    "dev-develop": "1.x-dev"
                 }
             },
             "autoload": {
@@ -3038,7 +2978,7 @@
                 "jsonapi",
                 "jsonapi.org"
             ],
-            "time": "2018-02-08T17:38:59+00:00"
+            "time": "2018-04-06T09:10:31+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -4828,7 +4768,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "cloudcreativity/laravel-json-api": 20
     },

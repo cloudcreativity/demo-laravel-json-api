@@ -76,7 +76,7 @@ class PostsTest extends TestCase
         ];
 
         $id = $this
-            ->doCreate($data)
+            ->doCreate($data, ['include' => 'author,tags'])
             ->assertCreateResponse($data);
 
         $this->assertModelCreated($model, $id, ['title', 'slug', 'content', 'author_id']);
@@ -119,7 +119,7 @@ class PostsTest extends TestCase
             ],
         ];
 
-        $this->doRead($model)
+        $this->doRead($model, ['include' => 'author,tags'])
             ->assertReadResponse($data);
     }
 

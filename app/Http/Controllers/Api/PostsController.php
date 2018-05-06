@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\JsonApi\Posts;
+use App\Events\PostCreated;
 use App\Post;
-use CloudCreativity\LaravelJsonApi\Http\Controllers\EloquentController;
+use CloudCreativity\LaravelJsonApi\Http\Controllers\JsonApiController;
 
-class PostsController extends EloquentController
+class PostsController extends JsonApiController
 {
 
     /**
-     * PostsController constructor.
-     *
-     * @param Posts\Hydrator $hydrator
+     * @param Post $post
+     * @return void
      */
-    public function __construct(Posts\Hydrator $hydrator)
+    public function created(Post $post)
     {
-        parent::__construct(new Post(), $hydrator);
+        event(new PostCreated($post));
     }
-
 }

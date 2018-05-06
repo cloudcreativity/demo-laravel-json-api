@@ -3,12 +3,19 @@
 namespace App\JsonApi\People;
 
 use App\Person;
-use CloudCreativity\LaravelJsonApi\Store\EloquentAdapter;
-use Illuminate\Database\Eloquent\Builder;
+use CloudCreativity\LaravelJsonApi\Eloquent\AbstractAdapter;
 use Illuminate\Support\Collection;
 
-class Adapter extends EloquentAdapter
+class Adapter extends AbstractAdapter
 {
+
+    /**
+     * @var array
+     */
+    protected $attributes = [
+        'first-name',
+        'surname',
+    ];
 
     /**
      * Adapter constructor.
@@ -21,7 +28,7 @@ class Adapter extends EloquentAdapter
     /**
      * @inheritDoc
      */
-    protected function filter(Builder $query, Collection $filters)
+    protected function filter($query, Collection $filters)
     {
         // TODO: Implement filter() method.
     }

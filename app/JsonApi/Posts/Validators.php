@@ -3,7 +3,7 @@
 namespace App\JsonApi\Posts;
 
 use App\Post;
-use CloudCreativity\JsonApi\Contracts\Validators\RelationshipsValidatorInterface;
+use CloudCreativity\LaravelJsonApi\Contracts\Validators\RelationshipsValidatorInterface;
 use CloudCreativity\LaravelJsonApi\Validators\AbstractValidatorProvider;
 
 class Validators extends AbstractValidatorProvider
@@ -42,6 +42,11 @@ class Validators extends AbstractValidatorProvider
         'title',
         'slug',
     ];
+
+    /**
+     * @var array
+     */
+    protected $allowedIncludePaths = ['author', 'tags'];
 
     /**
      * @inheritdoc

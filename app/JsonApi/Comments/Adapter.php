@@ -3,11 +3,10 @@
 namespace App\JsonApi\Comments;
 
 use App\Comment;
-use CloudCreativity\LaravelJsonApi\Store\EloquentAdapter;
-use Illuminate\Database\Eloquent\Builder;
+use CloudCreativity\LaravelJsonApi\Eloquent\AbstractAdapter;
 use Illuminate\Support\Collection;
 
-class Adapter extends EloquentAdapter
+class Adapter extends AbstractAdapter
 {
 
     /**
@@ -21,7 +20,7 @@ class Adapter extends EloquentAdapter
     /**
      * @inheritDoc
      */
-    protected function filter(Builder $query, Collection $filters)
+    protected function filter($query, Collection $filters)
     {
         // TODO: Implement filter() method.
     }
