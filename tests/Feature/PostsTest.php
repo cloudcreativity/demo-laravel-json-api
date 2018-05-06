@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Post;
 use App\Tag;
+use App\User;
 
 class PostsTest extends TestCase
 {
@@ -116,7 +117,7 @@ class PostsTest extends TestCase
             ],
         ];
 
-        $this->doUpdate($data)->assertUpdated($data);
+        $this->actingAs($post->author)->doUpdate($data)->assertUpdated($data);
 
         $this->assertDatabaseHas('posts', [
             'id' => $post->getKey(),
@@ -127,16 +128,33 @@ class PostsTest extends TestCase
         ]);
     }
 
+    public function testUpdateForbidden()
+    {
+        $post = factory(Post::class)->create();
+        $user = factory(User::class)->create();
+
+        $data = [
+            'type' => 'posts',
+            'id' => (string) $post->getKey(),
+            'attributes' => [
+                'slug' => 'posts-test',
+                'title' => 'Foo Bar Baz Bat',
+            ],
+        ];
+
+        $this->actingAs($user)->doUpdate($data)->assertStatus(403);
+    }
+
     /**
      * Test the delete resource route.
      */
     public function testDelete()
     {
-        $model = factory(Post::class)->create();
+        $post = factory(Post::class)->create();
 
-        $this->doDelete($model)->assertDeleted();
+        $this->actingAs($post->author)->doDelete($post)->assertDeleted();
 
-        $this->assertDatabaseMissing('posts', ['id' => $model->getKey()]);
+        $this->assertDatabaseMissing('posts', ['id' => $post->getKey()]);
     }
 
     /**

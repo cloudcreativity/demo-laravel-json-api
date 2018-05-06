@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\SiteRepository;
+use App\User;
 
 class SitesTest extends TestCase
 {
@@ -11,6 +12,15 @@ class SitesTest extends TestCase
      * @var string
      */
     protected $resourceType = 'sites';
+
+    /**
+     * @return void
+     */
+    protected function setUp()
+    {
+        parent::setUp();
+        $this->actingAs(factory(User::class)->create());
+    }
 
     public function testCreate()
     {
@@ -26,7 +36,7 @@ class SitesTest extends TestCase
             ],
         ];
 
-        $id = $this->doCreate($data)->assertCreateResponse($data);
+        $id = $this->doCreate($data)->assertCreatedWithId($data);
         $this->assertEquals('my-site', $id);
 
         return $data;
@@ -38,7 +48,7 @@ class SitesTest extends TestCase
      */
     public function testRead(array $expected)
     {
-        $this->doRead('my-site')->assertReadResponse($expected);
+        $this->doRead('my-site')->assertRead($expected);
     }
 
     /**
@@ -57,7 +67,7 @@ class SitesTest extends TestCase
         $expected = $data;
         $expected['domain'] = 'blog.example.com';
 
-        $this->doUpdate($data)->assertUpdateResponse($expected);
+        $this->doUpdate($data)->assertUpdated($expected);
     }
 
     /**
@@ -65,7 +75,7 @@ class SitesTest extends TestCase
      */
     public function testDelete()
     {
-        $this->doDelete('my-site')->assertDeleteResponse();
+        $this->doDelete('my-site')->assertDeleted();
         $this->assertNull(app(SiteRepository::class)->find('my-site'));
     }
 
