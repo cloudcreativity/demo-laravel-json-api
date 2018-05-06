@@ -1,8 +1,8 @@
 <?php
 
-namespace App\JsonApi\Tags;
+namespace App\JsonApi\Users;
 
-use App\Tag;
+use App\User;
 use Neomerx\JsonApi\Schema\SchemaProvider;
 
 class Schema extends SchemaProvider
@@ -11,17 +11,11 @@ class Schema extends SchemaProvider
     /**
      * @var string
      */
-    protected $resourceType = 'tags';
+    protected $resourceType = 'users';
 
     /**
-     * @var array
-     */
-    protected $attributes = [
-        'name',
-    ];
-
-    /**
-     * @param Tag $resource
+     * @param User $resource
+     *      the domain record being serialized.
      * @return string
      */
     public function getId($resource)
@@ -30,7 +24,8 @@ class Schema extends SchemaProvider
     }
 
     /**
-     * @param Tag $resource
+     * @param User $resource
+     *      the domain record being serialized.
      * @return array
      */
     public function getAttributes($resource)

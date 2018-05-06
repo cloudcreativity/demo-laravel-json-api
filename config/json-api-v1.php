@@ -40,9 +40,9 @@ return [
     'resources' => [
         'comments' => \App\Comment::class,
         'posts' => \App\Post::class,
-        'people' => \App\Person::class,
         'sites' => \App\Site::class,
         'tags' => \App\Tag::class,
+        'users' => \App\User::class,
     ],
 
     /*

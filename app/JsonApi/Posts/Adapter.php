@@ -3,11 +3,13 @@
 namespace App\JsonApi\Posts;
 
 use App\Post;
+use CloudCreativity\LaravelJsonApi\Contracts\Object\ResourceObjectInterface;
 use CloudCreativity\LaravelJsonApi\Eloquent\AbstractAdapter;
 use CloudCreativity\LaravelJsonApi\Eloquent\BelongsTo;
 use CloudCreativity\LaravelJsonApi\Eloquent\HasMany;
 use CloudCreativity\LaravelJsonApi\Pagination\StandardStrategy;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 
 class Adapter extends AbstractAdapter
 {
@@ -28,6 +30,13 @@ class Adapter extends AbstractAdapter
     /**
      * @var array
      */
+    protected $dates = [
+        'published-at',
+    ];
+
+    /**
+     * @var array
+     */
     protected $defaultPagination = [
         'number' => 1,
     ];
@@ -43,11 +52,31 @@ class Adapter extends AbstractAdapter
     }
 
     /**
+     * @param ResourceObjectInterface $resource
+     * @return Post
+     */
+    protected function createRecord(ResourceObjectInterface $resource)
+    {
+        $post = new Post();
+        $post->author()->associate(Auth::user());
+
+        return $post;
+    }
+
+    /**
      * @return BelongsTo
      */
     protected function author()
     {
         return $this->belongsTo();
+    }
+
+    /**
+     * @return HasMany
+     */
+    protected function comments()
+    {
+        return $this->hasMany();
     }
 
     /**

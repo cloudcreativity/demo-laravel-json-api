@@ -2,11 +2,10 @@
 
 namespace App\JsonApi\Sites;
 
-use App\JsonApi\EntitySchema;
 use App\Site;
-use InvalidArgumentException;
+use Neomerx\JsonApi\Schema\SchemaProvider;
 
-class Schema extends EntitySchema
+class Schema extends SchemaProvider
 {
 
     /**
@@ -15,24 +14,24 @@ class Schema extends EntitySchema
     protected $resourceType = 'sites';
 
     /**
-     * @var array
-     */
-    protected $attributes = [
-        'domain',
-        'name',
-    ];
-
-    /**
-     * @param object $resource
-     * @return mixed
+     * @param Site $resource
+     * @return string
      */
     public function getId($resource)
     {
-        if (!$resource instanceof Site) {
-            throw new InvalidArgumentException('Expecting a site object.');
-        }
-
         return $resource->getSlug();
+    }
+
+    /**
+     * @param Site $resource
+     * @return array
+     */
+    public function getAttributes($resource)
+    {
+        return [
+            'domain' => $resource->getDomain(),
+            'name' => $resource->getName(),
+        ];
     }
 
 }

@@ -28,11 +28,11 @@ class CreatePostsAndCommentsTables extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('post_id')->unsigned();
-            $table->integer('person_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->text('content');
 
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('person_id')->references('id')->on('people')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

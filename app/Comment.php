@@ -19,8 +19,8 @@ class Comment extends Model
     /**
      * @return BelongsTo
      */
-    public function person()
+    public function user()
     {
-        return $this->belongsTo(Person::class);
+        return $this->belongsTo(User::class);
     }
 }

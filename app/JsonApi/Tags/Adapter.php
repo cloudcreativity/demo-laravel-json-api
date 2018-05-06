@@ -25,13 +25,4 @@ class Adapter extends AbstractAdapter
         // TODO: Implement filter() method.
     }
 
-    /**
-     * @inheritDoc
-     */
-    protected function isSearchOne(Collection $filters)
-    {
-        // TODO: Implement isSearchOne() method.
-    }
-
-
 }

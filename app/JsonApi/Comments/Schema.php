@@ -2,9 +2,10 @@
 
 namespace App\JsonApi\Comments;
 
-use CloudCreativity\LaravelJsonApi\Schema\EloquentSchema;
+use App\Comment;
+use Neomerx\JsonApi\Schema\SchemaProvider;
 
-class Schema extends EloquentSchema
+class Schema extends SchemaProvider
 {
 
     /**
@@ -13,18 +14,53 @@ class Schema extends EloquentSchema
     protected $resourceType = 'comments';
 
     /**
-     * @var array
+     * @param Comment $resource
+     * @return string
      */
-    protected $attributes = [
-        'content'
-    ];
+    public function getId($resource)
+    {
+        return (string) $resource->getKey();
+    }
 
     /**
-     * @var array
+     * @param Comment $resource
+     * @return array
      */
-    protected $relationships = [
-        'post',
-        'person' => 'created-by',
-    ];
+    public function getAttributes($resource)
+    {
+        return [
+            'created-at' => $resource->created_at->toAtomString(),
+            'updated-at' => $resource->updated_at->toAtomString(),
+            'content' => $resource->content,
+        ];
+    }
+
+    /**
+     * @param Comment $resource
+     * @param bool $isPrimary
+     * @param array $includedRelationships
+     * @return array
+     */
+    public function getRelationships($resource, $isPrimary, array $includedRelationships)
+    {
+        return [
+            'post' => [
+                self::SHOW_SELF => true,
+                self::SHOW_RELATED => true,
+                self::SHOW_DATA => isset($includedRelationships['post']),
+                self::DATA => function () use ($resource) {
+                    return $resource->post;
+                },
+            ],
+            'created-by' => [
+                self::SHOW_SELF => true,
+                self::SHOW_RELATED => true,
+                self::SHOW_DATA => isset($includedRelationships['created-by']),
+                self::DATA => function () use ($resource) {
+                    return $resource->user;
+                },
+            ],
+        ];
+    }
 
 }

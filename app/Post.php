@@ -22,6 +22,9 @@ class Post extends Model
         'published_at',
     ];
 
+    /**
+     * @var array
+     */
     protected $dates = [
         'published_at',
     ];
@@ -31,7 +34,7 @@ class Post extends Model
      */
     public function author()
     {
-        return $this->belongsTo(Person::class);
+        return $this->belongsTo(User::class);
     }
 
     /**

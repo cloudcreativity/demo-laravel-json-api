@@ -10,7 +10,7 @@
     "type": "project",
     "require": {
         "php": "^7.1",
-        "cloudcreativity/laravel-json-api": "dev-release/1.0.0-alpha.1",
+        "cloudcreativity/laravel-json-api": "dev-develop",
         "doctrine/dbal": "^2.6",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",

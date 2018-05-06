@@ -19,11 +19,11 @@ class PostsTest extends TestCase
     public function testSearch()
     {
         // ensure there is at least one model in the database
-        $this->model();
+        factory(Post::class, 2)->create();
 
         $this->doSearch([
             'page' => ['number' => 1, 'size' => 10],
-        ])->assertSearchResponse();
+        ])->assertSearchedMany();
     }
 
     /**
@@ -31,12 +31,12 @@ class PostsTest extends TestCase
      */
     public function testSearchById()
     {
-        $models = factory(Post::class, 2)->create();
+        $posts = factory(Post::class, 2)->create();
         // this model should not be in the search results
-        $this->model();
+        factory(Post::class, 2)->create();
 
-        $this->doSearchById($models)
-            ->assertSearchByIdResponse($models);
+        $this->doSearchById($posts)
+            ->assertSearchedIds($posts);
     }
 
     /**
@@ -46,24 +46,18 @@ class PostsTest extends TestCase
     {
         /** @var Tag $tag */
         $tag = factory(Tag::class)->create();
-        $model = $this->model(false);
+        $post = factory(Post::class)->make();
 
         $data = [
             'type' => 'posts',
             'attributes' => [
-                'title' => $model->title,
-                'slug' => $model->slug,
-                'content' => $model->content,
+                'title' => $post->title,
+                'slug' => $post->slug,
+                'content' => $post->content,
                 // Dates must be passed in Atom format for JSON_API
-                'published-at' => $model->published_at->toAtomString(),
+                'published-at' => $post->published_at->toAtomString(),
             ],
             'relationships' => [
-                'author' => [
-                    'data' => [
-                        'type' => 'people',
-                        'id' => (string) $model->author_id,
-                    ],
-                ],
                 'tags' => [
                     'data' => [
                         [
@@ -76,10 +70,23 @@ class PostsTest extends TestCase
         ];
 
         $id = $this
+            ->actingAs($post->author)
             ->doCreate($data, ['include' => 'author,tags'])
-            ->assertCreateResponse($data);
+            ->assertCreatedWithId($data);
 
-        $this->assertModelCreated($model, $id, ['title', 'slug', 'content', 'author_id']);
+        $this->assertDatabaseHas('posts', [
+            'id' => $id,
+            'title' => $post->title,
+            'slug' => $post->slug,
+            'content' => $post->content,
+            'published_at' => $post->published_at->toDateTimeString(),
+            'author_id' => $post->author_id,
+        ]);
+
+        $this->assertDatabaseHas('post_tag', [
+            'post_id' => $id,
+            'tag_id' => $tag->getKey(),
+        ]);
     }
 
     /**
@@ -87,40 +94,10 @@ class PostsTest extends TestCase
      */
     public function testRead()
     {
-        $model = $this->model();
-        /** @var Tag $tag */
-        $tag = $model->tags()->create(['name' => 'Important']);
+        $post = factory(Post::class)->create();
+        $expected = $this->serialize($post);
 
-        $data = [
-            'type' => 'posts',
-            'id' => (string) $model->getKey(),
-            'attributes' => [
-                'title' => $model->title,
-                'slug' => $model->slug,
-                'content' => $model->content,
-                // Dates must be passed in Atom format for JSON_API
-                'published-at' => $model->published_at->toAtomString(),
-            ],
-            'relationships' => [
-                'author' => [
-                    'data' => [
-                        'type' => 'people',
-                        'id' => (string) $model->author_id,
-                    ],
-                ],
-                'tags' => [
-                    'data' => [
-                        [
-                            'type' => 'tags',
-                            'id' => (string) $tag->getKey(),
-                        ],
-                    ],
-                ],
-            ],
-        ];
-
-        $this->doRead($model, ['include' => 'author,tags'])
-            ->assertReadResponse($data);
+        $this->doRead($post)->assertRead($expected);
     }
 
     /**
@@ -128,19 +105,26 @@ class PostsTest extends TestCase
      */
     public function testUpdate()
     {
-        $model = $this->model();
+        $post = factory(Post::class)->create();
 
         $data = [
             'type' => 'posts',
-            'id' => (string) $model->getKey(),
+            'id' => (string) $post->getKey(),
             'attributes' => [
                 'slug' => 'posts-test',
                 'title' => 'Foo Bar Baz Bat',
             ],
         ];
 
-        $this->doUpdate($data)->assertUpdateResponse($data);
-        $this->assertModelPatched($model, $data['attributes'], ['content']);
+        $this->doUpdate($data)->assertUpdated($data);
+
+        $this->assertDatabaseHas('posts', [
+            'id' => $post->getKey(),
+            'slug' => $data['attributes']['slug'],
+            'title' => $data['attributes']['title'],
+            'content' => $post->content,
+            'author_id' => $post->author_id,
+        ]);
     }
 
     /**
@@ -148,22 +132,53 @@ class PostsTest extends TestCase
      */
     public function testDelete()
     {
-        $model = $this->model();
+        $model = factory(Post::class)->create();
 
-        $this->doDelete($model)->assertDeleteResponse();
-        $this->assertModelDeleted($model);
+        $this->doDelete($model)->assertDeleted();
+
+        $this->assertDatabaseMissing('posts', ['id' => $model->getKey()]);
     }
 
     /**
-     * Just a helper method so that we get a type-hinted model back...
-     *
-     * @param bool $create
-     * @return Post
+     * @param Post $post
+     * @return array
      */
-    private function model($create = true)
+    private function serialize(Post $post)
     {
-        $builder = factory(Post::class);
+        $self = "http://localhost/api/v1/posts/{$post->getKey()}";
 
-        return $create ? $builder->create() : $builder->make();
+        return [
+            'type' => 'posts',
+            'id' => (string) $post->getKey(),
+            'attributes' => [
+                'title' => $post->title,
+                'slug' => $post->slug,
+                'content' => $post->content,
+                'published-at' => $post->published_at->toAtomString(),
+            ],
+            'relationships' => [
+                'author' => [
+                    'links' => [
+                        'self' => "{$self}/relationships/author",
+                        'related' => "{$self}/author",
+                    ],
+                ],
+                'comments' => [
+                    'links' => [
+                        'self' => "{$self}/relationships/comments",
+                        'related' => "{$self}/comments",
+                    ],
+                ],
+                'tags' => [
+                    'links' => [
+                        'self' => "{$self}/relationships/tags",
+                        'related' => "{$self}/tags",
+                    ],
+                ],
+            ],
+            'links' => [
+                'self' => $self,
+            ],
+        ];
     }
 }

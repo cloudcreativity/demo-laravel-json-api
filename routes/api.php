@@ -18,9 +18,6 @@ JsonApi::register('v1', ['namespace' => 'Api'], function (Api $api) {
     $api->resource('comments', [
         'has-one' => ['post', 'created-by'],
     ]);
-    $api->resource('people', [
-        'has-many' => ['comments', 'posts'],
-    ]);
     $api->resource('posts', [
         'controller' => true,
         'has-one' => 'author',

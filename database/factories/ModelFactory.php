@@ -15,14 +15,6 @@ $factory->define(App\User::class, function (Faker $faker) {
     ];
 });
 
-/** Person */
-$factory->define(App\Person::class, function (Faker $faker) {
-    return [
-        'first_name' => $faker->firstName,
-        'surname' => $faker->lastName,
-    ];
-});
-
 /** Post */
 $factory->define(App\Post::class, function (Faker $faker) {
     return [
@@ -31,7 +23,7 @@ $factory->define(App\Post::class, function (Faker $faker) {
         'content' => $faker->paragraphs(3, true),
         'published_at' => $faker->dateTime,
         'author_id' => function () {
-            return factory(App\Person::class)->create()->getKey();
+            return factory(App\User::class)->create()->getKey();
         },
     ];
 });
@@ -43,8 +35,8 @@ $factory->define(App\Comment::class, function (Faker $faker) {
         'post_id' => function () {
             return factory(App\Post::class)->create()->getKey();
         },
-        'person_id' => function () {
-            return factory(App\Person::class)->create()->getKey();
+        'user_id' => function () {
+            return factory(App\User::class)->create()->getKey();
         },
     ];
 });

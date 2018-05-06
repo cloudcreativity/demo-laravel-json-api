@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae3ef3a155aa590ba9b40f4810f0816f",
+    "content-hash": "2848848c6ee0d788efcece5e9f41afe3",
     "packages": [
         {
             "name": "cloudcreativity/laravel-json-api",
-            "version": "dev-release/1.0.0-alpha.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "aef1ddc03afb9d5d2a308ac95642448419717688"
+                "reference": "d9b0f042b1e9fdc7452bc4a8dc9cd7239786c03a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/aef1ddc03afb9d5d2a308ac95642448419717688",
-                "reference": "aef1ddc03afb9d5d2a308ac95642448419717688",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/d9b0f042b1e9fdc7452bc4a8dc9cd7239786c03a",
+                "reference": "d9b0f042b1e9fdc7452bc4a8dc9cd7239786c03a",
                 "shasum": ""
             },
             "require": {
@@ -35,7 +35,7 @@
                 "zendframework/zend-diactoros": "^1.3"
             },
             "require-dev": {
-                "cloudcreativity/json-api-testing": "^1.0",
+                "cloudcreativity/json-api-testing": "^0.4",
                 "ext-sqlite3": "*",
                 "guzzlehttp/guzzle": "^6.3",
                 "orchestra/testbench": "3.4.*|3.5.*|3.6.*",
@@ -87,7 +87,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2018-04-24T13:21:54+00:00"
+            "time": "2018-05-06T15:14:53+00:00"
         },
         {
             "name": "cloudcreativity/utils-object",
