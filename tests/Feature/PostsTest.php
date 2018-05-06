@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Post;
 use App\Tag;
 use App\User;
+use Laravel\Passport\Passport;
 
 class PostsTest extends TestCase
 {
@@ -70,8 +71,9 @@ class PostsTest extends TestCase
             ],
         ];
 
+        Passport::actingAs($post->author);
+
         $id = $this
-            ->actingAs($post->author)
             ->doCreate($data, ['include' => 'author,tags'])
             ->assertCreatedWithId($data);
 
@@ -117,7 +119,9 @@ class PostsTest extends TestCase
             ],
         ];
 
-        $this->actingAs($post->author)->doUpdate($data)->assertUpdated($data);
+        Passport::actingAs($post->author);
+
+        $this->doUpdate($data)->assertUpdated($data);
 
         $this->assertDatabaseHas('posts', [
             'id' => $post->getKey(),
@@ -142,7 +146,9 @@ class PostsTest extends TestCase
             ],
         ];
 
-        $this->actingAs($user)->doUpdate($data)->assertStatus(403);
+        Passport::actingAs($user);
+
+        $this->doUpdate($data)->assertStatus(403);
     }
 
     /**
@@ -152,7 +158,9 @@ class PostsTest extends TestCase
     {
         $post = factory(Post::class)->create();
 
-        $this->actingAs($post->author)->doDelete($post)->assertDeleted();
+        Passport::actingAs($post->author);
+
+        $this->doDelete($post)->assertDeleted();
 
         $this->assertDatabaseMissing('posts', ['id' => $post->getKey()]);
     }

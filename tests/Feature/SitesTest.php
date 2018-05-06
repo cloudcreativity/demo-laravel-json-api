@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\SiteRepository;
 use App\User;
+use Laravel\Passport\Passport;
 
 class SitesTest extends TestCase
 {
@@ -19,7 +20,7 @@ class SitesTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->actingAs(factory(User::class)->create());
+        Passport::actingAs(factory(User::class)->create());
     }
 
     public function testCreate()

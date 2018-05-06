@@ -11,6 +11,11 @@ class Authorizer extends AbstractAuthorizer
 {
 
     /**
+     * @var array
+     */
+    protected $guards = ['api'];
+
+    /**
      * Authorize a resource index request.
      *
      * @param string $type

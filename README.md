@@ -27,22 +27,39 @@ Once it is up and running, go to the following address in your browser:
 http://homestead.app/api/v1/posts
 ```
 
-## Explanation
+## Authentication
 
-As an example, this API exposes a `posts` resource. To do this:
+Any write requests require an authenticated user. We've installed 
+[Laravel Passport](https://laravel.com/docs/passport) for API authentication. You will need to use
+[Personal Access Tokens](https://laravel.com/docs/passport#personal-access-tokens) and the Vagrant provisioning
+runs the Passport installation command.
 
-1. The resource is registered with the router in `routes/api.php`
-2. A controller exists: `app/Http/Controllers/Api/PostsController`. This is composed of units that each have a single
-concern, and can be found in the `app/JsonApi/Posts` folder:
-  - An `adapter` class, that handles finding `Post` models either from a JSON API resource identifier or from a JSON
-  API search request (filtering, pagination etc).
-  - A `hydrator`, that contains the logic for transferring data from the client's request into the domain record (the
-  `Post` model).
-  - A `schema` that handles converting the `Post` model into its API representation.
-  - A `validators` provider, that provides the rules for validating the HTTP content for a create or update request,
-  as well as validating any query parameters.
+To create a token, go to the web interface and login (the username and password fields are completed with
+credentials that will sign you in successfully). You'll then see the Passport Person Access Token component
+which you can user to issue tokens.
 
-### Eloquent vs Not-Eloquent
+Once you have a token, send a request as follows, replacing the `<api_token>` with your token.
+
+```http
+POST http://demo-laravel-json-api/api/v1/posts
+Accept: application/vnd.api+json
+Content-Type: application/vnd.api+json
+Authorization: Bearer <api_token>
+Cache-Control: no-cache
+
+{
+    "data": {
+        "type": "posts",
+        "attributes": {
+            "slug": "hello-world",
+            "title": "Hello World",
+            "content": "..."
+        }
+    }
+}
+```
+
+## Eloquent vs Not-Eloquent
 
 This package can handle both Eloquent and non-Eloquent records. You get a lot more functionality out of the box if
 you are using Eloquent, but it's possible to integrate non-Eloquent records as needed.
@@ -52,14 +69,10 @@ This demo includes the following JSON-API resources:
 | Resource | Record | Eloquent? |
 | --- | --- | --- |
 | comments | App\Comment | Yes |
-| people | App\People | Yes |
 | posts | App\Post | Yes |
 | sites | App\Site | No |
 | tags | App\Tag | Yes |
-
-To support our non-Eloquent records, we've created a custom schema and hydrator class in this application. These
-use traits that are included in the package to replicate the behaviour of the Eloquent schema/hydrator. The custom
-schema and hydrator are in the `App\JsonApi` namespace.
+| users | App\User | Yes |
 
 ## Tests
 
@@ -69,8 +82,6 @@ for the `posts` resource.
 
 To run the tests:
 
-``` bash
-vagrant ssh
-cd /vagrant
+```bash
 vendor/bin/phpunit
 ```

@@ -1,7 +1,7 @@
 <?php
 
 use App\Comment;
-use App\Person;
+use App\User;
 use App\Post;
 use App\Tag;
 use Illuminate\Database\Seeder;
@@ -20,27 +20,24 @@ class PostSeeder extends Seeder
         /** @var Faker $faker */
         $faker = app(Faker::class);
 
-        /** @var array $people */
-        $people = factory(Person::class, 5)
-            ->create()
-            ->map(function (Person $person) {
-                return $person->getKey();
-            })
-            ->all();
+        /** @var array $users */
+        $users = factory(User::class, 5)->create()->map(function (User $person) {
+            return $person->getKey();
+        })->all();
 
-        $person = function () use ($faker, $people) {
-            return $faker->randomElement($people);
+        $user = function () use ($faker, $users) {
+            return $faker->randomElement($users);
         };
 
         /** @var Collection $tags */
         $tags = factory(Tag::class, 10)->create();
 
         factory(Post::class, 50)->create([
-            'author_id' => $person,
-        ])->each(function (Post $post) use ($faker, $person, $tags) {
+            'author_id' => $user,
+        ])->each(function (Post $post) use ($faker, $user, $tags) {
             factory(Comment::class, $faker->numberBetween(1, 10))->create([
                 'post_id' => $post->getKey(),
-                'person_id' => $person,
+                'user_id' => $user,
             ]);
 
             $post->tags()->save($tags->random());

@@ -21,7 +21,7 @@ class CreatePostsAndCommentsTables extends Migration
             $table->text('content');
 
             $table->unique('slug');
-            $table->foreign('author_id')->references('id')->on('people')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::create('comments', function (Blueprint $table) {
