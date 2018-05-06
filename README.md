@@ -21,11 +21,19 @@ vagrant up
 
 > Remember you'll need to add an entry for `homestead.app` in your `/etc/hosts` file.
 
-Once it is up and running, go to the following address in your browser:
+Once it is up and running, go to the following address in your browser to see the JSON endpoints:
 
 ```
 http://homestead.app/api/v1/posts
 ```
+
+To access the web interface:
+
+```
+http://homestead.app
+```
+
+> If you use the Vagrant hosts updater plugin, the hostname may be `demo-laravel-json-api` or similar. 
 
 ## Authentication
 
@@ -36,16 +44,15 @@ runs the Passport installation command.
 
 To create a token, go to the web interface and login (the username and password fields are completed with
 credentials that will sign you in successfully). You'll then see the Passport Person Access Token component
-which you can user to issue tokens.
+which you can use to issue tokens.
 
 Once you have a token, send a request as follows, replacing the `<api_token>` with your token.
 
 ```http
-POST http://demo-laravel-json-api/api/v1/posts
+POST http://homestead.app/api/v1/posts
 Accept: application/vnd.api+json
 Content-Type: application/vnd.api+json
 Authorization: Bearer <api_token>
-Cache-Control: no-cache
 
 {
     "data": {
