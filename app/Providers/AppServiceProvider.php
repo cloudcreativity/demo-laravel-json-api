@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\SiteRepository;
+use CloudCreativity\LaravelJsonApi\Facades\JsonApi;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        JsonApi::defaultApi('v1');
     }
 
     /**

@@ -1,23 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c70f406eb781b87ebe75c94e95811528",
+    "content-hash": "af8798f35c6ffeee336a81f60a969483",
     "packages": [
         {
             "name": "cloudcreativity/laravel-json-api",
-            "version": "v1.0.0-alpha.2",
+            "version": "v1.0.0-alpha.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "24e07b7619835398656df5d832b76d5effdb74d1"
+                "reference": "ea135721a836940afedabb74cf7888e26afa482f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/24e07b7619835398656df5d832b76d5effdb74d1",
-                "reference": "24e07b7619835398656df5d832b76d5effdb74d1",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/ea135721a836940afedabb74cf7888e26afa482f",
+                "reference": "ea135721a836940afedabb74cf7888e26afa482f",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2018-05-06T18:16:40+00:00"
+            "time": "2018-07-02T06:18:24+00:00"
         },
         {
             "name": "cloudcreativity/utils-object",
