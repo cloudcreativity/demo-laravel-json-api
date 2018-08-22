@@ -4,31 +4,31 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af8798f35c6ffeee336a81f60a969483",
+    "content-hash": "fe3796c307b586df03543e034a68edbf",
     "packages": [
         {
             "name": "cloudcreativity/laravel-json-api",
-            "version": "v1.0.0-alpha.4",
+            "version": "v1.0.0-beta.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "ea135721a836940afedabb74cf7888e26afa482f"
+                "reference": "0d7a1b5d186f352f6328d3714d6213735abfa1dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/ea135721a836940afedabb74cf7888e26afa482f",
-                "reference": "ea135721a836940afedabb74cf7888e26afa482f",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/0d7a1b5d186f352f6328d3714d6213735abfa1dc",
+                "reference": "0d7a1b5d186f352f6328d3714d6213735abfa1dc",
                 "shasum": ""
             },
             "require": {
                 "cloudcreativity/utils-object": "^1.0",
-                "illuminate/console": "5.4.*|5.5.*|5.6.*",
-                "illuminate/contracts": "5.4.*|5.5.*|5.6.*",
-                "illuminate/database": "5.4.*|5.5.*|5.6.*",
-                "illuminate/filesystem": "5.4.*|5.5.*|5.6.*",
-                "illuminate/http": "5.4.*|5.5.*|5.6.*",
-                "illuminate/pagination": "5.4.*|5.5.*|5.6.*",
-                "illuminate/support": "5.4.*|5.5.*|5.6.*",
+                "illuminate/console": "5.4.*|5.5.*|5.6.*|5.7.*",
+                "illuminate/contracts": "5.4.*|5.5.*|5.6.*|5.7.*",
+                "illuminate/database": "5.4.*|5.5.*|5.6.*|5.7.*",
+                "illuminate/filesystem": "5.4.*|5.5.*|5.6.*|5.7.*",
+                "illuminate/http": "5.4.*|5.5.*|5.6.*|5.7.*",
+                "illuminate/pagination": "5.4.*|5.5.*|5.6.*|5.7.*",
+                "illuminate/support": "5.4.*|5.5.*|5.6.*|5.7.*",
                 "neomerx/json-api": "^1.0.3",
                 "php": "^5.6|^7.0",
                 "symfony/psr-http-message-bridge": "^1.0",
@@ -38,7 +38,7 @@
                 "cloudcreativity/json-api-testing": "^0.4",
                 "ext-sqlite3": "*",
                 "guzzlehttp/guzzle": "^6.3",
-                "orchestra/testbench": "3.4.*|3.5.*|3.6.*",
+                "orchestra/testbench": "3.4.*|3.5.*|3.6.*|3.7.*",
                 "phpunit/phpunit": "^5.7|^6.0|^7.0"
             },
             "suggest": {
@@ -87,7 +87,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2018-07-02T06:18:24+00:00"
+            "time": "2018-08-22T06:49:40+00:00"
         },
         {
             "name": "cloudcreativity/utils-object",
@@ -5402,7 +5402,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "cloudcreativity/laravel-json-api": 15
+        "cloudcreativity/laravel-json-api": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,

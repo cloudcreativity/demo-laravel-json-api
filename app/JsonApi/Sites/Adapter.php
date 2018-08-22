@@ -6,7 +6,6 @@ use App\Site;
 use App\SiteRepository;
 use CloudCreativity\LaravelJsonApi\Adapter\AbstractResourceAdapter;
 use CloudCreativity\LaravelJsonApi\Adapter\HydratesAttributesTrait;
-use CloudCreativity\LaravelJsonApi\Contracts\Object\RelationshipsInterface;
 use CloudCreativity\LaravelJsonApi\Contracts\Object\ResourceObjectInterface;
 use CloudCreativity\LaravelJsonApi\Utils\Str;
 use Neomerx\JsonApi\Contracts\Encoder\Parameters\EncodingParametersInterface;
@@ -91,17 +90,6 @@ class Adapter extends AbstractResourceAdapter
     protected function createRecord(ResourceObjectInterface $resource)
     {
         return new Site($resource->getId()); // client generated id.
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function hydrateRelationships(
-        $record,
-        RelationshipsInterface $relationships,
-        EncodingParametersInterface $parameters
-    ) {
-        // no-op
     }
 
     /**

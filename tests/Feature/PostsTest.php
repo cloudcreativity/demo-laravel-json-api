@@ -112,7 +112,7 @@ class PostsTest extends TestCase
 
         $data = [
             'type' => 'posts',
-            'id' => (string) $post->getKey(),
+            'id' => (string) $post->getRouteKey(),
             'attributes' => [
                 'slug' => 'posts-test',
                 'title' => 'Foo Bar Baz Bat',
@@ -139,7 +139,7 @@ class PostsTest extends TestCase
 
         $data = [
             'type' => 'posts',
-            'id' => (string) $post->getKey(),
+            'id' => (string) $post->getRouteKey(),
             'attributes' => [
                 'slug' => 'posts-test',
                 'title' => 'Foo Bar Baz Bat',
@@ -175,7 +175,7 @@ class PostsTest extends TestCase
 
         return [
             'type' => 'posts',
-            'id' => (string) $post->getKey(),
+            'id' => (string) $post->getRouteKey(),
             'attributes' => [
                 'title' => $post->title,
                 'slug' => $post->slug,

@@ -20,7 +20,7 @@ class CommentsTest extends TestCase
 
         $data = [
             'type' => 'comments',
-            'id' => (string) $model->getKey(),
+            'id' => (string) $model->getRouteKey(),
             'attributes' => [
                 'content' => $model->content,
             ],
