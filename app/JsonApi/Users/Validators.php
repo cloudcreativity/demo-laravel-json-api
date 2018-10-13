@@ -2,25 +2,19 @@
 
 namespace App\JsonApi\Users;
 
-use CloudCreativity\LaravelJsonApi\Contracts\Validators\RelationshipsValidatorInterface;
-use CloudCreativity\LaravelJsonApi\Validators\AbstractValidatorProvider;
+use CloudCreativity\LaravelJsonApi\Validation\AbstractValidators;
 
-class Validators extends AbstractValidatorProvider
+class Validators extends AbstractValidators
 {
 
     /**
-     * @var string
-     */
-    protected $resourceType = 'users';
-
-    /**
-     * Get the validation rules for the resource attributes.
+     * Get the validation rules for the resource.
      *
      * @param $record
      *      the record being updated, or null if it is a create request.
      * @return array
      */
-    protected function attributeRules($record = null)
+    protected function rules($record = null): array
     {
         return [
             //
@@ -28,16 +22,11 @@ class Validators extends AbstractValidatorProvider
     }
 
     /**
-     * Define the validation rules for the resource relationships.
-     *
-     * @param RelationshipsValidatorInterface $relationships
-     * @param $record
-     *      the record being updated, or null if it is a create request.
-     * @return void
+     * @return array
      */
-    protected function relationshipRules(RelationshipsValidatorInterface $relationships, $record = null)
+    protected function queryRules(): array
     {
-        //
+        return [];
     }
 
 }

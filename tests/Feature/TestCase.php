@@ -3,20 +3,10 @@
 namespace Tests\Feature;
 
 use Carbon\Carbon;
-use CloudCreativity\LaravelJsonApi\Testing\MakesJsonApiRequests;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
-
-    use MakesJsonApiRequests,
-        DatabaseTransactions;
-
-    /**
-     * @var string
-     */
-    protected $api = 'v1';
 
     /**
      * @return void

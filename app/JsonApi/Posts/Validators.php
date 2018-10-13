@@ -3,26 +3,10 @@
 namespace App\JsonApi\Posts;
 
 use App\Post;
-use CloudCreativity\LaravelJsonApi\Contracts\Validators\RelationshipsValidatorInterface;
-use CloudCreativity\LaravelJsonApi\Validators\AbstractValidatorProvider;
+use CloudCreativity\LaravelJsonApi\Validation\AbstractValidators;
 
-class Validators extends AbstractValidatorProvider
+class Validators extends AbstractValidators
 {
-
-    /**
-     * @var string
-     */
-    protected $resourceType = 'posts';
-
-    /**
-     * @var array
-     */
-    protected $queryRules = [
-        'filter.title' => 'string|min:1',
-        'filter.slug' => 'sometimes|required|alpha_dash',
-        'page.number' => 'integer|min:1',
-        'page.size' => 'integer|between:1,50',
-    ];
 
     /**
      * @var array
@@ -49,15 +33,11 @@ class Validators extends AbstractValidatorProvider
     protected $allowedIncludePaths = ['author', 'tags'];
 
     /**
-     * @inheritdoc
+     * @param Post|null $record
+     * @return array
      */
-    protected function attributeRules($record = null)
+    protected function rules($record = null): array
     {
-        /** @var Post $record */
-
-        // The JSON API spec says the client does not have to send all attributes for an update request, so
-        // if the record already exists we need to include a 'sometimes' before required.
-        $required = $record ? 'sometimes|required' : 'required';
         $slugUnique = 'unique:posts,slug';
 
         if ($record) {
@@ -65,18 +45,25 @@ class Validators extends AbstractValidatorProvider
         }
 
         return [
-            'title' => "$required|string|between:1,255",
-            'content' => "$required|string|min:1",
-            'slug' => "$required|alpha_dash|$slugUnique",
+            'title' => "required|string|between:1,255",
+            'content' => "required|string|min:1",
+            'slug' => "required|alpha_dash|$slugUnique",
+            'tags' => 'array',
+            'tags.*.type' => 'in:tags',
         ];
     }
 
     /**
-     * @inheritdoc
+     * @return array
      */
-    protected function relationshipRules(RelationshipsValidatorInterface $relationships, $record = null)
+    protected function queryRules(): array
     {
-        $relationships->hasMany('tags', 'tags');
+        return [
+            'filter.title' => 'string|min:1',
+            'filter.slug' => 'sometimes|required|alpha_dash',
+            'page.number' => 'integer|min:1',
+            'page.size' => 'integer|between:1,50',
+        ];
     }
 
 }
