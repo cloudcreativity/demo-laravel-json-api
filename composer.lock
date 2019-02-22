@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc1a3267aca723c5a062d034c6d75a3b",
+    "content-hash": "e5923c303e253d11fe85880fb1d87d6b",
     "packages": [
         {
             "name": "cloudcreativity/laravel-json-api",
-            "version": "v1.0.0-beta.5",
+            "version": "v1.0.0-rc.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/laravel-json-api.git",
-                "reference": "8e56cb51e527afc200f56b947a2676d6ac9e2fb1"
+                "reference": "05f172670263fa4eaed76ec3e1d3591813f93a1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/8e56cb51e527afc200f56b947a2676d6ac9e2fb1",
-                "reference": "8e56cb51e527afc200f56b947a2676d6ac9e2fb1",
+                "url": "https://api.github.com/repos/cloudcreativity/laravel-json-api/zipball/05f172670263fa4eaed76ec3e1d3591813f93a1a",
+                "reference": "05f172670263fa4eaed76ec3e1d3591813f93a1a",
                 "shasum": ""
             },
             "require": {
@@ -32,11 +32,12 @@
                 "illuminate/support": "5.5.*|5.6.*|5.7.*",
                 "neomerx/json-api": "^1.0.3",
                 "php": "^7.1",
+                "ramsey/uuid": "^3.0",
                 "symfony/psr-http-message-bridge": "^1.0",
                 "zendframework/zend-diactoros": "^1.3"
             },
             "require-dev": {
-                "cloudcreativity/json-api-testing": "^0.4",
+                "cloudcreativity/json-api-testing": "1.0.0-rc.1",
                 "ext-sqlite3": "*",
                 "guzzlehttp/guzzle": "^6.3",
                 "mockery/mockery": "^1.1",
@@ -89,7 +90,7 @@
                 "jsonapi.org",
                 "laravel"
             ],
-            "time": "2018-10-13T08:42:57+00:00"
+            "time": "2019-02-05T13:10:42+00:00"
         },
         {
             "name": "cloudcreativity/utils-object",
@@ -3518,22 +3519,23 @@
     "packages-dev": [
         {
             "name": "cloudcreativity/json-api-testing",
-            "version": "v0.4.0",
+            "version": "v1.0.0-rc.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudcreativity/json-api-testing.git",
-                "reference": "ea76bdc1759dae404129977f564456fbcea5ab31"
+                "reference": "f588f6078056132fc74169933e3f833533a1ad38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudcreativity/json-api-testing/zipball/ea76bdc1759dae404129977f564456fbcea5ab31",
-                "reference": "ea76bdc1759dae404129977f564456fbcea5ab31",
+                "url": "https://api.github.com/repos/cloudcreativity/json-api-testing/zipball/f588f6078056132fc74169933e3f833533a1ad38",
+                "reference": "f588f6078056132fc74169933e3f833533a1ad38",
                 "shasum": ""
             },
             "require": {
-                "cloudcreativity/utils-object": "^1.0",
-                "php": "^5.6|^7.0",
-                "phpunit/phpunit": "^5.7|^6.0|^7.0"
+                "ext-json": "*",
+                "illuminate/support": "^5.5",
+                "php": "^7.1",
+                "phpunit/phpunit": "^6.0|^7.0"
             },
             "type": "library",
             "extra": {
@@ -3566,7 +3568,7 @@
                 "jsonapi",
                 "jsonapi.org"
             ],
-            "time": "2018-04-29T14:21:36+00:00"
+            "time": "2019-01-03T11:15:21+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -5314,7 +5316,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "cloudcreativity/laravel-json-api": 10
+        "cloudcreativity/laravel-json-api": 5,
+        "cloudcreativity/json-api-testing": 5
     },
     "prefer-stable": true,
     "prefer-lowest": false,

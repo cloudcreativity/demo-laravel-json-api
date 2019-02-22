@@ -1,7 +1,7 @@
 <?php
 
 use CloudCreativity\LaravelJsonApi\Facades\JsonApi;
-use CloudCreativity\LaravelJsonApi\Routing\ApiGroup as Api;
+use CloudCreativity\LaravelJsonApi\Routing\RouteRegistrar as Api;
 
 /*
 |--------------------------------------------------------------------------

@@ -3,7 +3,6 @@
 namespace App\JsonApi\Posts;
 
 use App\Post;
-use CloudCreativity\LaravelJsonApi\Contracts\Object\ResourceObjectInterface;
 use CloudCreativity\LaravelJsonApi\Eloquent\AbstractAdapter;
 use CloudCreativity\LaravelJsonApi\Eloquent\BelongsTo;
 use CloudCreativity\LaravelJsonApi\Eloquent\HasMany;
@@ -52,18 +51,6 @@ class Adapter extends AbstractAdapter
     }
 
     /**
-     * @param ResourceObjectInterface $resource
-     * @return Post
-     */
-    protected function createRecord(ResourceObjectInterface $resource)
-    {
-        $post = new Post();
-        $post->author()->associate(Auth::user());
-
-        return $post;
-    }
-
-    /**
      * @return BelongsTo
      */
     protected function author()
@@ -85,6 +72,14 @@ class Adapter extends AbstractAdapter
     protected function tags()
     {
         return $this->hasMany();
+    }
+
+    /**
+     * @param Post $post
+     */
+    protected function creating(Post $post): void
+    {
+        $post->author()->associate(Auth::user());
     }
 
     /**

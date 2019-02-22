@@ -5,15 +5,13 @@ namespace App\JsonApi\Sites;
 use App\Site;
 use App\SiteRepository;
 use CloudCreativity\LaravelJsonApi\Adapter\AbstractResourceAdapter;
-use CloudCreativity\LaravelJsonApi\Adapter\HydratesAttributesTrait;
-use CloudCreativity\LaravelJsonApi\Contracts\Object\ResourceObjectInterface;
+use CloudCreativity\LaravelJsonApi\Document\ResourceObject;
 use CloudCreativity\LaravelJsonApi\Utils\Str;
+use Illuminate\Support\Collection;
 use Neomerx\JsonApi\Contracts\Encoder\Parameters\EncodingParametersInterface;
 
 class Adapter extends AbstractResourceAdapter
 {
-
-    use HydratesAttributesTrait;
 
     /**
      * @var SiteRepository
@@ -66,10 +64,9 @@ class Adapter extends AbstractResourceAdapter
 
     /**
      * @param Site $record
-     * @param EncodingParametersInterface $params
      * @return bool
      */
-    public function delete($record, EncodingParametersInterface $params)
+    public function destroy($record)
     {
         $record->delete();
 
@@ -79,17 +76,20 @@ class Adapter extends AbstractResourceAdapter
     /**
      * @inheritdoc
      */
-    public function related($relationshipName)
+    protected function createRecord(ResourceObject $resource)
     {
-        throw new \LogicException('Not implemented.');
+        return new Site($resource['id']); // client generated id.
     }
 
     /**
-     * @inheritdoc
+     * @param Site $record
+     * @param Collection $attributes
      */
-    protected function createRecord(ResourceObjectInterface $resource)
+    protected function fillAttributes($record, Collection $attributes)
     {
-        return new Site($resource->getId()); // client generated id.
+        $attributes->only(['name', 'domain'])->each(function ($value, $key) use ($record) {
+            $this->fillAttribute($record, $key, $value);
+        });
     }
 
     /**
@@ -104,12 +104,12 @@ class Adapter extends AbstractResourceAdapter
     }
 
     /**
-     * @param object $record
+     * @param Site $record
      * @param string $attrKey
      * @param mixed $value
      * @return void
      */
-    protected function hydrateAttribute($record, $attrKey, $value)
+    protected function fillAttribute(Site $record, string $attrKey, $value): void
     {
         $method = 'set' . Str::classify($attrKey);
 

@@ -3,7 +3,6 @@
 namespace App\JsonApi\Comments;
 
 use App\Comment;
-use CloudCreativity\LaravelJsonApi\Contracts\Object\ResourceObjectInterface;
 use CloudCreativity\LaravelJsonApi\Eloquent\AbstractAdapter;
 use CloudCreativity\LaravelJsonApi\Eloquent\BelongsTo;
 use CloudCreativity\LaravelJsonApi\Pagination\StandardStrategy;
@@ -21,18 +20,6 @@ class Adapter extends AbstractAdapter
     public function __construct(StandardStrategy $paging)
     {
         parent::__construct(new Comment(), $paging);
-    }
-
-    /**
-     * @param ResourceObjectInterface $resource
-     * @return Comment
-     */
-    protected function createRecord(ResourceObjectInterface $resource)
-    {
-        $comment = new Comment();
-        $comment->user()->associate(Auth::user());
-
-        return $comment;
     }
 
     /**
@@ -57,6 +44,14 @@ class Adapter extends AbstractAdapter
     protected function filter($query, Collection $filters)
     {
         // TODO: Implement filter() method.
+    }
+
+    /**
+     * @param Comment $comment
+     */
+    protected function creating(Comment $comment): void
+    {
+        $comment->user()->associate(Auth::user());
     }
 
 }

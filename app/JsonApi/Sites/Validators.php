@@ -20,6 +20,7 @@ class Validators extends AbstractValidators
     protected function rules($record = null): array
     {
         return [
+            'id' => 'required|string',
             'domain' => "required|url",
             'name' => "required|string|min:1",
         ];

@@ -66,7 +66,7 @@ class SitesTest extends TestCase
         ];
 
         $expected = $data;
-        $expected['domain'] = 'blog.example.com';
+        $expected['attributes']['domain'] = 'http://blog.example.com';
 
         $this->doUpdate($data)->assertUpdated($expected);
     }
